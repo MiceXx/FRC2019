@@ -1,9 +1,4 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
+#include "RobotVision.h"
 
 #include <thread>
 
@@ -14,17 +9,22 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <wpi/raw_ostream.h>
 
-/**
- * This is a demo program showing the use of OpenCV to do vision processing. The
- * image is acquired from the USB camera, then a rectangle is put on the image
- * and sent to the dashboard. OpenCV has many methods for different types of
- * processing.
- */
-class Robot : public frc::TimedRobot {
+RobotVision::RobotVision(){
+}
+  
+void RobotVision::RobotVisionInit() {
+#if defined(__linux__)
+    std::thread visionThread(VisionThread);
+    visionThread.detach();
+#else
+    wpi::errs() << "Vision only available on Linux.\n";
+    wpi::errs().flush();
+#endif
+}
+
 #if defined(__linux__)
 
- private:
-  static void VisionThread() {
+  void RobotVision::VisionThread() {
     // Get the USB camera from CameraServer
     cs::UsbCamera camera =
         frc::CameraServer::GetInstance()->StartAutomaticCapture();
@@ -60,19 +60,3 @@ class Robot : public frc::TimedRobot {
   }
 #endif
 
-  void RobotInit() override {
-  // We need to run our vision program in a separate thread. If not, our robot
-  // program will not run.
-#if defined(__linux__)
-    std::thread visionThread(VisionThread);
-    visionThread.detach();
-#else
-    wpi::errs() << "Vision only available on Linux.\n";
-    wpi::errs().flush();
-#endif
-  }
-};
-
-#ifndef RUNNING_FRC_TESTS
-int main() { return frc::StartRobot<Robot>(); }
-#endif
