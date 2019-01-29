@@ -10,6 +10,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <wpi/raw_ostream.h>
 
+// rise and grind gamer time.
 RobotVision::RobotVision(){
 }
   

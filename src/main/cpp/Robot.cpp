@@ -20,6 +20,9 @@ void Robot::RobotInit() {
 
     RobotVision* rv = new RobotVision();
     rv->RobotVisionInit();
+
+    
+    mecanumDrive.initalizeDriveTrain();
 }
 
 /**
@@ -84,6 +87,27 @@ void Robot::TeleopPeriodic() {
   yEntry.SetDouble(y);
   x += 0.05;
   y += 1.0;
+
+  //start mechanum stuff
+  
+    if (abs(m_stick.GetZ()) > 0.1) {gyro.Reset();}
+
+
+    mecanumDrive.driveRobot(m_stick.GetX(), m_stick.GetY(), m_stick.GetZ(), gyro.GetAngle());
+
+    /// mecanumDrive.drivedoublejoystick(m_stick.GetY(), m_stick.GetX(), m_sticktwo.GetY(), m_sticktwo.GetX());
+    
+    std::string speedX= std::to_string(m_stick.GetX());
+    frc::SmartDashboard::PutString("DB/String 0", speedX);
+
+    std::string speedY= std::to_string(m_stick.GetY());
+    frc::SmartDashboard::PutString("DB/String 1", speedY);
+
+    std::string speedZ= std::to_string(m_stick.GetZ());
+    frc::SmartDashboard::PutString("DB/String 2", speedZ);
+
+    std::string GyroAngle= std::to_string(gyro.GetAngle());
+    frc::SmartDashboard::PutString("DB/String 3", GyroAngle);
 
 }
 
