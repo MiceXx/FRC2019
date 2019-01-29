@@ -6,6 +6,9 @@
 #include <frc/smartdashboard/SendableChooser.h>
 #include <frc/PWMVictorSPX.h>
 #include <frc/Joystick.h>
+#include <networktables/NetworkTable.h>
+#include <networktables/NetworkTableEntry.h>
+#include <networktables/NetworkTableInstance.h>
 
 class Robot : public frc::TimedRobot {
  public:

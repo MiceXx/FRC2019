@@ -5,14 +5,12 @@
 #include <string>
 
 #include <frc/smartdashboard/SmartDashboard.h>
-#include <networktables/NetworkTable.h>
-#include <networktables/NetworkTableEntry.h>
-#include <networktables/NetworkTableInstance.h>
 #include <frc/Joystick.h>
 
   nt::NetworkTableEntry xEntry;
   nt::NetworkTableEntry yEntry;
-
+  auto networkTableInstance= nt::NetworkTableInstance::GetDefault();
+  
 void Robot::RobotInit() {
   m_chooser.SetDefaultOption(kAutoNameDefault, kAutoNameDefault);
   m_chooser.AddOption(kAutoNameCustom, kAutoNameCustom);
@@ -53,10 +51,11 @@ void Robot::AutonomousInit() {
   std::cout << "Auto selected: " << m_autoSelected << std::endl;
 
   /* start of networking tables*/
-  auto inst = nt::NetworkTableInstance::GetDefault();
-  auto table = inst.GetTable("datatable");
-  xEntry = table->GetEntry("X");
-  yEntry = table->GetEntry("Y");
+  auto dataTable = networkTableInstance.GetTable("datatable");
+  auto smartDashboard = networkTableInstance.GetTable("SmartDashboard");
+  xEntry = dataTable->GetEntry("X");
+  yEntry = dataTable->GetEntry("Y");
+  /* end of networking tables*/
 
   if (m_autoSelected == kAutoNameCustom) {
     // Custom Auto goes here
