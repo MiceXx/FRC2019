@@ -2,8 +2,16 @@
 #include "RobotVision.h"
 
 #include <iostream>
+#include <string>
 
 #include <frc/smartdashboard/SmartDashboard.h>
+#include <networktables/NetworkTable.h>
+#include <networktables/NetworkTableEntry.h>
+#include <networktables/NetworkTableInstance.h>
+#include <frc/Joystick.h>
+
+  nt::NetworkTableEntry xEntry;
+  nt::NetworkTableEntry yEntry;
 
 void Robot::RobotInit() {
   m_chooser.SetDefaultOption(kAutoNameDefault, kAutoNameDefault);
@@ -22,7 +30,10 @@ void Robot::RobotInit() {
  * <p> This runs after the mode specific periodic functions, but before
  * LiveWindow and SmartDashboard integrated updating.
  */
-void Robot::RobotPeriodic() {}
+void Robot::RobotPeriodic() {
+    frc::SmartDashboard::PutNumber("Joystick X", jStick.GetX());
+    frc::SmartDashboard::PutNumber("Joystick Y", jStick.GetY());
+}
 
 /**
  * This autonomous (along with the chooser code above) shows how to select
@@ -41,6 +52,12 @@ void Robot::AutonomousInit() {
   //     kAutoNameDefault);
   std::cout << "Auto selected: " << m_autoSelected << std::endl;
 
+  /* start of networking tables*/
+  auto inst = nt::NetworkTableInstance::GetDefault();
+  auto table = inst.GetTable("datatable");
+  xEntry = table->GetEntry("X");
+  yEntry = table->GetEntry("Y");
+
   if (m_autoSelected == kAutoNameCustom) {
     // Custom Auto goes here
   } else {
@@ -58,7 +75,17 @@ void Robot::AutonomousPeriodic() {
 
 void Robot::TeleopInit() {}
 
-void Robot::TeleopPeriodic() {}
+double x = 0;
+double y = 0;
+
+void Robot::TeleopPeriodic() {
+  //networking table test
+  xEntry.SetDouble(x);
+  yEntry.SetDouble(y);
+  x += 0.05;
+  y += 1.0;
+
+}
 
 void Robot::TestPeriodic() {}
 

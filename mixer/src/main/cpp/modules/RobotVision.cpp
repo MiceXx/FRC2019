@@ -1,4 +1,5 @@
 #include "RobotVision.h"
+#include "GripPipeline.h"
 
 #include <thread>
 
@@ -40,6 +41,8 @@ void RobotVision::RobotVisionInit() {
     // Mats are very memory expensive. Lets reuse this Mat.
     cv::Mat mat;
 
+    //grip::GripPipeline().Process(mat);
+
     while (true) {
       // Tell the CvSink to grab a frame from the camera and
       // put it
@@ -56,6 +59,7 @@ void RobotVision::RobotVisionInit() {
                 cv::Scalar(255, 255, 255), 5);
       // Give the output stream a new image to display
       outputStream.PutFrame(mat);
+      grip::GripPipeline().Process(mat);
     }
   }
 #endif

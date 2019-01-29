@@ -1,0 +1,296 @@
+[
+  {
+    "name": "linuxathena",
+    "architecture": "arm-v7",
+    "operatingSystem": "linux",
+    "flavor": "default",
+    "buildType": "debug",
+    "cppPath": "C:\\Users\\Public\\frc2019\\roborio\\bin\\arm-frc2019-linux-gnueabi-g++.exe",
+    "cPath": "C:\\Users\\Public\\frc2019\\roborio\\bin\\arm-frc2019-linux-gnueabi-gcc.exe",
+    "msvc": false,
+    "systemCppMacros": [],
+    "systemCppArgs": [],
+    "systemCMacros": [],
+    "systemCArgs": [],
+    "allLibFiles": [
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\hal-cpp-2019.2.1-headers.zip_c1e3733a98824778ae9dc4369a7c5066",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\wpiutil-cpp-2019.2.1-headers.zip_961601eb64e5456d71ed70c0f9da8e94",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\ntcore-cpp-2019.2.1-headers.zip_bb0cec940e93e7a2ed066107bd22e12e",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\cscore-cpp-2019.2.1-headers.zip_3d9a26a763eb0e1008d349ec462fd509",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\cameraserver-cpp-2019.2.1-headers.zip_6d5c4a8bf55973d76d90eeb158bc5c66",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\opencv-cpp-3.4.4-4-headers.zip_ed19d56be47d37c8193b8f0377a9cfe6",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\chipobject-2019.12.1-headers.zip_45012665afb78c4c4816a3a35e8fe8aa",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\netcomm-2019.12.1-headers.zip_97d07b8af9f28e0504c6dc239ac1f176",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\src\\main\\include",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\wpilibc-cpp-2019.2.1-sources.zip_d2c10ca9fef4a09e287ef5192d19cdb5",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\hal-cpp-2019.2.1-sources.zip_9dcb46c9ade4c7c133c75a9dc6ab4149",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\wpiutil-cpp-2019.2.1-sources.zip_9f28652342db3ad84df141544ddc4945",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\ntcore-cpp-2019.2.1-sources.zip_5b333f7bca5b450503f0c4cb795f1b79",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\cscore-cpp-2019.2.1-sources.zip_8c8defa0812cd4300c0a822153198fd4",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\cameraserver-cpp-2019.2.1-sources.zip_3f44c805661dec1ebaa017c40eb16cae",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\opencv-cpp-3.4.4-4-sources.zip_77141d62b3e263395a4b585628a50d3d"
+    ],
+    "binaries": [
+      {
+        "componentName": "frcUserProgram",
+        "sourceSets": [
+          {
+            "source": {
+              "srcDirs": [
+                "C:\\Users\\Robotics 6\\FRC2019\\mixer\\src\\main\\cpp"
+              ],
+              "includes": [
+                "**/*.cpp",
+                "**/*.cc"
+              ],
+              "excludes": []
+            },
+            "exportedHeaders": {
+              "srcDirs": [
+                "C:\\Users\\Robotics 6\\FRC2019\\mixer\\src\\main\\include"
+              ],
+              "includes": [],
+              "excludes": []
+            },
+            "cpp": true,
+            "args": [
+              "-std\u003dc++14",
+              "-Wformat\u003d2",
+              "-pedantic",
+              "-Wno-psabi",
+              "-g",
+              "-Wno-unused-parameter",
+              "-Wno-error\u003ddeprecated-declarations",
+              "-fPIC",
+              "-rdynamic",
+              "-pthread",
+              "-Og"
+            ],
+            "macros": [
+              "DEBUG\u003dnull"
+            ]
+          }
+        ],
+        "libHeaders": [
+          "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe",
+          "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\hal-cpp-2019.2.1-headers.zip_c1e3733a98824778ae9dc4369a7c5066",
+          "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\wpiutil-cpp-2019.2.1-headers.zip_961601eb64e5456d71ed70c0f9da8e94",
+          "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\ntcore-cpp-2019.2.1-headers.zip_bb0cec940e93e7a2ed066107bd22e12e",
+          "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\cscore-cpp-2019.2.1-headers.zip_3d9a26a763eb0e1008d349ec462fd509",
+          "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\cameraserver-cpp-2019.2.1-headers.zip_6d5c4a8bf55973d76d90eeb158bc5c66",
+          "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\opencv-cpp-3.4.4-4-headers.zip_ed19d56be47d37c8193b8f0377a9cfe6",
+          "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\chipobject-2019.12.1-headers.zip_45012665afb78c4c4816a3a35e8fe8aa",
+          "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\netcomm-2019.12.1-headers.zip_97d07b8af9f28e0504c6dc239ac1f176",
+          "C:\\Users\\Robotics 6\\FRC2019\\mixer\\src\\main\\include"
+        ]
+      }
+    ],
+    "sourceBinaries": [
+      {
+        "source": {
+          "srcDirs": [
+            "C:\\Users\\Robotics 6\\FRC2019\\mixer\\src\\main\\cpp"
+          ],
+          "includes": [
+            "**/*.cpp",
+            "**/*.cc"
+          ],
+          "excludes": []
+        },
+        "componentName": "frcUserProgram",
+        "cpp": true,
+        "args": [
+          "-std\u003dc++14",
+          "-Wformat\u003d2",
+          "-pedantic",
+          "-Wno-psabi",
+          "-g",
+          "-Wno-unused-parameter",
+          "-Wno-error\u003ddeprecated-declarations",
+          "-fPIC",
+          "-rdynamic",
+          "-pthread",
+          "-Og"
+        ],
+        "macros": [
+          "DEBUG\u003dnull"
+        ]
+      },
+      {
+        "source": {
+          "srcDirs": [
+            "C:\\Users\\Robotics 6\\FRC2019\\mixer\\src\\main\\include"
+          ],
+          "includes": [],
+          "excludes": []
+        },
+        "componentName": "frcUserProgram",
+        "cpp": true,
+        "args": [
+          "-std\u003dc++14",
+          "-Wformat\u003d2",
+          "-pedantic",
+          "-Wno-psabi",
+          "-g",
+          "-Wno-unused-parameter",
+          "-Wno-error\u003ddeprecated-declarations",
+          "-fPIC",
+          "-rdynamic",
+          "-pthread",
+          "-Og"
+        ],
+        "macros": [
+          "DEBUG\u003dnull"
+        ]
+      }
+    ],
+    "nameBinaryMap": {
+      "frcUserProgram": 0
+    }
+  },
+  {
+    "name": "linuxathena",
+    "architecture": "arm-v7",
+    "operatingSystem": "linux",
+    "flavor": "default",
+    "buildType": "release",
+    "cppPath": "C:\\Users\\Public\\frc2019\\roborio\\bin\\arm-frc2019-linux-gnueabi-g++.exe",
+    "cPath": "C:\\Users\\Public\\frc2019\\roborio\\bin\\arm-frc2019-linux-gnueabi-gcc.exe",
+    "msvc": false,
+    "systemCppMacros": [],
+    "systemCppArgs": [],
+    "systemCMacros": [],
+    "systemCArgs": [],
+    "allLibFiles": [
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\hal-cpp-2019.2.1-headers.zip_c1e3733a98824778ae9dc4369a7c5066",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\wpiutil-cpp-2019.2.1-headers.zip_961601eb64e5456d71ed70c0f9da8e94",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\ntcore-cpp-2019.2.1-headers.zip_bb0cec940e93e7a2ed066107bd22e12e",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\cscore-cpp-2019.2.1-headers.zip_3d9a26a763eb0e1008d349ec462fd509",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\cameraserver-cpp-2019.2.1-headers.zip_6d5c4a8bf55973d76d90eeb158bc5c66",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\opencv-cpp-3.4.4-4-headers.zip_ed19d56be47d37c8193b8f0377a9cfe6",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\chipobject-2019.12.1-headers.zip_45012665afb78c4c4816a3a35e8fe8aa",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\netcomm-2019.12.1-headers.zip_97d07b8af9f28e0504c6dc239ac1f176",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\src\\main\\include",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\wpilibc-cpp-2019.2.1-sources.zip_d2c10ca9fef4a09e287ef5192d19cdb5",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\hal-cpp-2019.2.1-sources.zip_9dcb46c9ade4c7c133c75a9dc6ab4149",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\wpiutil-cpp-2019.2.1-sources.zip_9f28652342db3ad84df141544ddc4945",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\ntcore-cpp-2019.2.1-sources.zip_5b333f7bca5b450503f0c4cb795f1b79",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\cscore-cpp-2019.2.1-sources.zip_8c8defa0812cd4300c0a822153198fd4",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\cameraserver-cpp-2019.2.1-sources.zip_3f44c805661dec1ebaa017c40eb16cae",
+      "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\opencv-cpp-3.4.4-4-sources.zip_77141d62b3e263395a4b585628a50d3d"
+    ],
+    "binaries": [
+      {
+        "componentName": "frcUserProgram",
+        "sourceSets": [
+          {
+            "source": {
+              "srcDirs": [
+                "C:\\Users\\Robotics 6\\FRC2019\\mixer\\src\\main\\cpp"
+              ],
+              "includes": [
+                "**/*.cpp",
+                "**/*.cc"
+              ],
+              "excludes": []
+            },
+            "exportedHeaders": {
+              "srcDirs": [
+                "C:\\Users\\Robotics 6\\FRC2019\\mixer\\src\\main\\include"
+              ],
+              "includes": [],
+              "excludes": []
+            },
+            "cpp": true,
+            "args": [
+              "-std\u003dc++14",
+              "-Wformat\u003d2",
+              "-pedantic",
+              "-Wno-psabi",
+              "-g",
+              "-Wno-unused-parameter",
+              "-Wno-error\u003ddeprecated-declarations",
+              "-fPIC",
+              "-rdynamic",
+              "-pthread",
+              "-O2"
+            ],
+            "macros": []
+          }
+        ],
+        "libHeaders": [
+          "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe",
+          "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\hal-cpp-2019.2.1-headers.zip_c1e3733a98824778ae9dc4369a7c5066",
+          "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\wpiutil-cpp-2019.2.1-headers.zip_961601eb64e5456d71ed70c0f9da8e94",
+          "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\ntcore-cpp-2019.2.1-headers.zip_bb0cec940e93e7a2ed066107bd22e12e",
+          "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\cscore-cpp-2019.2.1-headers.zip_3d9a26a763eb0e1008d349ec462fd509",
+          "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\cameraserver-cpp-2019.2.1-headers.zip_6d5c4a8bf55973d76d90eeb158bc5c66",
+          "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\opencv-cpp-3.4.4-4-headers.zip_ed19d56be47d37c8193b8f0377a9cfe6",
+          "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\chipobject-2019.12.1-headers.zip_45012665afb78c4c4816a3a35e8fe8aa",
+          "C:\\Users\\Robotics 6\\FRC2019\\mixer\\build\\tmp\\expandedArchives\\netcomm-2019.12.1-headers.zip_97d07b8af9f28e0504c6dc239ac1f176",
+          "C:\\Users\\Robotics 6\\FRC2019\\mixer\\src\\main\\include"
+        ]
+      }
+    ],
+    "sourceBinaries": [
+      {
+        "source": {
+          "srcDirs": [
+            "C:\\Users\\Robotics 6\\FRC2019\\mixer\\src\\main\\cpp"
+          ],
+          "includes": [
+            "**/*.cpp",
+            "**/*.cc"
+          ],
+          "excludes": []
+        },
+        "componentName": "frcUserProgram",
+        "cpp": true,
+        "args": [
+          "-std\u003dc++14",
+          "-Wformat\u003d2",
+          "-pedantic",
+          "-Wno-psabi",
+          "-g",
+          "-Wno-unused-parameter",
+          "-Wno-error\u003ddeprecated-declarations",
+          "-fPIC",
+          "-rdynamic",
+          "-pthread",
+          "-O2"
+        ],
+        "macros": []
+      },
+      {
+        "source": {
+          "srcDirs": [
+            "C:\\Users\\Robotics 6\\FRC2019\\mixer\\src\\main\\include"
+          ],
+          "includes": [],
+          "excludes": []
+        },
+        "componentName": "frcUserProgram",
+        "cpp": true,
+        "args": [
+          "-std\u003dc++14",
+          "-Wformat\u003d2",
+          "-pedantic",
+          "-Wno-psabi",
+          "-g",
+          "-Wno-unused-parameter",
+          "-Wno-error\u003ddeprecated-declarations",
+          "-fPIC",
+          "-rdynamic",
+          "-pthread",
+          "-O2"
+        ],
+        "macros": []
+      }
+    ],
+    "nameBinaryMap": {
+      "frcUserProgram": 0
+    }
+  }
+]
