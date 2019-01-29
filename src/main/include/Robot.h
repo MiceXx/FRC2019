@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "DriveTrain.hpp"
+#include "PowerTrain.hpp"
 #include <frc/TimedRobot.h>
 #include <frc/smartdashboard/SendableChooser.h>
 #include <frc/PWMVictorSPX.h>
@@ -33,7 +33,7 @@ class Robot : public frc::TimedRobot {
 
   static constexpr frc::SPI::Port GyroChannel = frc::SPI::kOnboardCS0;
 
-  DriveTrain mecanumDrive; 
+  frc::lcchs::PowerTrain mecanumDrive; 
 
   frc::Joystick m_stick{kJoystickChannelone};
   

@@ -23,7 +23,7 @@ void Robot::RobotInit() {
     rv->RobotVisionInit();
 
     
-    mecanumDrive.initalizeDriveTrain();
+    mecanumDrive.initalizePowerTrain();
 }
 
 /**
