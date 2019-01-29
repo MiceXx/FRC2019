@@ -1,0 +1,10 @@
+See file:///C:/Users/Robotics%204/Desktop/FRC2019/build/tmp/compileFrcUserProgramDebugExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramDebugExecutableFrcUserProgramCpp.
+compiling MecanumDrive.cpp successful.
+
+compiling GripPipeline.cpp successful.
+
+compiling RobotVision.cpp successful.
+
+compiling Robot.cpp successful.
+
+Finished compileFrcUserProgramDebugExecutableFrcUserProgramCpp, see full log file:///C:/Users/Robotics%204/Desktop/FRC2019/build/tmp/compileFrcUserProgramDebugExecutableFrcUserProgramCpp/output.txt.
