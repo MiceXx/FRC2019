@@ -2,13 +2,12 @@
 
 #include <string>
 
+#include "DriveTrain.hpp"
 #include <frc/TimedRobot.h>
 #include <frc/smartdashboard/SendableChooser.h>
 #include <frc/PWMVictorSPX.h>
 #include <frc/Joystick.h>
-#include <networktables/NetworkTable.h>
-#include <networktables/NetworkTableEntry.h>
-#include <networktables/NetworkTableInstance.h>
+#include <frc/ADXRS450_Gyro.h>
 
 class Robot : public frc::TimedRobot {
  public:
@@ -28,4 +27,16 @@ class Robot : public frc::TimedRobot {
 
   frc::PWMVictorSPX m_left{0};
   frc::Joystick jStick{0};
+  static constexpr int kJoystickChannelone = 0;
+
+  static constexpr int kJoystickChanneltwo = 1;
+
+  static constexpr frc::SPI::Port GyroChannel = frc::SPI::kOnboardCS0;
+
+  DriveTrain mecanumDrive; 
+
+  frc::Joystick m_stick{kJoystickChannelone};
+  
+  frc::Joystick m_sticktwo{kJoystickChanneltwo};
+  frc::ADXRS450_Gyro gyro{GyroChannel};
 };
