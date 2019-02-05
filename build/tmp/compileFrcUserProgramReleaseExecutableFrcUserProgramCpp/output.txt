@@ -1,12 +1,16 @@
 See file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramReleaseExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramReleaseExecutableFrcUserProgramCpp.
-compiling PowerTrain.cpp successful.
+compiling GripPipeline.cpp successful.
+
+compiling Manipulator.cpp successful.
+
+compiling main.cpp successful.
 
 compiling MecanumDrive.cpp successful.
 
-compiling GripPipeline.cpp successful.
-
-compiling RobotVision.cpp successful.
+compiling PowerTrain.cpp successful.
 
 compiling Robot.cpp successful.
+
+compiling RobotVision.cpp successful.
 
 Finished compileFrcUserProgramReleaseExecutableFrcUserProgramCpp, see full log file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramReleaseExecutableFrcUserProgramCpp/output.txt.

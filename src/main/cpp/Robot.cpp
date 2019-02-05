@@ -10,6 +10,9 @@
 #include <networktables/NetworkTableEntry.h>
 #include <networktables/NetworkTableInstance.h>
 
+namespace frc {
+namespace lcchs{
+
   nt::NetworkTableEntry xEntry;
   nt::NetworkTableEntry yEntry;
   auto networkTableInstance= nt::NetworkTableInstance::GetDefault();
@@ -90,6 +93,25 @@ void Robot::TeleopPeriodic() {
   x += 0.05;
   y += 1.0;
 
+    //sets the scaling/speed of motors
+
+   double scaling=frc::SmartDashboard::GetNumber("DB/Slider 0", 0.0) +1. ;
+
+    if(scaling<1.)
+    {
+      scaling=1.;
+    }
+    else if (scaling>6.)
+    {
+      scaling=6.;
+    }
+
+
+    mecanumDrive.setScaling( 1/scaling );
+
+    dentistryTools.setScaling( 1/scaling );
+
+
   //start mechanum stuff
   
     if (abs(m_stick.GetZ()) > 0.1) {gyro.Reset();}
@@ -111,10 +133,11 @@ void Robot::TeleopPeriodic() {
     std::string GyroAngle= std::to_string(gyro.GetAngle());
     frc::SmartDashboard::PutString("DB/String 3", GyroAngle);
 
+    dentistryTools.moveLift(m_sticktwo.GetY());
+
 }
 
 void Robot::TestPeriodic() {}
 
-#ifndef RUNNING_FRC_TESTS
-int main() { return frc::StartRobot<Robot>(); }
-#endif
+}   // namespacelcchs
+}  // namespacefrc

@@ -1,7 +1,9 @@
 -o
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\exe\\frcUserProgram\\release\\frcUserProgram
+C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\1bcyotn5fze3qjlplgmxjaaj5\\main.o
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\3bg5a77l7vd4edmrxq5jco6ri\\Robot.o
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\4gp9vrxj7dzh4ka0gvroker9i\\RobotVision.o
+C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\8xbj13z9olykyaz0sbhsj6s4u\\Manipulator.o
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\c5tuz3plyivbodoeq9garnkre\\GripPipeline.o
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\dg84lg56aousuk2g42ypap916\\PowerTrain.o
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\erxmlpk2j0cb0a68dm86viecu\\MecanumDrive.o

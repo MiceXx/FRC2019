@@ -8,8 +8,12 @@
 #include <frc/PWMVictorSPX.h>
 #include <frc/Joystick.h>
 #include <frc/ADXRS450_Gyro.h>
+#include "Manipulator.hpp"
 
-class Robot : public frc::TimedRobot {
+namespace frc {
+namespace lcchs{
+
+ class Robot : public frc::TimedRobot {
  public:
   void RobotInit() override;
   void RobotPeriodic() override;
@@ -35,8 +39,13 @@ class Robot : public frc::TimedRobot {
 
   frc::lcchs::PowerTrain mecanumDrive; 
 
+  frc::lcchs::Manipulator dentistryTools;
+
   frc::Joystick m_stick{kJoystickChannelone};
   
   frc::Joystick m_sticktwo{kJoystickChanneltwo};
   frc::ADXRS450_Gyro gyro{GyroChannel};
 };
+
+}   // namespacelcchs
+}  // namespacefrc

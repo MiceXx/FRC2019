@@ -6,58 +6,34 @@
 namespace frc {
 namespace lcchs{
 
+  void PowerTrain::setScaling(double scaling){
+    
+    m_robotDrive.SetMaxOutput(  scaling  );
+    
+    }
+
   void PowerTrain::driveRobot( double xSpeed, double ySpeed, double zRotation, double gyroAngle)
   {
-    
-      double scaling=frc::SmartDashboard::GetNumber("DB/Slider 0", 0.0) +1. ;
-
+      
       double rotation = zRotation;
-
-    if(scaling<1.)
-    {
-      scaling=1.;
-    }
-    else if (scaling>6.)
-    {
-      scaling=6.;
-    }
-
-
-    /*
-    if( rotation>0 )
-    { rotation=sqrt(rotation); }
-    else
-    { rotation= -1.*sqrt( abs(rotation) ); }
-    */
-    
+   
 
    /* Use the joystick X axis for lateral movement, Y axis for forward
      * movement, and Z axis for rotation.
      */
-      m_robotDrive.DriveCartesian(-ySpeed/scaling,xSpeed/scaling,zRotation/scaling,-gyroAngle);
+      
+      m_robotDrive.DriveCartesian(-ySpeed,xSpeed,zRotation,-gyroAngle);
 
 
   }
   
   void PowerTrain::drivedoublejoystick(double ySpeedLeft, double xSpeedLeft, double ySpeedRight, double xSpeedRight)
   {
-    
-      double scaling=frc::SmartDashboard::GetNumber("DB/Slider 0", 0.0) +1. ;
-
-    if(scaling<1.)
-    {
-      scaling=1.;
-    }
-    else if (scaling>6.)
-    {
-      scaling=6.;
-    }
-
 
    /* Use the joystick X axis for lateral movement, Y axis for forward
      * movement, and Z axis for rotation.
      */
-      m_robotDrive.DriveTank(-ySpeedLeft/scaling,xSpeedLeft/scaling,-ySpeedRight/scaling,xSpeedRight/scaling);
+      m_robotDrive.DriveTank(-ySpeedLeft,xSpeedLeft,-ySpeedRight,xSpeedRight);
 
 
   }
