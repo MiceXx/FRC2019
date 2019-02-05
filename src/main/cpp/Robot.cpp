@@ -79,6 +79,15 @@ void Robot::AutonomousPeriodic() {
   } else {
     // Default Auto goes here
   }
+
+
+double x = frc::SmartDashboard::GetNumber("DB/String 1", 0.0);
+double y = frc::SmartDashboard::GetNumber("DB/String 2", 0.0);
+double z = frc::SmartDashboard::GetNumber("DB/String 3", 0.0);
+double gyro = frc::SmartDashboard::GetNumber("DB/String 4", 0.0);
+
+mecanumDrive.DrivebaseStrafe(x, y, z, gyro);
+
 }
 
 void Robot::TeleopInit() {}

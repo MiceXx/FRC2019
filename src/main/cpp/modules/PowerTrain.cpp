@@ -38,6 +38,12 @@ namespace lcchs{
 
   }
 
+  void PowerTrain::DrivebaseStrafe(double ySpeedLeft, double xSpeedLeft, double ySpeedRight, double xSpeedRight){
+  
+  PowerTrain::driveRobot( ySpeedLeft,  xSpeedLeft,  ySpeedRight,  xSpeedRight);
+
+  }
+
   void PowerTrain::initalizePowerTrain()
   {
     // Invert the left side motors. You may need to change or remove this to
