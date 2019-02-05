@@ -38,9 +38,9 @@ namespace lcchs{
 
   }
 
-  void PowerTrain::DrivebaseStrafe(double ySpeedLeft, double xSpeedLeft, double ySpeedRight, double xSpeedRight){
+  void PowerTrain::DrivebaseStrafe( double xSpeed, double ySpeed, double zRotation, double gyroAngle){
   
-  PowerTrain::driveRobot( ySpeedLeft,  xSpeedLeft,  ySpeedRight,  xSpeedRight);
+  PowerTrain::driveRobot(   xSpeed,  ySpeed,  zRotation,  gyroAngle);
 
   }
 

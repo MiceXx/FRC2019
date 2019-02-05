@@ -12,6 +12,24 @@
 
 namespace frc {
 namespace lcchs{
+  void Robot::setRobotScaling(){
+    double scaling=frc::SmartDashboard::GetNumber("DB/Slider 0", 0.0) +1. ;
+
+    if(scaling<1.)
+    {
+      scaling=1.;
+    }
+    else if (scaling>6.)
+    {
+      scaling=6.;
+    }
+
+
+    mecanumDrive.setScaling( 1/scaling );
+
+    dentistryTools.setScaling( 1/scaling );
+    }
+
 
   nt::NetworkTableEntry xEntry;
   nt::NetworkTableEntry yEntry;
@@ -24,7 +42,8 @@ void Robot::RobotInit() {
 
     RobotVision* rv = new RobotVision();
     rv->RobotVisionInit();
-
+    
+    
     
     mecanumDrive.initalizePowerTrain();
 }
@@ -80,13 +99,14 @@ void Robot::AutonomousPeriodic() {
     // Default Auto goes here
   }
 
+Robot::setRobotScaling();
 
-double x = frc::SmartDashboard::GetNumber("DB/String 1", 0.0);
-double y = frc::SmartDashboard::GetNumber("DB/String 2", 0.0);
-double z = frc::SmartDashboard::GetNumber("DB/String 3", 0.0);
-double gyro = frc::SmartDashboard::GetNumber("DB/String 4", 0.0);
+double x = frc::SmartDashboard::GetNumber("DB/Slider 1", 0.0);
+double y = frc::SmartDashboard::GetNumber("DB/Slider 2", 0.0);
+double z = frc::SmartDashboard::GetNumber("DB/Slider 3", 0.0);
+//double gyroAngle = frc::SmartDashboard::GetNumber("DB/Slider 4", 0.0);
 
-mecanumDrive.DrivebaseStrafe(x, y, z, gyro);
+mecanumDrive.DrivebaseStrafe(x, y, z, 0.0);
 
 }
 
@@ -103,22 +123,15 @@ void Robot::TeleopPeriodic() {
   y += 1.0;
 
     //sets the scaling/speed of motors
-
-   double scaling=frc::SmartDashboard::GetNumber("DB/Slider 0", 0.0) +1. ;
-
-    if(scaling<1.)
-    {
-      scaling=1.;
+   
+   bool b = button1->Get();
+    if (b){
+    std::cout << "the botton was pressed" << std::endl;
     }
-    else if (scaling>6.)
-    {
-      scaling=6.;
-    }
-
-
-    mecanumDrive.setScaling( 1/scaling );
-
-    dentistryTools.setScaling( 1/scaling );
+    
+    
+    
+    setRobotScaling();
 
 
   //start mechanum stuff

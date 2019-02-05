@@ -15,7 +15,7 @@ public:
 
   void initalizePowerTrain();
 
-  void DrivebaseStrafe(double ySpeedLeft, double xSpeedLeft, double ySpeedRight, double xSpeedRight);
+  void DrivebaseStrafe( double xSpeed, double ySpeed, double zRotation, double gyroAngle);
 
  private:
 
