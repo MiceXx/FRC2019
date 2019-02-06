@@ -30,11 +30,14 @@ namespace frc {
         yEntry = dataTable->GetEntry("Y");
         /* end of networking tables*/
 
+
         if (m_autoSelected == kAutoNameCustom) {
           // Custom Auto goes here
         } else {
           // Default Auto goes here
         }
       }
+
+
     }
 }

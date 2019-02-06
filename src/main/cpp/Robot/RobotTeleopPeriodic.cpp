@@ -15,18 +15,18 @@ namespace frc {
         x += 0.05;
         y += 1.0;
 
-        auto tv = networkTableInstance.GetTable("limelight")->GetNumber("tv", 0.0);
-        auto tx = networkTableInstance.GetTable("limelight")->GetNumber("tx", 0.0);
-        auto ty = networkTableInstance.GetTable("limelight")->GetNumber("ty", 0.0);
-        if(tv) {
-            printf("tx:%f ty:%f\n", tx, ty);
-        }
+        
+        //autonomous teleop
 
-        bool b = button1->Get();
-            if (b){
+        if (button3->Get()){
             std::cout << "the botton was pressed" << std::endl;
-            }
-            
+        }
+        
+        if (button1->Get()){
+            gyroResetPos();
+        }
+        
+        
 
         //Set Scaling
         double scaling=frc::SmartDashboard::GetNumber("DB/Slider 0", 0.0) +1. ;

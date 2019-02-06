@@ -1,182 +1,22 @@
 See file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramDebugExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramDebugExecutableFrcUserProgramCpp.
-compiling main.cpp failed.
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\modules\main.cpp:1:0:
-C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:36:40: error: could not convert '(operator new(144u), (<statement>, ((frc::Joystick*)<anonymous>)))' from 'frc::Joystick*' to 'frc::Joystick'
-   frc::Joystick jStick = new Joystick(0);
-                                        ^
-C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:54:57: error: no matching function for call to 'frc::JoystickButton::JoystickButton(frc::Joystick&, int)'
-   JoystickButton* button1 = new JoystickButton(jStick, 1);
-                                                         ^
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:12:0,
-                 from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\modules\main.cpp:1:
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note: candidate: frc::JoystickButton::JoystickButton(frc::GenericHID*, int)
-   JoystickButton(GenericHID* joystick, int buttonNumber);
-   ^~~~~~~~~~~~~~
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note:   no known conversion for argument 1 from 'frc::Joystick' to 'frc::GenericHID*'
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\modules\main.cpp:1:0:
-C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:55:57: error: no matching function for call to 'frc::JoystickButton::JoystickButton(frc::Joystick&, int)'
-   JoystickButton* button2 = new JoystickButton(jStick, 2);
-                                                         ^
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:12:0,
-                 from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\modules\main.cpp:1:
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note: candidate: frc::JoystickButton::JoystickButton(frc::GenericHID*, int)
-   JoystickButton(GenericHID* joystick, int buttonNumber);
-   ^~~~~~~~~~~~~~
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note:   no known conversion for argument 1 from 'frc::Joystick' to 'frc::GenericHID*'
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\modules\main.cpp:1:0:
-C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:56:56: error: no matching function for call to 'frc::JoystickButton::JoystickButton(frc::Joystick&, int)'
-  JoystickButton* button3 = new JoystickButton(jStick, 3);
-                                                        ^
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:12:0,
-                 from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\modules\main.cpp:1:
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note: candidate: frc::JoystickButton::JoystickButton(frc::GenericHID*, int)
-   JoystickButton(GenericHID* joystick, int buttonNumber);
-   ^~~~~~~~~~~~~~
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note:   no known conversion for argument 1 from 'frc::Joystick' to 'frc::GenericHID*'
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\modules\main.cpp:1:0:
-C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:57:56: error: no matching function for call to 'frc::JoystickButton::JoystickButton(frc::Joystick&, int)'
-  JoystickButton* button4 = new JoystickButton(jStick, 4);
-                                                        ^
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:12:0,
-                 from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\modules\main.cpp:1:
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note: candidate: frc::JoystickButton::JoystickButton(frc::GenericHID*, int)
-   JoystickButton(GenericHID* joystick, int buttonNumber);
-   ^~~~~~~~~~~~~~
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note:   no known conversion for argument 1 from 'frc::Joystick' to 'frc::GenericHID*'
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\modules\main.cpp:1:0:
-C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:58:56: error: no matching function for call to 'frc::JoystickButton::JoystickButton(frc::Joystick&, int)'
-  JoystickButton* button5 = new JoystickButton(jStick, 5);
-                                                        ^
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:12:0,
-                 from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\modules\main.cpp:1:
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note: candidate: frc::JoystickButton::JoystickButton(frc::GenericHID*, int)
-   JoystickButton(GenericHID* joystick, int buttonNumber);
-   ^~~~~~~~~~~~~~
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note:   no known conversion for argument 1 from 'frc::Joystick' to 'frc::GenericHID*'
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\modules\main.cpp:1:0:
-C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:59:56: error: no matching function for call to 'frc::JoystickButton::JoystickButton(frc::Joystick&, int)'
-  JoystickButton* button6 = new JoystickButton(jStick, 6);
-                                                        ^
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:12:0,
-                 from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\modules\main.cpp:1:
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note: candidate: frc::JoystickButton::JoystickButton(frc::GenericHID*, int)
-   JoystickButton(GenericHID* joystick, int buttonNumber);
-   ^~~~~~~~~~~~~~
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note:   no known conversion for argument 1 from 'frc::Joystick' to 'frc::GenericHID*'
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\modules\main.cpp:1:0:
-C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:60:56: error: no matching function for call to 'frc::JoystickButton::JoystickButton(frc::Joystick&, int)'
-  JoystickButton* button7 = new JoystickButton(jStick, 7);
-                                                        ^
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:12:0,
-                 from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\modules\main.cpp:1:
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note: candidate: frc::JoystickButton::JoystickButton(frc::GenericHID*, int)
-   JoystickButton(GenericHID* joystick, int buttonNumber);
-   ^~~~~~~~~~~~~~
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note:   no known conversion for argument 1 from 'frc::Joystick' to 'frc::GenericHID*'
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\modules\main.cpp:1:0:
-C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:61:56: error: no matching function for call to 'frc::JoystickButton::JoystickButton(frc::Joystick&, int)'
-  JoystickButton* button8 = new JoystickButton(jStick, 8);
-                                                        ^
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:12:0,
-                 from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\modules\main.cpp:1:
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note: candidate: frc::JoystickButton::JoystickButton(frc::GenericHID*, int)
-   JoystickButton(GenericHID* joystick, int buttonNumber);
-   ^~~~~~~~~~~~~~
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note:   no known conversion for argument 1 from 'frc::Joystick' to 'frc::GenericHID*'
-
-compiling Manipulator.cpp successful.
-
 compiling GripPipeline.cpp successful.
-
-compiling Robot.cpp failed.
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot.cpp:1:0:
-C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:36:40: error: could not convert '(operator new(144u), (<statement>, ((frc::Joystick*)<anonymous>)))' from 'frc::Joystick*' to 'frc::Joystick'
-   frc::Joystick jStick = new Joystick(0);
-                                        ^
-C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:54:57: error: no matching function for call to 'frc::JoystickButton::JoystickButton(frc::Joystick&, int)'
-   JoystickButton* button1 = new JoystickButton(jStick, 1);
-                                                         ^
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:12:0,
-                 from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot.cpp:1:
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note: candidate: frc::JoystickButton::JoystickButton(frc::GenericHID*, int)
-   JoystickButton(GenericHID* joystick, int buttonNumber);
-   ^~~~~~~~~~~~~~
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note:   no known conversion for argument 1 from 'frc::Joystick' to 'frc::GenericHID*'
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot.cpp:1:0:
-C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:55:57: error: no matching function for call to 'frc::JoystickButton::JoystickButton(frc::Joystick&, int)'
-   JoystickButton* button2 = new JoystickButton(jStick, 2);
-                                                         ^
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:12:0,
-                 from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot.cpp:1:
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note: candidate: frc::JoystickButton::JoystickButton(frc::GenericHID*, int)
-   JoystickButton(GenericHID* joystick, int buttonNumber);
-   ^~~~~~~~~~~~~~
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note:   no known conversion for argument 1 from 'frc::Joystick' to 'frc::GenericHID*'
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot.cpp:1:0:
-C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:56:56: error: no matching function for call to 'frc::JoystickButton::JoystickButton(frc::Joystick&, int)'
-  JoystickButton* button3 = new JoystickButton(jStick, 3);
-                                                        ^
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:12:0,
-                 from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot.cpp:1:
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note: candidate: frc::JoystickButton::JoystickButton(frc::GenericHID*, int)
-   JoystickButton(GenericHID* joystick, int buttonNumber);
-   ^~~~~~~~~~~~~~
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note:   no known conversion for argument 1 from 'frc::Joystick' to 'frc::GenericHID*'
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot.cpp:1:0:
-C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:57:56: error: no matching function for call to 'frc::JoystickButton::JoystickButton(frc::Joystick&, int)'
-  JoystickButton* button4 = new JoystickButton(jStick, 4);
-                                                        ^
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:12:0,
-                 from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot.cpp:1:
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note: candidate: frc::JoystickButton::JoystickButton(frc::GenericHID*, int)
-   JoystickButton(GenericHID* joystick, int buttonNumber);
-   ^~~~~~~~~~~~~~
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note:   no known conversion for argument 1 from 'frc::Joystick' to 'frc::GenericHID*'
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot.cpp:1:0:
-C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:58:56: error: no matching function for call to 'frc::JoystickButton::JoystickButton(frc::Joystick&, int)'
-  JoystickButton* button5 = new JoystickButton(jStick, 5);
-                                                        ^
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:12:0,
-                 from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot.cpp:1:
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note: candidate: frc::JoystickButton::JoystickButton(frc::GenericHID*, int)
-   JoystickButton(GenericHID* joystick, int buttonNumber);
-   ^~~~~~~~~~~~~~
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note:   no known conversion for argument 1 from 'frc::Joystick' to 'frc::GenericHID*'
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot.cpp:1:0:
-C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:59:56: error: no matching function for call to 'frc::JoystickButton::JoystickButton(frc::Joystick&, int)'
-  JoystickButton* button6 = new JoystickButton(jStick, 6);
-                                                        ^
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:12:0,
-                 from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot.cpp:1:
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note: candidate: frc::JoystickButton::JoystickButton(frc::GenericHID*, int)
-   JoystickButton(GenericHID* joystick, int buttonNumber);
-   ^~~~~~~~~~~~~~
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note:   no known conversion for argument 1 from 'frc::Joystick' to 'frc::GenericHID*'
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot.cpp:1:0:
-C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:60:56: error: no matching function for call to 'frc::JoystickButton::JoystickButton(frc::Joystick&, int)'
-  JoystickButton* button7 = new JoystickButton(jStick, 7);
-                                                        ^
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:12:0,
-                 from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot.cpp:1:
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note: candidate: frc::JoystickButton::JoystickButton(frc::GenericHID*, int)
-   JoystickButton(GenericHID* joystick, int buttonNumber);
-   ^~~~~~~~~~~~~~
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note:   no known conversion for argument 1 from 'frc::Joystick' to 'frc::GenericHID*'
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot.cpp:1:0:
-C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:61:56: error: no matching function for call to 'frc::JoystickButton::JoystickButton(frc::Joystick&, int)'
-  JoystickButton* button8 = new JoystickButton(jStick, 8);
-                                                        ^
-In file included from C:\Users\DriveTeam\Desktop\frc2019\src\main\include/Robot.h:12:0,
-                 from C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot.cpp:1:
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note: candidate: frc::JoystickButton::JoystickButton(frc::GenericHID*, int)
-   JoystickButton(GenericHID* joystick, int buttonNumber);
-   ^~~~~~~~~~~~~~
-C:\Users\DriveTeam\Desktop\frc2019\build\tmp\expandedArchives\wpilibc-cpp-2019.2.1-headers.zip_c5f7002a6c1dfda8aa2899e2594d01fe/frc/buttons/JoystickButton.h:17:3: note:   no known conversion for argument 1 from 'frc::Joystick' to 'frc::GenericHID*'
 
 compiling RobotVision.cpp successful.
 
-compiling MecanumDrive.cpp successful.
+compiling main.cpp successful.
 
-compiling PowerTrain.cpp successful.
+compiling RobotPeriodic.cpp successful.
+
+compiling RobotTeleopInit.cpp successful.
+
+compiling RobotInit.cpp successful.
+
+compiling Robot.cpp successful.
+
+compiling RobotTeleopPeriodic.cpp successful.
+
+compiling RobotAutonomousPeriodic.cpp successful.
+
+compiling RobotAutonomousInit.cpp successful.
 
 Finished compileFrcUserProgramDebugExecutableFrcUserProgramCpp, see full log file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramDebugExecutableFrcUserProgramCpp/output.txt.

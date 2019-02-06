@@ -1,6 +1,6 @@
 [
   {
-    "artifact": "frcCpp (in project FRC2019)",
+    "artifact": "frcCpp (in project frc2019)",
     "target": "roborio",
     "component": "frcUserProgram",
     "debugfile": "frcCpp_roborio.debugconfig",

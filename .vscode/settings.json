@@ -56,7 +56,8 @@
     "type_traits": "cpp",
     "tuple": "cpp",
     "typeinfo": "cpp",
-    "utility": "cpp"
+    "utility": "cpp",
+    "complex": "cpp"
   },
   "C_Cpp.configurationWarnings": "Disabled"
 }
