@@ -21,8 +21,11 @@ namespace frc {
         if (button3->Get()){
             std::cout << "the botton was pressed" << std::endl;
         }
-            
-        buttongyroResetPos();
+        
+        if (button1->Get()){
+            gyroResetPos();
+        }
+        
         
 
         //Set Scaling

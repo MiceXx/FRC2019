@@ -31,17 +31,6 @@ namespace frc {
         /* end of networking tables*/
 
 
-        //gyro reset to 0
-        /* void gyroResetPos();
-        -read value from gyro
-        -store value from gyro into var
-        -while var != 0 
-        -if var is > 0 , turn left. if value is < 0 , turn right. 
-        */
-       
-       gyroResetPos();
-
-
         if (m_autoSelected == kAutoNameCustom) {
           // Custom Auto goes here
         } else {

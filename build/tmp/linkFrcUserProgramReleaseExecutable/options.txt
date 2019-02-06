@@ -3,6 +3,7 @@ C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\exe\\frcUserProgram\\release\\frc
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\10hft2odgjao2w77znzysqiv3\\RobotInit.o
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\2qwfizm1dbzjgxchgj1ltl2h5\\RobotAutonomousPeriodic.o
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\3bg5a77l7vd4edmrxq5jco6ri\\Robot.o
+C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\3mgkkwpv1aa6p9ibqef1sk5y4\\RobotFunctions.o
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\4gp9vrxj7dzh4ka0gvroker9i\\RobotVision.o
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\5fg5hwbjioquu22fzbfbmnbj2\\RobotAutonomousInit.o
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\6z7xgf8kaa3xw4nrcgjur2itc\\RobotTeleopInit.o

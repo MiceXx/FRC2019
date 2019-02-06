@@ -30,7 +30,7 @@ std::string GyroAngle= std::to_string(gyro.GetAngle());
 
         //double gyroAngle = frc::SmartDashboard::GetNumber("DB/Slider 4", 0.0);
 
-        powerTrain.DrivebaseStrafe(x, y, z, 0.0);
+        //powerTrain.DrivebaseStrafe(x, y, z, 0.0);
 
         }
     }
