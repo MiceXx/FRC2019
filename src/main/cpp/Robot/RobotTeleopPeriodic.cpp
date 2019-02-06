@@ -16,13 +16,14 @@ namespace frc {
         y += 1.0;
 
         
+        //autonomous teleop
 
-
-        bool b = button1->Get();
-            if (b){
+        if (button3->Get()){
             std::cout << "the botton was pressed" << std::endl;
-            }
+        }
             
+        buttongyroResetPos();
+        
 
         //Set Scaling
         double scaling=frc::SmartDashboard::GetNumber("DB/Slider 0", 0.0) +1. ;

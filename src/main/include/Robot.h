@@ -28,6 +28,7 @@ namespace frc {
     void TeleopPeriodic() override;
     void TestPeriodic() override;
     void setRobotScaling();
+    void gyroResetPos();
 
   private:
     frc::SendableChooser<std::string> m_chooser;
