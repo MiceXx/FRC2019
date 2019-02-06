@@ -57,8 +57,8 @@ void Robot::RobotInit() {
  * LiveWindow and SmartDashboard integrated updating.
  */
 void Robot::RobotPeriodic() {
-    frc::SmartDashboard::PutNumber("Joystick X", jStick.GetX());
-    frc::SmartDashboard::PutNumber("Joystick Y", jStick.GetY());
+    frc::SmartDashboard::PutNumber("Joystick X", jStick->GetX());
+    frc::SmartDashboard::PutNumber("Joystick Y", jStick->GetY());
 }
 
 /**
@@ -122,15 +122,11 @@ void Robot::TeleopPeriodic() {
   x += 0.05;
   y += 1.0;
 
-    //sets the scaling/speed of motors
    
-   bool b = button1->Get();
-    if (b){
-    std::cout << "the botton was pressed" << std::endl;
-    }
+  
     
     
-    
+     //sets the scaling/speed of motors
     setRobotScaling();
 
 
@@ -138,8 +134,17 @@ void Robot::TeleopPeriodic() {
   
     if (abs(m_stick.GetZ()) > 0.1) {gyro.Reset();}
 
-
-    mecanumDrive.driveRobot(m_stick.GetX(), m_stick.GetY(), m_stick.GetZ(), gyro.GetAngle());
+     double x = frc::SmartDashboard::GetNumber("DB/Slider 1", 0.0);
+   double y = frc::SmartDashboard::GetNumber("DB/Slider 2", 0.0);
+   double z = frc::SmartDashboard::GetNumber("DB/Slider 3", 0.0);
+   bool b = button3->Get();
+    if (b){
+    mecanumDrive.DrivebaseStrafe(x, y, z, 0.0);
+    std::cout << "the botton was pressed" << std::endl;
+    }
+    else {mecanumDrive.driveRobot(m_stick.GetX(), m_stick.GetY(), m_stick.GetZ(), gyro.GetAngle());}
+    
+    
 
     /// mecanumDrive.drivedoublejoystick(m_stick.GetY(), m_stick.GetX(), m_sticktwo.GetY(), m_sticktwo.GetX());
     

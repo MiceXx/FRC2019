@@ -33,7 +33,7 @@ namespace lcchs{
 
   frc::PWMVictorSPX m_left{0};
   
-  frc::Joystick jStick = new Joystick(0);
+  frc::Joystick* jStick = new Joystick(0);
   static constexpr int kJoystickChannelone = 0;
 
   static constexpr int kJoystickChanneltwo = 1;
