@@ -7,10 +7,14 @@ namespace frc {
 namespace lcchs{
 
   void PowerTrain::setScaling(double scaling){
-    
-    m_robotDrive.SetMaxOutput(  scaling  );
-    
+    if(scaling<1.){
+        m_robotDrive.SetMaxOutput(1.);
+    } else if (scaling>6.){
+        m_robotDrive.SetMaxOutput(  6.  );
+    } else {
+        m_robotDrive.SetMaxOutput(  scaling  );
     }
+  }
 
   void PowerTrain::driveRobot( double xSpeed, double ySpeed, double zRotation, double gyroAngle)
   {
