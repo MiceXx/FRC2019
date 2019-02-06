@@ -11,17 +11,12 @@ namespace frc {
         //gyro reset position
         void Robot::gyroResetPos(){
           double GyroAngle = gyro.GetAngle();
-          if (abs(GyroAngle) > 2){
-              if (button2->Get()){
-                  break;
-              }
-            if (GyroAngle > 0 ){
-            powerTrain.DrivebaseStrafe( 0, 0, -0.2, 0);
+            if (GyroAngle > 1 ){
+            powerTrain.DrivebaseStrafe( -0.1, 0.1, -0.5, 0);
             }
-            else{
-              powerTrain.DrivebaseStrafe( 0, 0, 0.2, 0);
+            else if(GyroAngle < -1 ){
+              powerTrain.DrivebaseStrafe( 0.1, -0.1, 0.5, 0);
             }
-          }
       }
 
     }
