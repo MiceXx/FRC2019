@@ -15,8 +15,12 @@ namespace frc {
         x += 0.05;
         y += 1.0;
 
-        
-
+        auto tv = networkTableInstance.GetTable("limelight")->GetNumber("tv", 0.0);
+        auto tx = networkTableInstance.GetTable("limelight")->GetNumber("tx", 0.0);
+        auto ty = networkTableInstance.GetTable("limelight")->GetNumber("ty", 0.0);
+        if(tv) {
+            printf("tx:%f ty:%f\n", tx, ty);
+        }
 
         bool b = button1->Get();
             if (b){
