@@ -1,38 +1,102 @@
-<<<<<<< HEAD
 See file:///C:/Users/Robotics/Desktop/frc2019/build/tmp/compileFrcUserProgramDebugExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramDebugExecutableFrcUserProgramCpp.
-=======
-See file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramDebugExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramDebugExecutableFrcUserProgramCpp.
-compiling Manipulator.cpp successful.
+compiling main.cpp failed.
+C:\Users\Robotics\Desktop\frc2019\src\main\cpp\main.cpp:2:21: fatal error: Robot.hpp: No such file or directory
+ #include "Robot.hpp"
+                     ^
+compilation terminated.
 
->>>>>>> 467fe5552e190cdea959fe280ce1239d6ae0316c
-compiling GripPipeline.cpp successful.
+compiling OperatorInterface.cpp successful.
 
-compiling main.cpp successful.
+compiling Manipulator.cpp failed.
+C:\Users\Robotics\Desktop\frc2019\src\main\cpp\modules\Manipulator.cpp:22:6: error: redefinition of 'void frc::lcchs::Manipulator::moveLift(double)'
+ void Manipulator::moveLift( double speed )
+      ^~~~~~~~~~~
+C:\Users\Robotics\Desktop\frc2019\src\main\cpp\modules\Manipulator.cpp:7:6: note: 'void frc::lcchs::Manipulator::moveLift(double)' previously defined here
+ void Manipulator::moveLift( double speed ){
+      ^~~~~~~~~~~
+C:\Users\Robotics\Desktop\frc2019\src\main\cpp\modules\Manipulator.cpp:29:6: error: redefinition of 'void frc::lcchs::Manipulator::setScaling(double)'
+ void Manipulator::setScaling(double scaling)
+      ^~~~~~~~~~~
+C:\Users\Robotics\Desktop\frc2019\src\main\cpp\modules\Manipulator.cpp:11:6: note: 'void frc::lcchs::Manipulator::setScaling(double)' previously defined here
+ void Manipulator::setScaling(double scaling){
+      ^~~~~~~~~~~
+C:\Users\Robotics\Desktop\frc2019\src\main\cpp\modules\Manipulator.cpp:58:1: error: version control conflict marker in file
+ >>>>>>> 467fe5552e190cdea959fe280ce1239d6ae0316c
+ ^~~~~~~
+
+compiling PowerTrain.cpp successful.
+
+compiling Robot.cpp failed.
+In file included from C:\Users\Robotics\Desktop\frc2019\src\main\cpp\modules\Robot.cpp:1:0:
+C:\Users\Robotics\Desktop\frc2019\src\main\include/Robot.h:47:17: error: 'PowerTrain' in namespace 'frc::lcchs' does not name a type
+     frc::lcchs::PowerTrain powerTrain;
+                 ^~~~~~~~~~
 
 compiling MecanumDrive.cpp successful.
 
+compiling RobotAutonomousPeriodic.cpp failed.
+In file included from C:\Users\Robotics\Desktop\frc2019\src\main\cpp\Robot\RobotAutonomousPeriodic.cpp:1:0:
+C:\Users\Robotics\Desktop\frc2019\src\main\include/Robot.h:47:17: error: 'PowerTrain' in namespace 'frc::lcchs' does not name a type
+     frc::lcchs::PowerTrain powerTrain;
+                 ^~~~~~~~~~
+C:\Users\Robotics\Desktop\frc2019\src\main\cpp\Robot\RobotAutonomousPeriodic.cpp: In member function 'virtual void frc::lcchs::Robot::AutonomousPeriodic()':
+C:\Users\Robotics\Desktop\frc2019\src\main\cpp\Robot\RobotAutonomousPeriodic.cpp:17:9: error: 'powerTrain' was not declared in this scope
+         powerTrain.setScaling( 1/scaling );
+         ^~~~~~~~~~
+
+compiling GripPipeline.cpp successful.
+
+compiling RobotInit.cpp failed.
+In file included from C:\Users\Robotics\Desktop\frc2019\src\main\cpp\Robot\RobotInit.cpp:1:0:
+C:\Users\Robotics\Desktop\frc2019\src\main\include/Robot.h:47:17: error: 'PowerTrain' in namespace 'frc::lcchs' does not name a type
+     frc::lcchs::PowerTrain powerTrain;
+                 ^~~~~~~~~~
+C:\Users\Robotics\Desktop\frc2019\src\main\cpp\Robot\RobotInit.cpp: In member function 'virtual void frc::lcchs::Robot::RobotInit()':
+C:\Users\Robotics\Desktop\frc2019\src\main\cpp\Robot\RobotInit.cpp:16:13: error: 'powerTrain' was not declared in this scope
+             powerTrain.initalizePowerTrain();
+             ^~~~~~~~~~
+
+compiling RobotPeriodic.cpp failed.
+In file included from C:\Users\Robotics\Desktop\frc2019\src\main\cpp\Robot\RobotPeriodic.cpp:1:0:
+C:\Users\Robotics\Desktop\frc2019\src\main\include/Robot.h:47:17: error: 'PowerTrain' in namespace 'frc::lcchs' does not name a type
+     frc::lcchs::PowerTrain powerTrain;
+                 ^~~~~~~~~~
+
+compiling RobotFunctions.cpp failed.
+In file included from C:\Users\Robotics\Desktop\frc2019\src\main\cpp\Robot\RobotFunctions.cpp:1:0:
+C:\Users\Robotics\Desktop\frc2019\src\main\include/Robot.h:47:17: error: 'PowerTrain' in namespace 'frc::lcchs' does not name a type
+     frc::lcchs::PowerTrain powerTrain;
+                 ^~~~~~~~~~
+C:\Users\Robotics\Desktop\frc2019\src\main\cpp\Robot\RobotFunctions.cpp: In member function 'void frc::lcchs::Robot::gyroResetPos()':
+C:\Users\Robotics\Desktop\frc2019\src\main\cpp\Robot\RobotFunctions.cpp:15:13: error: 'powerTrain' was not declared in this scope
+             powerTrain.DrivebaseStrafe( -0.1, 0.1, -0.5, 0);
+             ^~~~~~~~~~
+C:\Users\Robotics\Desktop\frc2019\src\main\cpp\Robot\RobotFunctions.cpp:18:15: error: 'powerTrain' was not declared in this scope
+               powerTrain.DrivebaseStrafe( 0.1, -0.1, 0.5, 0);
+               ^~~~~~~~~~
+
+compiling RobotTeleopPeriodic.cpp failed.
+In file included from C:\Users\Robotics\Desktop\frc2019\src\main\cpp\Robot\RobotTeleopPeriodic.cpp:2:0:
+C:\Users\Robotics\Desktop\frc2019\src\main\include/Robot.h:47:17: error: 'PowerTrain' in namespace 'frc::lcchs' does not name a type
+     frc::lcchs::PowerTrain powerTrain;
+                 ^~~~~~~~~~
+C:\Users\Robotics\Desktop\frc2019\src\main\cpp\Robot\RobotTeleopPeriodic.cpp: In member function 'virtual void frc::lcchs::Robot::TeleopPeriodic()':
+C:\Users\Robotics\Desktop\frc2019\src\main\cpp\Robot\RobotTeleopPeriodic.cpp:33:9: error: 'powerTrain' was not declared in this scope
+         powerTrain.setScaling( 1/scaling );
+         ^~~~~~~~~~
+
+compiling RobotTeleopInit.cpp failed.
+In file included from C:\Users\Robotics\Desktop\frc2019\src\main\cpp\Robot\RobotTeleopInit.cpp:1:0:
+C:\Users\Robotics\Desktop\frc2019\src\main\include/Robot.h:47:17: error: 'PowerTrain' in namespace 'frc::lcchs' does not name a type
+     frc::lcchs::PowerTrain powerTrain;
+                 ^~~~~~~~~~
+
 compiling RobotVision.cpp successful.
 
-compiling RobotAutonomousInit.cpp successful.
+compiling RobotAutonomousInit.cpp failed.
+In file included from C:\Users\Robotics\Desktop\frc2019\src\main\cpp\Robot\RobotAutonomousInit.cpp:1:0:
+C:\Users\Robotics\Desktop\frc2019\src\main\include/Robot.h:47:17: error: 'PowerTrain' in namespace 'frc::lcchs' does not name a type
+     frc::lcchs::PowerTrain powerTrain;
+                 ^~~~~~~~~~
 
-compiling RobotAutonomousPeriodic.cpp successful.
-
-compiling RobotFunctions.cpp successful.
-
-compiling RobotPeriodic.cpp successful.
-
-compiling RobotTeleopInit.cpp successful.
-
-compiling RobotInit.cpp successful.
-
-compiling RobotTeleopPeriodic.cpp successful.
-
-compiling Robot.cpp successful.
-
-<<<<<<< HEAD
 Finished compileFrcUserProgramDebugExecutableFrcUserProgramCpp, see full log file:///C:/Users/Robotics/Desktop/frc2019/build/tmp/compileFrcUserProgramDebugExecutableFrcUserProgramCpp/output.txt.
-=======
-compiling PowerTrain.cpp successful.
-
-Finished compileFrcUserProgramDebugExecutableFrcUserProgramCpp, see full log file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramDebugExecutableFrcUserProgramCpp/output.txt.
->>>>>>> 467fe5552e190cdea959fe280ce1239d6ae0316c

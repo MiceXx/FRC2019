@@ -14,57 +14,6 @@
 #include <networktables/NetworkTableEntry.h>
 #include <networktables/NetworkTableInstance.h>
 
-<<<<<<< HEAD:src/main/include/Robot.hpp
-#include "Manipulator.hpp"
-#include "OperatorInterface.hpp"
-#include "PowerTrain.hpp"
-
-namespace frc {
-namespace lcchs{
-
- class Robot : public frc::TimedRobot {
- public:
-  void RobotInit() override;
-  void RobotPeriodic() override;
-  void AutonomousInit() override;
-  void AutonomousPeriodic() override;
-  void TeleopInit() override;
-  void TeleopPeriodic() override;
-  void TestPeriodic() override;
-
- private:
-  frc::SendableChooser<std::string> m_chooser;
-  const std::string kAutoNameDefault = "Default";
-  const std::string kAutoNameCustom = "My Auto";
-  std::string m_autoSelected;
-
-  frc::PWMVictorSPX m_left{0};
-  frc::Joystick jStick{0};
-  static constexpr int kJoystickChannelone = 0;
-
-  static constexpr int kJoystickChanneltwo = 1;
-
-  static constexpr frc::SPI::Port GyroChannel = frc::SPI::kOnboardCS0;
-
-  frc::lcchs::PowerTrain mecanumDrive; 
-
-  frc::lcchs::Manipulator dentistryTools;
-
-  frc::Joystick m_stick{kJoystickChannelone};
-  
-  frc::Joystick m_sticktwo{kJoystickChanneltwo};
-  frc::ADXRS450_Gyro gyro{GyroChannel};
-
-  frc::lcchs::OperatorInterface driveStation;
-
-  int liftPosition;
-  int liftVelocity;
-  double liftCommand;
-  bool liftReset;
-};
-
-}   // namespacelcchs
-=======
 namespace frc {
   namespace lcchs{
 
@@ -117,5 +66,4 @@ namespace frc {
   };
 
   }   // namespacelcchs
->>>>>>> 467fe5552e190cdea959fe280ce1239d6ae0316c:src/main/include/Robot.h
 }  // namespacefrc
