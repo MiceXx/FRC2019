@@ -1,8 +1,18 @@
+<<<<<<< HEAD
 See file:///C:/Users/Robotics/Desktop/frc2019/build/tmp/compileFrcUserProgramReleaseExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramReleaseExecutableFrcUserProgramCpp.
+=======
+See file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramReleaseExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramReleaseExecutableFrcUserProgramCpp.
+compiling RobotFunctions.cpp successful.
+
+>>>>>>> 467fe5552e190cdea959fe280ce1239d6ae0316c
 compiling GripPipeline.cpp successful.
 
 compiling RobotVision.cpp successful.
 
+<<<<<<< HEAD
 compiling Robot.cpp successful.
 
 Finished compileFrcUserProgramReleaseExecutableFrcUserProgramCpp, see full log file:///C:/Users/Robotics/Desktop/frc2019/build/tmp/compileFrcUserProgramReleaseExecutableFrcUserProgramCpp/output.txt.
+=======
+Finished compileFrcUserProgramReleaseExecutableFrcUserProgramCpp, see full log file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramReleaseExecutableFrcUserProgramCpp/output.txt.
+>>>>>>> 467fe5552e190cdea959fe280ce1239d6ae0316c

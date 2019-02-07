@@ -1,8 +1,38 @@
+<<<<<<< HEAD
 See file:///C:/Users/Robotics/Desktop/frc2019/build/tmp/compileFrcUserProgramDebugExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramDebugExecutableFrcUserProgramCpp.
+=======
+See file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramDebugExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramDebugExecutableFrcUserProgramCpp.
+compiling Manipulator.cpp successful.
+
+>>>>>>> 467fe5552e190cdea959fe280ce1239d6ae0316c
 compiling GripPipeline.cpp successful.
+
+compiling main.cpp successful.
+
+compiling MecanumDrive.cpp successful.
 
 compiling RobotVision.cpp successful.
 
+compiling RobotAutonomousInit.cpp successful.
+
+compiling RobotAutonomousPeriodic.cpp successful.
+
+compiling RobotFunctions.cpp successful.
+
+compiling RobotPeriodic.cpp successful.
+
+compiling RobotTeleopInit.cpp successful.
+
+compiling RobotInit.cpp successful.
+
+compiling RobotTeleopPeriodic.cpp successful.
+
 compiling Robot.cpp successful.
 
+<<<<<<< HEAD
 Finished compileFrcUserProgramDebugExecutableFrcUserProgramCpp, see full log file:///C:/Users/Robotics/Desktop/frc2019/build/tmp/compileFrcUserProgramDebugExecutableFrcUserProgramCpp/output.txt.
+=======
+compiling PowerTrain.cpp successful.
+
+Finished compileFrcUserProgramDebugExecutableFrcUserProgramCpp, see full log file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramDebugExecutableFrcUserProgramCpp/output.txt.
+>>>>>>> 467fe5552e190cdea959fe280ce1239d6ae0316c

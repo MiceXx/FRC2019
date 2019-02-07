@@ -1,3 +1,4 @@
+<<<<<<< HEAD:src/main/cpp/modules/Robot.cpp
 #include <iostream>
 #include <string>
 
@@ -165,6 +166,12 @@ void Robot::TeleopPeriodic() {
     driveStation.setString( 8,std::to_string(liftReset) );
 
 }
+=======
+#include "Robot.h"
+
+namespace frc {
+namespace lcchs{
+>>>>>>> 467fe5552e190cdea959fe280ce1239d6ae0316c:src/main/cpp/Robot.cpp
 
 void Robot::TestPeriodic() {}
 

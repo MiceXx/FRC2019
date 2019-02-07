@@ -15,17 +15,23 @@ class Manipulator
 
   void setScaling( double scaling );
   
+<<<<<<< HEAD
   void initializeManipulator();
+=======
+>>>>>>> 467fe5552e190cdea959fe280ce1239d6ae0316c
 
   // 
   //bool bottomLift();
 
+<<<<<<< HEAD
   int getPosition();
 
   int getVelocity();
 
   void resetEncoder();
 
+=======
+>>>>>>> 467fe5552e190cdea959fe280ce1239d6ae0316c
   private: 
 
   double scalingFactor = 1;
@@ -34,9 +40,12 @@ class Manipulator
 
   WPI_TalonSRX m_liftmotor{kLiftMotorChannel};
 
+<<<<<<< HEAD
   
 
 
+=======
+>>>>>>> 467fe5552e190cdea959fe280ce1239d6ae0316c
 };
 
 
