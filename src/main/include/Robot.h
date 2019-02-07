@@ -14,6 +14,9 @@
 #include <networktables/NetworkTableEntry.h>
 #include <networktables/NetworkTableInstance.h>
 
+#include "OperatorInterface.hpp"
+#include "PowerTrain.hpp"
+
 namespace frc {
   namespace lcchs{
 
@@ -25,7 +28,7 @@ namespace frc {
     void AutonomousPeriodic() override;
     void TeleopInit() override;
     void TeleopPeriodic() override;
-    void TestPeriodic() override;
+    // void TestPeriodic() override;
     void setRobotScaling();
     void gyroResetPos();
 

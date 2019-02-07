@@ -18,21 +18,6 @@ void Manipulator::setScaling(double scaling){
       scalingFactor = scaling;
     }
 }
-
-void Manipulator::moveLift( double speed )
-{
-  m_liftmotor.Set(speed*scalingFactor);
-
-
-}
-
-void Manipulator::setScaling(double scaling)
-{
-
-scalingFactor = scaling;
-
-}
-
 void Manipulator::initializeManipulator()
 {
   m_liftmotor.ConfigSelectedFeedbackSensor(CTRE_MagEncoder_Absolute);
@@ -55,4 +40,3 @@ m_liftmotor.SetSelectedSensorPosition(0);
 
 }  // namespace lcchs
 }  // namespace frc
->>>>>>> 467fe5552e190cdea959fe280ce1239d6ae0316c
