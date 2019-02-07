@@ -1,6 +1,3 @@
-#include "Robot.h"
-#include "RobotVision.h"
-
 #include <iostream>
 #include <string>
 
@@ -9,6 +6,12 @@
 #include <networktables/NetworkTable.h>
 #include <networktables/NetworkTableEntry.h>
 #include <networktables/NetworkTableInstance.h>
+
+#include "Robot.hpp"
+#include "RobotVision.h"
+
+namespace frc {
+namespace lcchs{
 
   nt::NetworkTableEntry xEntry;
   nt::NetworkTableEntry yEntry;
@@ -24,6 +27,7 @@ void Robot::RobotInit() {
 
     
     mecanumDrive.initalizePowerTrain();
+    dentistryTools.initializeManipulator();
 }
 
 /**
@@ -90,9 +94,33 @@ void Robot::TeleopPeriodic() {
   x += 0.05;
   y += 1.0;
 
+    //sets the scaling/speed of motors
+
+   // double scaling=frc::SmartDashboard::GetNumber("DB/Slider 0", 0.0) +1. ;
+   double scaling = 1 + driveStation.getSlider( 0 );
+
+    if(scaling<1.)
+    {
+      scaling=1.;
+    }
+    else if (scaling>6.)
+    {
+      scaling=6.;
+    }
+
+
+
+    mecanumDrive.setScaling( 1/scaling );
+
+    dentistryTools.setScaling( 1/scaling );
+
+
   //start mechanum stuff
   
-    if (abs(m_stick.GetZ()) > 0.1) {gyro.Reset();}
+    if (abs(m_stick.GetZ()) > 0.1)
+    {
+      gyro.Reset();
+    }
 
 
     mecanumDrive.driveRobot(m_stick.GetX(), m_stick.GetY(), m_stick.GetZ(), gyro.GetAngle());
@@ -100,21 +128,45 @@ void Robot::TeleopPeriodic() {
     /// mecanumDrive.drivedoublejoystick(m_stick.GetY(), m_stick.GetX(), m_sticktwo.GetY(), m_sticktwo.GetX());
     
     std::string speedX= std::to_string(m_stick.GetX());
-    frc::SmartDashboard::PutString("DB/String 0", speedX);
+    // frc::SmartDashboard::PutString("DB/String 0", speedX);
+    driveStation.setString( 0, speedX);
 
     std::string speedY= std::to_string(m_stick.GetY());
-    frc::SmartDashboard::PutString("DB/String 1", speedY);
+    // frc::SmartDashboard::PutString("DB/String 1", speedY);
+    driveStation.setString( 1, speedY);
 
     std::string speedZ= std::to_string(m_stick.GetZ());
-    frc::SmartDashboard::PutString("DB/String 2", speedZ);
-
+    // frc::SmartDashboard::PutString("DB/String 2", speedZ);
+    driveStation.setString( 2, speedZ);
+    
     std::string GyroAngle= std::to_string(gyro.GetAngle());
-    frc::SmartDashboard::PutString("DB/String 3", GyroAngle);
+    // frc::SmartDashboard::PutString("DB/String 3", GyroAngle);
+    driveStation.setString( 3, GyroAngle);
+
+    //Lift
+    liftPosition=dentistryTools.getPosition();
+    liftVelocity=dentistryTools.getVelocity();
+    liftCommand=driveStation.getLeftHandY();
+    liftReset=driveStation.getYButton();
+    if (liftReset)
+    {
+      dentistryTools.resetEncoder();
+    }
+    dentistryTools.moveLift(liftCommand);
+    //dentistryTools.moveLift(m_sticktwo.GetY());
+
+
+    driveStation.setString( 5,std::to_string(liftPosition) );
+
+    driveStation.setString( 6,std::to_string(liftVelocity) );
+
+    driveStation.setString( 7,std::to_string(liftCommand) );
+
+    driveStation.setString( 8,std::to_string(liftReset) );
 
 }
 
 void Robot::TestPeriodic() {}
 
-#ifndef RUNNING_FRC_TESTS
-int main() { return frc::StartRobot<Robot>(); }
-#endif
+}   // namespacelcchs
+}  // namespacefrc

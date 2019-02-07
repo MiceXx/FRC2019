@@ -10,7 +10,8 @@ public:
 
   
   void drivedoublejoystick(double ySpeedLeft, double xSpeedLeft, double ySpeedRight, double xSpeedRight);
- 
+
+  void setScaling(double scaling);
 
   void initalizePowerTrain();
 
