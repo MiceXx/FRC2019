@@ -23,7 +23,7 @@ class Manipulator
 
   double scalingFactor = 1;
 
-  static constexpr int kLiftMotorChannel = 4;
+  static constexpr int kLiftMotorChannel = 5;
 
   WPI_TalonSRX m_liftmotor{kLiftMotorChannel};
 

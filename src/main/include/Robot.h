@@ -28,9 +28,12 @@ namespace frc {
     void TeleopPeriodic() override;
     void TestPeriodic() override;
     void setRobotScaling();
-    void gyroResetPos();
 
   private:
+
+    void gyroResetPos();
+    void alignRobot();
+
     frc::SendableChooser<std::string> m_chooser;
     const std::string kAutoNameDefault = "Default";
     const std::string kAutoNameCustom = "My Auto";
@@ -38,7 +41,6 @@ namespace frc {
 
     frc::PWMVictorSPX m_left{0};
     
-    frc::Joystick* jStick = new Joystick(0);
     static constexpr int kJoystickChannelone = 0;
 
     static constexpr int kJoystickChanneltwo = 1;
@@ -49,9 +51,8 @@ namespace frc {
 
     frc::lcchs::Manipulator manipulator;
 
-    frc::Joystick m_stick{kJoystickChannelone};
-    
-    frc::Joystick m_sticktwo{kJoystickChanneltwo};
+    frc::Joystick* jStick = new Joystick(kJoystickChannelone);
+    frc::Joystick* jStick2 = new Joystick(kJoystickChanneltwo);
     frc::ADXRS450_Gyro gyro{GyroChannel};
     
     //joystick buttons

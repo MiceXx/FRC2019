@@ -26,7 +26,9 @@ namespace frc {
             gyroResetPos();
         }
         
-        
+        if (button2->Get()){
+            alignRobot();
+        }
 
         //Set Scaling
         double scaling=frc::SmartDashboard::GetNumber("DB/Slider 0", 0.0) +1. ;
@@ -35,25 +37,11 @@ namespace frc {
 
         //start mechanum stuff
         
-            if (abs(m_stick.GetZ()) > 0.1) {gyro.Reset();}
+            if (abs(jStick->GetZ()) > 0.1) {gyro.Reset();}
 
-            powerTrain.driveRobot(m_stick.GetX(), m_stick.GetY(), m_stick.GetZ(), gyro.GetAngle());
+            powerTrain.driveRobot(jStick->GetX(), jStick->GetY(), jStick->GetZ(), gyro.GetAngle());
 
-            /// powerTrain.drivedoublejoystick(m_stick.GetY(), m_stick.GetX(), m_sticktwo.GetY(), m_sticktwo.GetX());
-            
-            std::string speedX= std::to_string(m_stick.GetX());
-            frc::SmartDashboard::PutString("DB/String 0", speedX);
-
-            std::string speedY= std::to_string(m_stick.GetY());
-            frc::SmartDashboard::PutString("DB/String 1", speedY);
-
-            std::string speedZ= std::to_string(m_stick.GetZ());
-            frc::SmartDashboard::PutString("DB/String 2", speedZ);
-
-            std::string GyroAngle= std::to_string(gyro.GetAngle());
-            frc::SmartDashboard::PutString("DB/String 3", GyroAngle);
-
-            manipulator.moveLift(m_sticktwo.GetY());
+            manipulator.moveLift(jStick->GetY());
 
         }
     }

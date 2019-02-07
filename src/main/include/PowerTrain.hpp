@@ -22,9 +22,9 @@ public:
   
   
   static constexpr int kFrontLeftChannel = 1;
-  static constexpr int kRearLeftChannel = 2;
-  static constexpr int kFrontRightChannel = 0;
-  static constexpr int kRearRightChannel = 3;
+  static constexpr int kFrontRightChannel = 2;
+  static constexpr int kRearLeftChannel = 3;
+  static constexpr int kRearRightChannel = 4;
 
   // possible patch for double stick
 //  static constexpr int kFrontLeftChannel  = 0;

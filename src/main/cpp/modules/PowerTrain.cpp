@@ -16,40 +16,21 @@ namespace lcchs{
     }
   }
 
-  void PowerTrain::driveRobot( double xSpeed, double ySpeed, double zRotation, double gyroAngle)
-  {
-      
-      double rotation = zRotation;
-   
-
+  void PowerTrain::driveRobot( double ySpeed, double xSpeed, double zRotation, double gyroAngle){
    /* Use the joystick X axis for lateral movement, Y axis for forward
      * movement, and Z axis for rotation.
      */
-      
-      m_robotDrive.DriveCartesian(-ySpeed,xSpeed,zRotation,-gyroAngle);
-
-
+      m_robotDrive.DriveCartesian(ySpeed,-xSpeed,zRotation,-gyroAngle);
   }
   
-  void PowerTrain::drivedoublejoystick(double ySpeedLeft, double xSpeedLeft, double ySpeedRight, double xSpeedRight)
-  {
-
+  void PowerTrain::drivedoublejoystick(double ySpeedLeft, double xSpeedLeft, double ySpeedRight, double xSpeedRight){
    /* Use the joystick X axis for lateral movement, Y axis for forward
      * movement, and Z axis for rotation.
      */
       m_robotDrive.DriveTank(-ySpeedLeft,xSpeedLeft,-ySpeedRight,xSpeedRight);
-
-
   }
 
-  void PowerTrain::DrivebaseStrafe( double xSpeed, double ySpeed, double zRotation, double gyroAngle){
-  
-  PowerTrain::driveRobot(   xSpeed,  ySpeed,  zRotation,  gyroAngle);
-
-  }
-
-  void PowerTrain::initalizePowerTrain()
-  {
+  void PowerTrain::initalizePowerTrain(){
     // Invert the left side motors. You may need to change or remove this to
     // match your robot.
     //m_frontLeft.SetInverted(true);
