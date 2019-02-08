@@ -53,8 +53,28 @@ namespace frc {
             std::string GyroAngle= std::to_string(gyro.GetAngle());
             frc::SmartDashboard::PutString("DB/String 3", GyroAngle);
 
-            manipulator.moveLift(m_sticktwo.GetY());
+            //Lift
+            //manipulator.moveLift(m_sticktwo.GetY());
 
+            liftPosition=manipulator.getPosition();
+            liftVelocity=manipulator.getVelocity();
+            liftCommand=driveStation.getLeftHandY();
+            liftReset=driveStation.getYButton();
+            if (liftReset)
+            {
+            manipulator.resetEncoder();
+            }
+            manipulator.moveLift(liftCommand);
+         
+
+
+            driveStation.setString( 5,std::to_string(liftPosition) );
+
+            driveStation.setString( 6,std::to_string(liftVelocity) );
+
+            driveStation.setString( 7,std::to_string(liftCommand) );
+
+            driveStation.setString( 8,std::to_string(liftReset) );
         }
     }
 }

@@ -17,6 +17,20 @@ namespace frc {
         void Robot::RobotPeriodic() {
             frc::SmartDashboard::PutNumber("Joystick X", jStick->GetX());
             frc::SmartDashboard::PutNumber("Joystick Y", jStick->GetY());
+            
+            double scaling=driveStation.getSlider(0);
+         
+            if(scaling<0.){
+             scaling=0.;
+             }
+             else if (scaling>5.){
+            scaling=5.;
+            }
+
+            driveOutput=1/(scaling+1);
+            liftOutput=1/(scaling+1);
+            powerTrain.setScaling( driveOutput );
+            manipulator.setScaling( liftOutput );
         }
     }
 }

@@ -66,6 +66,18 @@ namespace frc {
     nt::NetworkTableEntry yEntry;
     nt::NetworkTableInstance networkTableInstance = nt::NetworkTableInstance::GetDefault();
 
+    frc::lcchs::OperatorInterface driveStation;
+
+    int liftPosition;
+    int liftVelocity;
+    double liftCommand;
+    bool liftReset;
+
+
+    //Motor output scaling in percent(0-1)
+    double liftOutput;
+    double driveOutput;
+
   };
 
   }   // namespacelcchs
