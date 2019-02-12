@@ -25,21 +25,24 @@ namespace frc {
         if (button1->Get()){
             gyroResetPos();
         }
-        
-        if (button2->Get()){
-            alignRobot();
-        }
 
         //Set Scaling
         double scaling=frc::SmartDashboard::GetNumber("DB/Slider 0", 0.0) +1. ;
-        powerTrain.setScaling( 1/scaling );
+        //powerTrain.setScaling( 1/scaling );
         manipulator.setScaling( 1/scaling );
 
         //start mechanum stuff
         
-            if (abs(jStick->GetZ()) > 0.1) {gyro.Reset();}
+            //if (abs(jStick->GetZ()) > 0.1) {gyro.Reset();}
 
-            powerTrain.driveRobot(jStick->GetX(), jStick->GetY(), jStick->GetZ(), gyro.GetAngle());
+        if (button2->Get()){
+            std::cout << "the Align button was pressed" << std::endl;
+            alignRobot();
+        }
+        else{
+            //m_robotDrive.DriveCartesian(jStick->GetX(), -jStick->GetY(), jStick->GetZ());//, gyro.GetAngle());
+            powerTrain.driveRobot(jStick->GetX(), jStick->GetY(), jStick->GetZ());
+        }
 
             manipulator.moveLift(jStick->GetY());
 

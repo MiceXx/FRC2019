@@ -2,18 +2,20 @@
 
 #include <string>
 
-#include "PowerTrain.hpp"
 #include <frc/TimedRobot.h>
 #include <frc/smartdashboard/SendableChooser.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc/PWMVictorSPX.h>
 #include <frc/Joystick.h>
 #include <frc/ADXRS450_Gyro.h>
-#include "Manipulator.hpp"
 #include <frc/buttons/JoystickButton.h>
 #include <networktables/NetworkTable.h>
 #include <networktables/NetworkTableEntry.h>
 #include <networktables/NetworkTableInstance.h>
+//#include <frc/drive/MecanumDrive.h>
+
+#include "PowerTrain.hpp"
+#include "Manipulator.hpp"
 
 namespace frc {
   namespace lcchs{
@@ -47,7 +49,14 @@ namespace frc {
 
     static constexpr frc::SPI::Port GyroChannel = frc::SPI::kOnboardCS0;
 
-    frc::lcchs::PowerTrain powerTrain; 
+/*
+    static constexpr int kFrontLeftChannel = 1;
+    static constexpr int kFrontRightChannel = 2;
+    static constexpr int kRearLeftChannel = 3;
+    static constexpr int kRearRightChannel = 4;
+*/
+
+    //frc::lcchs::PowerTrain powerTrain; 
 
     frc::lcchs::Manipulator manipulator;
 
@@ -64,6 +73,15 @@ namespace frc {
     nt::NetworkTableEntry xEntry;
     nt::NetworkTableEntry yEntry;
     nt::NetworkTableInstance networkTableInstance = nt::NetworkTableInstance::GetDefault();
+
+/*
+    WPI_TalonSRX m_frontLeft{kFrontLeftChannel};
+    WPI_TalonSRX m_rearLeft{kRearLeftChannel};
+    WPI_TalonSRX m_frontRight{kFrontRightChannel};
+    WPI_TalonSRX m_rearRight{kRearRightChannel};
+    frc::MecanumDrive m_robotDrive{m_frontLeft, m_rearLeft, m_frontRight, m_rearRight};
+*/
+    PowerTrain powerTrain;
 
   };
 

@@ -1,12 +1,13 @@
 #include <ctre/Phoenix.h>
-#include "MecanumDrive.h"
+//#include "MecanumDrive.h"
+#include <frc/drive/MecanumDrive.h>
 
 namespace frc {
 namespace lcchs{
 
 class PowerTrain {
 public:
-  void driveRobot( double xSpeed, double ySpeed, double zRotation, double gyroAngle);
+  void driveRobot( double xSpeed, double ySpeed, double zRotation, double gyroAngle=0);
 
   
   void drivedoublejoystick(double ySpeedLeft, double xSpeedLeft, double ySpeedRight, double xSpeedRight);
@@ -36,7 +37,7 @@ public:
   WPI_TalonSRX m_rearLeft{kRearLeftChannel};
   WPI_TalonSRX m_frontRight{kFrontRightChannel};
   WPI_TalonSRX m_rearRight{kRearRightChannel};
-  frc::lcchs::MecanumDrive m_robotDrive{m_frontLeft, m_rearLeft, m_frontRight,
+  frc::MecanumDrive m_robotDrive{m_frontLeft, m_rearLeft, m_frontRight,
                                  m_rearRight};
 };
 

@@ -13,7 +13,7 @@ namespace frc {
             // RobotVision* rv = new RobotVision();
             // rv->RobotVisionInit();    
             
-            powerTrain.initalizePowerTrain();
+            //powerTrain.initalizePowerTrain();
         }
     }   // namespacelcchs
 }  // namespacefrc

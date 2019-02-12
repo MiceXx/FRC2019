@@ -27,7 +27,7 @@ namespace lcchs{
    /* Use the joystick X axis for lateral movement, Y axis for forward
      * movement, and Z axis for rotation.
      */
-      m_robotDrive.DriveTank(-ySpeedLeft,xSpeedLeft,-ySpeedRight,xSpeedRight);
+     // m_robotDrive.DriveTank(-ySpeedLeft,xSpeedLeft,-ySpeedRight,xSpeedRight);
   }
 
   void PowerTrain::initalizePowerTrain(){
