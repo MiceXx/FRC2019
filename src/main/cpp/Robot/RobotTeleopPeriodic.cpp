@@ -18,25 +18,21 @@ namespace frc {
         
         //autonomous teleop
 
-        if (button3->Get()){
-            std::cout << "the botton was pressed" << std::endl;
-        }
         
         if (button1->Get()){
             gyroResetPos();
+            std::cout << "the botton was pressed" << std::endl;
         }
 
-        //Set Scaling
-        double scaling=frc::SmartDashboard::GetNumber("DB/Slider 0", 0.0) +1. ;
-        //powerTrain.setScaling( 1/scaling );
-        manipulator.setScaling( 1/scaling );
-
+        else if (button4->Get()){
+            gyro.Reset();
+        }
+       
         //start mechanum stuff
         
             //if (abs(jStick->GetZ()) > 0.1) {gyro.Reset();}
 
-        if (button2->Get()){
-            std::cout << "the Align button was pressed" << std::endl;
+        else if (button2->Get()){
             alignRobot();
         }
         else{

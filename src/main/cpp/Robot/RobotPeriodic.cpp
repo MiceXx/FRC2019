@@ -32,6 +32,13 @@ namespace frc {
 
             std::string GyroAngle= std::to_string(gyro.GetAngle());
             frc::SmartDashboard::PutString("DB/String 3", GyroAngle);
+
+ //Set Scaling
+        double scaling=frc::SmartDashboard::GetNumber("DB/Slider 0", 0.0) +1. ;
+        powerTrain.setScaling( 1/scaling );
+        manipulator.setScaling( 1/scaling );
+
+
         }
     }
 }

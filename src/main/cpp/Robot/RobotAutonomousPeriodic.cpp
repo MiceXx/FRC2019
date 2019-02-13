@@ -12,15 +12,10 @@ namespace frc {
             // Default Auto goes here
         }
 
-        //Set Scaling
-        double scaling=frc::SmartDashboard::GetNumber("DB/Slider 0", 0.0) +1. ;
-        //powerTrain.setScaling( 1/scaling );
-        manipulator.setScaling( 1/scaling );
 
-
-        double x = frc::SmartDashboard::GetNumber("DB/Slider 1", 0.0);
-        double y = frc::SmartDashboard::GetNumber("DB/Slider 2", 0.0);
-        double z = frc::SmartDashboard::GetNumber("DB/Slider 3", 0.0);
+        // double x = frc::SmartDashboard::GetNumber("DB/Slider 1", 0.0);
+        // double y = frc::SmartDashboard::GetNumber("DB/Slider 2", 0.0);
+        // double z = frc::SmartDashboard::GetNumber("DB/Slider 3", 0.0);
 
         //double gyroAngle = frc::SmartDashboard::GetNumber("DB/Slider 4", 0.0);
 

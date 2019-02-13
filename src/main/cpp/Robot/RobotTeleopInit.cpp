@@ -5,6 +5,15 @@
 
 namespace frc {
     namespace lcchs{
-        void Robot::TeleopInit() {}
+        void Robot::TeleopInit() {
+            
+            
+            gyro.Reset();
+        
+    
+        }
+
+        
+
     }
 }
