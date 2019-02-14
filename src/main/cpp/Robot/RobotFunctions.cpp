@@ -14,18 +14,18 @@ void Robot::gyroResetPos()
     double gyroAngle = gyro.GetAngle();
     if (gyroAngle > 3.5)
     {
-        powerTrain.driveRobot(-0.2, 0.2, -0.25, 0);
+        powerTrain.driveRobot(-0.2, 0.2, -0.2, 0);
     }
     else if (gyroAngle < -3.5)
     {
-        powerTrain.driveRobot(0.2, -0.2, 0.25, 0);
+        powerTrain.driveRobot(0.2, -0.2, 0.2, 0);
     }
 }
 
 void Robot::alignRobot()
 {
     double gyroAngle = gyro.GetAngle();
-    auto limelightTable = networkTableInstance.GetTable("limelight");
+    auto limelightTable = networkTableInstance.GetTable("limelight-howl");
 
     bool tv = static_cast<bool>(limelightTable->GetNumber("tv", 0.0));
 
@@ -43,19 +43,23 @@ void Robot::alignRobot()
     double tolerance = 2;
     double toleranceArea = 4.5;
 
-    double moveBackorLeft = 0.2;
-    double moveForwardorRight = 0.2;
+    double alignSpeed = 0.2;
 
     double gyroRotation = 0;
-    double gyroTolerance = 3;
+    double gyroTolerance = 1.5;
 
     if (gyroAngle > targetAngle + gyroTolerance)
     {
-        gyroRotation = -0.2;
+        gyroRotation = -0.25;
     }
     else if (gyroAngle < targetAngle - gyroTolerance)
     {
-        gyroRotation = 0.2;
+        gyroRotation = 0.25;
+    }
+
+    if (targetArea - ta > 5)
+    {
+        alignSpeed = 0.35;
     }
 
     if (tv)
@@ -65,41 +69,41 @@ void Robot::alignRobot()
         {
             if (ta > targetArea + toleranceArea)
             { //  move back and right
-                powerTrain.driveRobot(moveForwardorRight, moveBackorLeft, gyroRotation);
+                powerTrain.driveRobot(alignSpeed, alignSpeed, gyroRotation);
             }
             else if (ta < targetArea - toleranceArea)
             { //    move forward and right
-                powerTrain.driveRobot(moveForwardorRight, -moveForwardorRight, gyroRotation);
+                powerTrain.driveRobot(alignSpeed, -alignSpeed, gyroRotation);
             }
             else
             { // move right
-                powerTrain.driveRobot(moveForwardorRight, 0, gyroRotation);
+                powerTrain.driveRobot(alignSpeed, 0, gyroRotation);
             }
         }
         else if (tx < targetX - tolerance)
         {
             if (ta > targetArea + toleranceArea)
             { //  move back+left
-                powerTrain.driveRobot(-moveBackorLeft, moveBackorLeft, gyroRotation);
+                powerTrain.driveRobot(-alignSpeed, alignSpeed, gyroRotation);
             }
             else if (ta < targetArea - toleranceArea)
             { // move forward+left
-                powerTrain.driveRobot(-moveBackorLeft, -moveForwardorRight, gyroRotation);
+                powerTrain.driveRobot(-alignSpeed, -alignSpeed, gyroRotation);
             }
             else
             { //  move left
-                powerTrain.driveRobot(-moveBackorLeft, 0, gyroRotation);
+                powerTrain.driveRobot(-alignSpeed, 0, gyroRotation);
             }
         }
         else
         {
             if (ta > targetArea + toleranceArea)
             { //  move back
-                powerTrain.driveRobot(0, moveBackorLeft, gyroRotation);
+                powerTrain.driveRobot(0, alignSpeed, gyroRotation);
             }
             else if (ta < targetArea - toleranceArea)
             { //   move forward
-                powerTrain.driveRobot(0, -moveForwardorRight, gyroRotation);
+                powerTrain.driveRobot(0, -alignSpeed, gyroRotation);
             }
             else
             {
@@ -120,5 +124,19 @@ void Robot::alignRobot()
     //}
 }
 
+void Robot::changeCam()
+{
+    auto limelightTable = networkTableInstance.GetTable("limelight-howl");
+    bool camMode = static_cast<bool>(limelightTable->GetNumber("camMode", 0.0));
+
+    if (camMode)
+    {
+        limelightTable->PutNumber("camMode", 0);
+    }
+    else
+    {
+        limelightTable->PutNumber("camMode", 1.0);
+    }
+}
 } // namespace lcchs
 } // namespace frc

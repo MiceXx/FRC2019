@@ -1,8 +1,32 @@
 See file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramDebugExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramDebugExecutableFrcUserProgramCpp.
+compiling Manipulator.cpp successful.
+
 compiling GripPipeline.cpp successful.
+
+compiling main.cpp successful.
+
+compiling RobotAutonomousInit.cpp successful.
+
+compiling RobotAutonomousPeriodic.cpp successful.
+
+compiling RobotFunctions.cpp successful.
+
+compiling RobotPeriodic.cpp failed.
+C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot\RobotPeriodic.cpp: In member function 'virtual void frc::lcchs::Robot::RobotPeriodic()':
+C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot\RobotPeriodic.cpp:40:27: error: expected primary-expression before '->' token
+         double now = Timer->GetFPGATimestamp();
+                           ^~
+
+compiling RobotInit.cpp successful.
+
+compiling RobotTeleopInit.cpp successful.
+
+compiling RobotTeleopPeriodic.cpp successful.
+
+compiling Robot.cpp successful.
 
 compiling RobotVision.cpp successful.
 
-compiling RobotTeleopPeriodic.cpp successful.
+compiling PowerTrain.cpp successful.
 
 Finished compileFrcUserProgramDebugExecutableFrcUserProgramCpp, see full log file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramDebugExecutableFrcUserProgramCpp/output.txt.
