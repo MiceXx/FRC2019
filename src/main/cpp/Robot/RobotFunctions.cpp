@@ -38,6 +38,9 @@ void Robot::alignRobot()
     double ty = limelightTable->GetNumber("ty", 0.0);
     double targetY = 11;
 
+    double ta0 = limelightTable->GetNumber("ta0", 0.0);
+    double ta1 = limelightTable->GetNumber("ta1", 0.0);
+
     double targetAngle = 0;
 
     double tolerance = 2;
@@ -122,6 +125,11 @@ void Robot::alignRobot()
     // else if(gyroAngle < -1 ){
     //     powerTrain.driveRobot( 0.2, -0.2, 0.5, 0);
     //}
+
+    if (ta1 < ta0)
+    {
+        powerTrain.driveRobot(-alignSpeed, alignSpeed, gyroRotation);
+    }
 }
 
 void Robot::changeCam()

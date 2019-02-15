@@ -1,5 +1,9 @@
 See file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramReleaseExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramReleaseExecutableFrcUserProgramCpp.
-compiling RobotFunctions.cpp successful.
+compiling RobotFunctions.cpp failed.
+C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot\RobotFunctions.cpp: In member function 'void frc::lcchs::Robot::alignRobot()':
+C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot\RobotFunctions.cpp:43:51: error: expected ';' before 'ta0'
+     std::cout << "ta0 is recognized" << std::endl ta0 << std::endl;
+                                                   ^~~
 
 compiling GripPipeline.cpp successful.
 

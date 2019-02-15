@@ -20,8 +20,6 @@ void Robot::RobotPeriodic()
 {
     frc::SmartDashboard::PutNumber("Joystick X", jStick->GetX());
     frc::SmartDashboard::PutNumber("Joystick Y", jStick->GetY());
-    frc::SmartDashboard::PutNumber("Joystick X Lift", jStick2->GetX());
-    frc::SmartDashboard::PutNumber("Joystick Y Lift", jStick2->GetY());
 
     std::string speedX = std::to_string(jStick->GetX());
     frc::SmartDashboard::PutString("DB/String 0", speedX);

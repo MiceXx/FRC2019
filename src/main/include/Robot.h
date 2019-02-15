@@ -67,7 +67,6 @@ class Robot : public frc::TimedRobot
     frc::lcchs::Manipulator manipulator;
 
     frc::Joystick *jStick = new Joystick(kJoystickChannelone);
-    frc::Joystick *jStick2 = new Joystick(kJoystickChanneltwo);
     frc::ADXRS450_Gyro gyro{GyroChannel};
 
     //joystick buttons
