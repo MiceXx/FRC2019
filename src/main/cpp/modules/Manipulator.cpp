@@ -9,16 +9,15 @@ void Manipulator::moveLift( double speed ){
 }
 
 void Manipulator::setScaling(double scaling){
-  if(scaling<1.){
-      scalingFactor=1.;
+  if(scaling<0.){
+      scalingFactor=0;
     }
-    else if (scaling>6.){
-      scalingFactor=6.;
+    else if (scaling>1.){
+      scalingFactor=1;
     } else {
       scalingFactor = scaling;
     }
 }
-<<<<<<< HEAD
 void Manipulator::initializeManipulator()
 {
   m_liftmotor.ConfigSelectedFeedbackSensor(CTRE_MagEncoder_Absolute);
@@ -44,8 +43,6 @@ void Manipulator::setPosition(int destination)
 {
   m_liftmotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position,destination);
 }  
-=======
->>>>>>> 23731a1799086f92069e8a959859ba24b98818ed
 
 }  // namespace lcchs
 }  // namespace frc
