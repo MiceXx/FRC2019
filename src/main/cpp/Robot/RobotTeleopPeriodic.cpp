@@ -46,7 +46,8 @@ void Robot::TeleopPeriodic()
         powerTrain.driveRobot(jStick->GetX(), jStick->GetY(), jStick->GetZ());
     }
 
-    manipulator.moveLift(jStick->GetY());
+            //Lift
+            operateLift();
 }
 } // namespace lcchs
 } // namespace frc

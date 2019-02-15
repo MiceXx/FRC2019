@@ -13,8 +13,8 @@
 #include <networktables/NetworkTable.h>
 #include <networktables/NetworkTableEntry.h>
 #include <networktables/NetworkTableInstance.h>
-//#include <frc/drive/MecanumDrive.h>
 
+#include "OperatorInterface.hpp"
 #include "PowerTrain.hpp"
 #include "Manipulator.hpp"
 
@@ -34,6 +34,9 @@ class Robot : public frc::TimedRobot
     void TeleopPeriodic() override;
     void TestPeriodic() override;
     void setRobotScaling();
+
+  protected:
+    void operateLift();
 
   private:
     void gyroResetPos();
@@ -81,13 +84,19 @@ class Robot : public frc::TimedRobot
     nt::NetworkTableEntry yEntry;
     nt::NetworkTableInstance networkTableInstance = nt::NetworkTableInstance::GetDefault();
 
-    /*
-    WPI_TalonSRX m_frontLeft{kFrontLeftChannel};
-    WPI_TalonSRX m_rearLeft{kRearLeftChannel};
-    WPI_TalonSRX m_frontRight{kFrontRightChannel};
-    WPI_TalonSRX m_rearRight{kRearRightChannel};
-    frc::MecanumDrive m_robotDrive{m_frontLeft, m_rearLeft, m_frontRight, m_rearRight};
-*/
+    frc::lcchs::OperatorInterface driveStation;
+
+    int liftPosition;
+    int liftVelocity;
+    double liftCommand;
+    bool liftReset;
+    int gamePadPOV;
+    int liftDestination;
+
+    //Motor output scaling in percent(0-1)
+    double liftOutput;
+    double driveOutput;
+    
     PowerTrain powerTrain;
 };
 

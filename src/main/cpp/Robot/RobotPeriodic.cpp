@@ -46,10 +46,20 @@ void Robot::RobotPeriodic()
         }
     }
 
-    //Set Scaling
-    double scaling = frc::SmartDashboard::GetNumber("DB/Slider 0", 0.0) + 1.;
-    powerTrain.setScaling(1 / scaling);
-    manipulator.setScaling(1 / scaling);
+    //Set Scaling   
+            double scaling=driveStation.getSlider(0);
+         
+            if(scaling<0.){
+             scaling=0.;
+             }
+             else if (scaling>5.){
+            scaling=5.;
+            }
+
+            driveOutput=1/(scaling+1);
+            liftOutput=1/(scaling+1);
+            powerTrain.setScaling( driveOutput );
+            manipulator.setScaling( liftOutput );
 }
 
 } // namespace lcchs
