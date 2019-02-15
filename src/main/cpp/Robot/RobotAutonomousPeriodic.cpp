@@ -12,10 +12,6 @@ namespace frc {
             // Default Auto goes here
         }
 
-        //Set Scaling
-        double scaling=frc::SmartDashboard::GetNumber("DB/Slider 0", 0.0) +1. ;
-        powerTrain.setScaling( 1/scaling );
-        manipulator.setScaling( 1/scaling );
 
 
         double x = frc::SmartDashboard::GetNumber("DB/Slider 1", 0.0);

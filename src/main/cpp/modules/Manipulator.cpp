@@ -35,8 +35,14 @@ int Manipulator::getVelocity()
 
 void Manipulator::resetEncoder()
 {
-m_liftmotor.SetSelectedSensorPosition(0);
+  m_liftmotor.SetSelectedSensorPosition(0);
+  m_liftmotor.StopMotor();
 }
+
+void Manipulator::setPosition(int destination)
+{
+  m_liftmotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position,destination);
+}  
 
 }  // namespace lcchs
 }  // namespace frc

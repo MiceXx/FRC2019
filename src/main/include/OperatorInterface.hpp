@@ -27,9 +27,20 @@ class OperatorInterface
 
   bool getLed(int LedId, bool preset = false);
 
+// controller functions
+
   double getLeftHandY();
   
+  bool getAButton(); 
+
+  bool getBButton();
+
+  bool getXButton();
+  
   bool getYButton();
+
+
+  int getPov();
   
   private:
 

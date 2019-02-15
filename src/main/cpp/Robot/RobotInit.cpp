@@ -14,6 +14,8 @@ namespace frc {
             // rv->RobotVisionInit();    
             
             powerTrain.initalizePowerTrain();
+
+            liftDestination=manipulator.getPosition();
         }
     }   // namespacelcchs
 }  // namespacefrc

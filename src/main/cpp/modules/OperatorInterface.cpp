@@ -72,5 +72,36 @@ bool OperatorInterface::getYButton()
   return gamePad.GetYButton();
 }
 
+bool OperatorInterface::getXButton()
+{
+  return gamePad.GetXButton();
+}
+
+bool OperatorInterface::getAButton()
+{
+  return gamePad.GetAButton();
+}
+
+bool OperatorInterface::getBButton()
+{
+  return gamePad.GetBButton();
+}
+
+int OperatorInterface::getPov()
+{
+  return gamePad.GetPOV();
+}
+
+
+
+
+
+
+
+
+
+
+
+
 }  // namespace lcchs
 } // namespace frc

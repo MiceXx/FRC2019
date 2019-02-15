@@ -32,6 +32,9 @@ namespace frc {
     void setRobotScaling();
     void gyroResetPos();
 
+  protected:
+    void operateLift();
+
   private:
     frc::SendableChooser<std::string> m_chooser;
     const std::string kAutoNameDefault = "Default";
@@ -43,7 +46,6 @@ namespace frc {
     frc::Joystick* jStick = new Joystick(0);
     static constexpr int kJoystickChannelone = 0;
 
-    static constexpr int kJoystickChanneltwo = 1;
 
     static constexpr frc::SPI::Port GyroChannel = frc::SPI::kOnboardCS0;
 
@@ -53,7 +55,6 @@ namespace frc {
 
     frc::Joystick m_stick{kJoystickChannelone};
     
-    frc::Joystick m_sticktwo{kJoystickChanneltwo};
     frc::ADXRS450_Gyro gyro{GyroChannel};
     
     //joystick buttons
@@ -72,7 +73,8 @@ namespace frc {
     int liftVelocity;
     double liftCommand;
     bool liftReset;
-
+    int gamePadPOV;
+    int liftDestination;
 
     //Motor output scaling in percent(0-1)
     double liftOutput;

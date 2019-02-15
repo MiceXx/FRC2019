@@ -28,11 +28,6 @@ namespace frc {
         
         
 
-        //Set Scaling
-        double scaling=frc::SmartDashboard::GetNumber("DB/Slider 0", 0.0) +1. ;
-        powerTrain.setScaling( 1/scaling );
-        manipulator.setScaling( 1/scaling );
-
         //start mechanum stuff
         
             if (abs(m_stick.GetZ()) > 0.1) {gyro.Reset();}
@@ -54,27 +49,7 @@ namespace frc {
             frc::SmartDashboard::PutString("DB/String 3", GyroAngle);
 
             //Lift
-            //manipulator.moveLift(m_sticktwo.GetY());
-
-            liftPosition=manipulator.getPosition();
-            liftVelocity=manipulator.getVelocity();
-            liftCommand=driveStation.getLeftHandY();
-            liftReset=driveStation.getYButton();
-            if (liftReset)
-            {
-            manipulator.resetEncoder();
-            }
-            manipulator.moveLift(liftCommand);
-         
-
-
-            driveStation.setString( 5,std::to_string(liftPosition) );
-
-            driveStation.setString( 6,std::to_string(liftVelocity) );
-
-            driveStation.setString( 7,std::to_string(liftCommand) );
-
-            driveStation.setString( 8,std::to_string(liftReset) );
+            operateLift();
         }
     }
 }

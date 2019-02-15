@@ -3,6 +3,7 @@
 "C:\\Users\\Robotics 6\\Desktop\\FRC2019\\build\\objs\\frcUserProgram\\debug\\frcUserProgramCpp\\10hft2odgjao2w77znzysqiv3\\RobotInit.o"
 "C:\\Users\\Robotics 6\\Desktop\\FRC2019\\build\\objs\\frcUserProgram\\debug\\frcUserProgramCpp\\2lulruvh0mpv8ckwvp8e3qh8z\\Robot.o"
 "C:\\Users\\Robotics 6\\Desktop\\FRC2019\\build\\objs\\frcUserProgram\\debug\\frcUserProgramCpp\\2qwfizm1dbzjgxchgj1ltl2h5\\RobotAutonomousPeriodic.o"
+"C:\\Users\\Robotics 6\\Desktop\\FRC2019\\build\\objs\\frcUserProgram\\debug\\frcUserProgramCpp\\2vzwm1huua54nv6wfcupor1s7\\RobotElevator.o"
 "C:\\Users\\Robotics 6\\Desktop\\FRC2019\\build\\objs\\frcUserProgram\\debug\\frcUserProgramCpp\\3mgkkwpv1aa6p9ibqef1sk5y4\\RobotFunctions.o"
 "C:\\Users\\Robotics 6\\Desktop\\FRC2019\\build\\objs\\frcUserProgram\\debug\\frcUserProgramCpp\\4gp9vrxj7dzh4ka0gvroker9i\\RobotVision.o"
 "C:\\Users\\Robotics 6\\Desktop\\FRC2019\\build\\objs\\frcUserProgram\\debug\\frcUserProgramCpp\\5fg5hwbjioquu22fzbfbmnbj2\\RobotAutonomousInit.o"
