@@ -18,6 +18,7 @@ void Manipulator::setScaling(double scaling){
       scalingFactor = scaling;
     }
 }
+<<<<<<< HEAD
 void Manipulator::initializeManipulator()
 {
   m_liftmotor.ConfigSelectedFeedbackSensor(CTRE_MagEncoder_Absolute);
@@ -43,6 +44,8 @@ void Manipulator::setPosition(int destination)
 {
   m_liftmotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position,destination);
 }  
+=======
+>>>>>>> 23731a1799086f92069e8a959859ba24b98818ed
 
 }  // namespace lcchs
 }  // namespace frc

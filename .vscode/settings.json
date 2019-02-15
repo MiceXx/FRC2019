@@ -15,9 +15,13 @@
   "wpilib.online": true,
   "files.associations": {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "*.inc": "cpp",
 >>>>>>> 467fe5552e190cdea959fe280ce1239d6ae0316c
+=======
+    "*.inc": "cpp",
+>>>>>>> 23731a1799086f92069e8a959859ba24b98818ed
     "array": "cpp",
     "atomic": "cpp",
     "*.tcc": "cpp",
@@ -61,6 +65,7 @@
     "typeinfo": "cpp",
     "utility": "cpp",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "hash_map": "cpp",
     "hash_set": "cpp",
     "unordered_set": "cpp",
@@ -71,4 +76,9 @@
   },
   "C_Cpp.configurationWarnings": "Disabled"
 >>>>>>> 467fe5552e190cdea959fe280ce1239d6ae0316c
+=======
+    "complex": "cpp"
+  },
+  "C_Cpp.configurationWarnings": "Disabled"
+>>>>>>> 23731a1799086f92069e8a959859ba24b98818ed
 }

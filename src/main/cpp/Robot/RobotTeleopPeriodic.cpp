@@ -4,52 +4,50 @@
 #include <iostream>
 #include <string>
 
-namespace frc {
-    namespace lcchs{
-        double x = 0;
-        double y = 0;
-        void Robot::TeleopPeriodic() {
-        //networking table test
-        xEntry.SetDouble(x);
-        yEntry.SetDouble(y);
-        x += 0.05;
-        y += 1.0;
+namespace frc
+{
+namespace lcchs
+{
+double x = 0;
+double y = 0;
+void Robot::TeleopPeriodic()
+{
+    //networking table test
+    xEntry.SetDouble(x);
+    yEntry.SetDouble(y);
+    x += 0.05;
+    y += 1.0;
 
-        
-        //autonomous teleop
+    //autonomous teleop
 
-        if (button3->Get()){
-            std::cout << "the botton was pressed" << std::endl;
-        }
-        
-        if (button1->Get()){
-            gyroResetPos();
-        }
-        
-        
+    if (button1->Get())
+    {
+        gyroResetPos();
+        std::cout << "the botton was pressed" << std::endl;
+    }
 
-        //start mechanum stuff
-        
-            if (abs(m_stick.GetZ()) > 0.1) {gyro.Reset();}
+    else if (button4->Get())
+    {
+        gyro.Reset();
+    }
 
-            powerTrain.driveRobot(m_stick.GetX(), m_stick.GetY(), m_stick.GetZ(), gyro.GetAngle());
+    //start mechanum stuff
 
-            /// powerTrain.drivedoublejoystick(m_stick.GetY(), m_stick.GetX(), m_sticktwo.GetY(), m_sticktwo.GetX());
-            
-            std::string speedX= std::to_string(m_stick.GetX());
-            frc::SmartDashboard::PutString("DB/String 0", speedX);
+    //if (abs(jStick->GetZ()) > 0.1) {gyro.Reset();}
 
-            std::string speedY= std::to_string(m_stick.GetY());
-            frc::SmartDashboard::PutString("DB/String 1", speedY);
+    else if (button2->Get())
+    {
+        alignRobot();
+    }
 
-            std::string speedZ= std::to_string(m_stick.GetZ());
-            frc::SmartDashboard::PutString("DB/String 2", speedZ);
-
-            std::string GyroAngle= std::to_string(gyro.GetAngle());
-            frc::SmartDashboard::PutString("DB/String 3", GyroAngle);
+    else
+    {
+        //m_robotDrive.DriveCartesian(jStick->GetX(), -jStick->GetY(), jStick->GetZ());//, gyro.GetAngle());
+        powerTrain.driveRobot(jStick->GetX(), jStick->GetY(), jStick->GetZ());
+    }
 
             //Lift
             operateLift();
-        }
-    }
 }
+} // namespace lcchs
+} // namespace frc

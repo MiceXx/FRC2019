@@ -1,8 +1,40 @@
+<<<<<<< HEAD
 See file:///C:/Users/Robotics%206/Desktop/FRC2019/build/tmp/compileFrcUserProgramDebugExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramDebugExecutableFrcUserProgramCpp.
+=======
+See file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramDebugExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramDebugExecutableFrcUserProgramCpp.
+>>>>>>> 23731a1799086f92069e8a959859ba24b98818ed
 compiling Manipulator.cpp successful.
 
 compiling GripPipeline.cpp successful.
 
+compiling main.cpp successful.
+
+compiling RobotAutonomousInit.cpp successful.
+
+compiling RobotAutonomousPeriodic.cpp successful.
+
+compiling RobotFunctions.cpp successful.
+
+compiling RobotPeriodic.cpp failed.
+C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot\RobotPeriodic.cpp: In member function 'virtual void frc::lcchs::Robot::RobotPeriodic()':
+C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot\RobotPeriodic.cpp:40:27: error: expected primary-expression before '->' token
+         double now = Timer->GetFPGATimestamp();
+                           ^~
+
+compiling RobotInit.cpp successful.
+
+compiling RobotTeleopInit.cpp successful.
+
+compiling RobotTeleopPeriodic.cpp successful.
+
+<<<<<<< HEAD
+Finished compileFrcUserProgramDebugExecutableFrcUserProgramCpp, see full log file:///C:/Users/Robotics%206/Desktop/FRC2019/build/tmp/compileFrcUserProgramDebugExecutableFrcUserProgramCpp/output.txt.
+=======
+compiling Robot.cpp successful.
+
 compiling RobotVision.cpp successful.
 
-Finished compileFrcUserProgramDebugExecutableFrcUserProgramCpp, see full log file:///C:/Users/Robotics%206/Desktop/FRC2019/build/tmp/compileFrcUserProgramDebugExecutableFrcUserProgramCpp/output.txt.
+compiling PowerTrain.cpp successful.
+
+Finished compileFrcUserProgramDebugExecutableFrcUserProgramCpp, see full log file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramDebugExecutableFrcUserProgramCpp/output.txt.
+>>>>>>> 23731a1799086f92069e8a959859ba24b98818ed

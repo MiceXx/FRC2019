@@ -8,19 +8,23 @@
 #include <frc/PWMVictorSPX.h>
 #include <frc/Joystick.h>
 #include <frc/ADXRS450_Gyro.h>
-#include "Manipulator.hpp"
 #include <frc/buttons/JoystickButton.h>
+#include <frc/Timer.h>
 #include <networktables/NetworkTable.h>
 #include <networktables/NetworkTableEntry.h>
 #include <networktables/NetworkTableInstance.h>
 
 #include "OperatorInterface.hpp"
 #include "PowerTrain.hpp"
+#include "Manipulator.hpp"
 
-namespace frc {
-  namespace lcchs{
+namespace frc
+{
+namespace lcchs
+{
 
-  class Robot : public frc::TimedRobot {
+class Robot : public frc::TimedRobot
+{
   public:
     void RobotInit() override;
     void RobotPeriodic() override;
@@ -28,40 +32,53 @@ namespace frc {
     void AutonomousPeriodic() override;
     void TeleopInit() override;
     void TeleopPeriodic() override;
-    // void TestPeriodic() override;
+    void TestPeriodic() override;
     void setRobotScaling();
-    void gyroResetPos();
 
   protected:
     void operateLift();
 
   private:
+    void gyroResetPos();
+    void alignRobot();
+    void changeCam();
+
+    double lastButtonpress = 0;
+
     frc::SendableChooser<std::string> m_chooser;
     const std::string kAutoNameDefault = "Default";
     const std::string kAutoNameCustom = "My Auto";
     std::string m_autoSelected;
 
     frc::PWMVictorSPX m_left{0};
-    
-    frc::Joystick* jStick = new Joystick(0);
+
     static constexpr int kJoystickChannelone = 0;
 
+    static constexpr int kJoystickChanneltwo = 1;
 
     static constexpr frc::SPI::Port GyroChannel = frc::SPI::kOnboardCS0;
 
-    frc::lcchs::PowerTrain powerTrain; 
+    /*
+    static constexpr int kFrontLeftChannel = 1;
+    static constexpr int kFrontRightChannel = 2;
+    static constexpr int kRearLeftChannel = 3;
+    static constexpr int kRearRightChannel = 4;
+*/
+
+    //frc::lcchs::PowerTrain powerTrain;
 
     frc::lcchs::Manipulator manipulator;
 
-    frc::Joystick m_stick{kJoystickChannelone};
-    
+    frc::Joystick *jStick = new Joystick(kJoystickChannelone);
+    frc::Joystick *jStick2 = new Joystick(kJoystickChanneltwo);
     frc::ADXRS450_Gyro gyro{GyroChannel};
-    
+
     //joystick buttons
-    JoystickButton*  button1 = new JoystickButton(jStick, 1);
-    JoystickButton*  button2 = new JoystickButton(jStick, 2);
-    JoystickButton*  button3 = new JoystickButton(jStick, 3);
-    JoystickButton*  button4 = new JoystickButton(jStick, 4);
+    JoystickButton *button1 = new JoystickButton(jStick, 1);
+    JoystickButton *button2 = new JoystickButton(jStick, 2);
+    JoystickButton *button3 = new JoystickButton(jStick, 3);
+    JoystickButton *button4 = new JoystickButton(jStick, 4);
+    JoystickButton *button7 = new JoystickButton(jStick, 7);
 
     nt::NetworkTableEntry xEntry;
     nt::NetworkTableEntry yEntry;
@@ -79,8 +96,9 @@ namespace frc {
     //Motor output scaling in percent(0-1)
     double liftOutput;
     double driveOutput;
+    
+    PowerTrain powerTrain;
+};
 
-  };
-
-  }   // namespacelcchs
-}  // namespacefrc
+} // namespace lcchs
+} // namespace frc
