@@ -15,9 +15,18 @@ class Manipulator
 
   void setScaling( double scaling );
   
+  void initializeManipulator();
 
   // 
   //bool bottomLift();
+
+  int getPosition();
+
+  int getVelocity();
+
+  void resetEncoder();
+  
+  void setPosition(int destination);
 
   private: 
 
@@ -26,6 +35,9 @@ class Manipulator
   static constexpr int kLiftMotorChannel = 5;
 
   WPI_TalonSRX m_liftmotor{kLiftMotorChannel};
+
+  
+
 
 };
 

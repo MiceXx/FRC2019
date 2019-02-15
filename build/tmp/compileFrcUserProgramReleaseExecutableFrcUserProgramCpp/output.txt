@@ -1,12 +1,43 @@
+<<<<<<< HEAD
 See file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramReleaseExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramReleaseExecutableFrcUserProgramCpp.
 compiling RobotFunctions.cpp failed.
 C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot\RobotFunctions.cpp: In member function 'void frc::lcchs::Robot::alignRobot()':
 C:\Users\DriveTeam\Desktop\frc2019\src\main\cpp\Robot\RobotFunctions.cpp:43:51: error: expected ';' before 'ta0'
      std::cout << "ta0 is recognized" << std::endl ta0 << std::endl;
                                                    ^~~
+=======
+See file:///C:/Users/Robotics%206/Desktop/FRC2019/build/tmp/compileFrcUserProgramReleaseExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramReleaseExecutableFrcUserProgramCpp.
+compiling OperatorInterface.cpp successful.
+
+compiling Manipulator.cpp successful.
+
+compiling PowerTrain.cpp successful.
+
+compiling Robot.cpp successful.
+>>>>>>> c16477989f8bc088508ec538f762f5c2aec3b21b
 
 compiling GripPipeline.cpp successful.
 
+compiling main.cpp successful.
+
 compiling RobotVision.cpp successful.
 
-Finished compileFrcUserProgramReleaseExecutableFrcUserProgramCpp, see full log file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramReleaseExecutableFrcUserProgramCpp/output.txt.
+compiling RobotAutonomousInit.cpp successful.
+
+compiling RobotAutonomousPeriodic.cpp successful.
+
+compiling RobotTeleopInit.cpp successful.
+
+compiling RobotPeriodic.cpp successful.
+
+compiling RobotFunctions.cpp successful.
+
+compiling RobotElevator.cpp successful.
+
+compiling Robot.cpp successful.
+
+compiling RobotTeleopPeriodic.cpp successful.
+
+compiling RobotInit.cpp successful.
+
+Finished compileFrcUserProgramReleaseExecutableFrcUserProgramCpp, see full log file:///C:/Users/Robotics%206/Desktop/FRC2019/build/tmp/compileFrcUserProgramReleaseExecutableFrcUserProgramCpp/output.txt.
