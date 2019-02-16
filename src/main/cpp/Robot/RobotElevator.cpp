@@ -8,8 +8,8 @@ namespace lcchs{
     int currentPov=driveStation.getPov();
     
     //lift Ops
-    liftPosition=manipulator.getPosition();
-    liftVelocity=manipulator.getVelocity();
+    liftPosition=elevator.getPosition();
+    liftVelocity=elevator.getVelocity();
     liftCommand=driveStation.getLeftHandY();
     liftReset=driveStation.getYButton();
     
@@ -29,17 +29,17 @@ namespace lcchs{
 
     if (liftReset)
     {
-        manipulator.resetEncoder();
-        liftDestination = manipulator.getPosition();
+        elevator.resetEncoder();
+        liftDestination = elevator.getPosition();
     }
     else if (abs(liftCommand)>0.05)
     {
-        manipulator.moveLift(liftCommand);
+        elevator.moveLift(liftCommand);
         liftDestination=liftPosition;
     }
     else
     {
-     manipulator.setPosition(liftDestination);
+        elevator.setPosition(liftDestination);
     }
 
                  

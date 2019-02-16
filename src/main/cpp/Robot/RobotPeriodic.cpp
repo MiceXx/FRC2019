@@ -59,7 +59,7 @@ void Robot::RobotPeriodic()
             driveOutput=1/(scaling+1);
             liftOutput=1/(scaling+1);
             powerTrain.setScaling( driveOutput );
-            manipulator.setScaling( liftOutput );
+            elevator.setScaling( liftOutput );
 }
 
 } // namespace lcchs

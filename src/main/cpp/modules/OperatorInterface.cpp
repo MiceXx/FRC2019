@@ -67,6 +67,12 @@ double OperatorInterface::getLeftHandY()
 
 }
 
+double OperatorInterface::getRightHandY()
+{
+  return gamePad.GetY(XboxController::kRightHand);
+
+}
+
 bool OperatorInterface::getYButton()
 {
   return gamePad.GetYButton();
@@ -92,6 +98,16 @@ int OperatorInterface::getPov()
   return gamePad.GetPOV();
 }
 
+bool OperatorInterface::getRightBumper()
+{
+  return gamePad.GetBumper(XboxController::kRightHand);
+}
+
+bool OperatorInterface::getLeftBumper()
+{
+  return gamePad.GetBumper(XboxController::kLeftHand);
+}
+//bumpers
 
 
 

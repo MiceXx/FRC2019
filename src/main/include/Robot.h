@@ -16,7 +16,9 @@
 
 #include "OperatorInterface.hpp"
 #include "PowerTrain.hpp"
-#include "Manipulator.hpp"
+#include "Elevator.hpp"
+#include "Brush.hpp"
+#include "Hinges.hpp"
 
 namespace frc
 {
@@ -37,7 +39,8 @@ class Robot : public frc::TimedRobot
 
   protected:
     void operateLift();
-
+    void operateBrush();
+    void operateHinges();
   private:
     void gyroResetPos();
     void alignRobot();
@@ -67,7 +70,7 @@ class Robot : public frc::TimedRobot
 
     //frc::lcchs::PowerTrain powerTrain;
 
-    frc::lcchs::Manipulator manipulator;
+    frc::lcchs::Elevator elevator;
 
     frc::Joystick *jStick = new Joystick(kJoystickChannelone);
     frc::Joystick *jStick2 = new Joystick(kJoystickChanneltwo);
@@ -98,6 +101,14 @@ class Robot : public frc::TimedRobot
     double driveOutput;
     
     PowerTrain powerTrain;
+
+
+    //Brushes
+   Brush grapple;
+   
+   //Hinges 
+   Hinges wrist;
+  
 };
 
 } // namespace lcchs

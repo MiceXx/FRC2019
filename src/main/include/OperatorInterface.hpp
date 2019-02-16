@@ -31,6 +31,8 @@ class OperatorInterface
 
   double getLeftHandY();
   
+  double getRightHandY();
+
   bool getAButton(); 
 
   bool getBButton();
@@ -39,9 +41,13 @@ class OperatorInterface
   
   bool getYButton();
 
+  bool getRightBumper();
+
+  bool getLeftBumper();
 
   int getPov();
   
+
   private:
 
     static constexpr int ControllerChannel = 1;

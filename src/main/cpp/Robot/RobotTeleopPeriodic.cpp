@@ -48,6 +48,10 @@ void Robot::TeleopPeriodic()
 
             //Lift
             operateLift();
+            //hinge
+            operateHinges();
+            //toothbrush
+            operateBrush();
 }
 } // namespace lcchs
 } // namespace frc

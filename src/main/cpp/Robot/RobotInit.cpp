@@ -15,7 +15,7 @@ namespace frc {
             
             powerTrain.initalizePowerTrain();
 
-            liftDestination=manipulator.getPosition();
+            liftDestination=elevator.getPosition();
         }
     }   // namespacelcchs
 }  // namespacefrc
