@@ -31,8 +31,6 @@ void Robot::TeleopPeriodic()
         gyro.Reset();
     }
 
-    //start mechanum stuff
-
     //if (abs(jStick->GetZ()) > 0.1) {gyro.Reset();}
 
     else if (button2->Get())
@@ -46,8 +44,11 @@ void Robot::TeleopPeriodic()
         powerTrain.driveRobot(jStick->GetX(), jStick->GetY(), jStick->GetZ());
     }
 
-            //Lift
-            operateLift();
+    //Lift
+    operateLift();
+
+    //roller
+    activateRoller();
 }
 } // namespace lcchs
 } // namespace frc

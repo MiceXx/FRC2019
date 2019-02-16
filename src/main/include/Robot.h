@@ -17,6 +17,7 @@
 #include "OperatorInterface.hpp"
 #include "PowerTrain.hpp"
 #include "Manipulator.hpp"
+#include "Roller.hpp"
 
 namespace frc
 {
@@ -25,78 +26,85 @@ namespace lcchs
 
 class Robot : public frc::TimedRobot
 {
-  public:
-    void RobotInit() override;
-    void RobotPeriodic() override;
-    void AutonomousInit() override;
-    void AutonomousPeriodic() override;
-    void TeleopInit() override;
-    void TeleopPeriodic() override;
-    void TestPeriodic() override;
-    void setRobotScaling();
+public:
+  void RobotInit() override;
+  void RobotPeriodic() override;
+  void AutonomousInit() override;
+  void AutonomousPeriodic() override;
+  void TeleopInit() override;
+  void TeleopPeriodic() override;
+  void TestPeriodic() override;
+  void setRobotScaling();
 
-  protected:
-    void operateLift();
+protected:
+  void operateLift();
+  void activateRoller();
 
-  private:
-    void gyroResetPos();
-    void alignRobot();
-    void changeCam();
+private:
+  void gyroResetPos();
+  void alignRobot();
+  void changeCam();
 
-    double lastButtonpress = 0;
+  double lastButtonpress = 0;
 
-    frc::SendableChooser<std::string> m_chooser;
-    const std::string kAutoNameDefault = "Default";
-    const std::string kAutoNameCustom = "My Auto";
-    std::string m_autoSelected;
+  frc::SendableChooser<std::string> m_chooser;
+  const std::string kAutoNameDefault = "Default";
+  const std::string kAutoNameCustom = "My Auto";
+  std::string m_autoSelected;
 
-    frc::PWMVictorSPX m_left{0};
+  frc::PWMVictorSPX m_left{0};
 
-    static constexpr int kJoystickChannelone = 0;
+  static constexpr int kJoystickChannelone = 0;
 
-    static constexpr int kJoystickChanneltwo = 1;
+  static constexpr int kJoystickChanneltwo = 1;
 
-    static constexpr frc::SPI::Port GyroChannel = frc::SPI::kOnboardCS0;
+  static constexpr frc::SPI::Port GyroChannel = frc::SPI::kOnboardCS0;
 
-    /*
+  /*
     static constexpr int kFrontLeftChannel = 1;
     static constexpr int kFrontRightChannel = 2;
     static constexpr int kRearLeftChannel = 3;
     static constexpr int kRearRightChannel = 4;
 */
 
-    //frc::lcchs::PowerTrain powerTrain;
+  //frc::lcchs::PowerTrain powerTrain;
 
-    frc::lcchs::Manipulator manipulator;
+  frc::lcchs::Manipulator manipulator;
 
-    frc::Joystick *jStick = new Joystick(kJoystickChannelone);
-    frc::ADXRS450_Gyro gyro{GyroChannel};
+  frc::Joystick *jStick = new Joystick(kJoystickChannelone);
+  frc::ADXRS450_Gyro gyro{GyroChannel};
 
-    //joystick buttons
-    JoystickButton *button1 = new JoystickButton(jStick, 1);
-    JoystickButton *button2 = new JoystickButton(jStick, 2);
-    JoystickButton *button3 = new JoystickButton(jStick, 3);
-    JoystickButton *button4 = new JoystickButton(jStick, 4);
-    JoystickButton *button7 = new JoystickButton(jStick, 7);
+  //joystick buttons
+  JoystickButton *button1 = new JoystickButton(jStick, 1);
+  JoystickButton *button2 = new JoystickButton(jStick, 2);
+  JoystickButton *button3 = new JoystickButton(jStick, 3);
+  JoystickButton *button4 = new JoystickButton(jStick, 4);
+  JoystickButton *button7 = new JoystickButton(jStick, 7);
 
-    nt::NetworkTableEntry xEntry;
-    nt::NetworkTableEntry yEntry;
-    nt::NetworkTableInstance networkTableInstance = nt::NetworkTableInstance::GetDefault();
+  nt::NetworkTableEntry xEntry;
+  nt::NetworkTableEntry yEntry;
+  nt::NetworkTableInstance networkTableInstance = nt::NetworkTableInstance::GetDefault();
 
-    frc::lcchs::OperatorInterface driveStation;
+  frc::lcchs::OperatorInterface driveStation;
 
-    int liftPosition;
-    int liftVelocity;
-    double liftCommand;
-    bool liftReset;
-    int gamePadPOV;
-    int liftDestination;
+  // lift
+  int liftPosition;
+  int liftVelocity;
+  double liftCommand;
+  bool liftReset;
+  int gamePadPOV;
+  int liftDestination;
 
-    //Motor output scaling in percent(0-1)
-    double liftOutput;
-    double driveOutput;
-    
-    PowerTrain powerTrain;
+  //Roller
+  double captureCommand;
+  double shootCommand;
+  frc::lcchs::Roller roller;
+
+  //Motor output scaling in percent(0-1)
+  double liftOutput;
+  double driveOutput;
+
+  PowerTrain powerTrain;
 };
 
 } // namespace lcchs
