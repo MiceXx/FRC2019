@@ -33,7 +33,7 @@ void Robot::RobotPeriodic()
     std::string GyroAngle = std::to_string(gyro.GetAngle());
     frc::SmartDashboard::PutString("DB/String 3", GyroAngle);
 
-    if (button7->Get())
+    if (button14->Get())
     {
         double now = Timer().GetFPGATimestamp();
         double debounceTime = 1;
@@ -44,20 +44,22 @@ void Robot::RobotPeriodic()
         }
     }
 
-    //Set Scaling   
-            double scaling=driveStation.getSlider(0);
-         
-            if(scaling<0.){
-             scaling=0.;
-             }
-             else if (scaling>5.){
-            scaling=5.;
-            }
+    //Set Scaling
+    double scaling = driveStation.getSlider(0);
 
-            driveOutput=1/(scaling+1);
-            liftOutput=1/(scaling+1);
-            powerTrain.setScaling( driveOutput );
-            manipulator.setScaling( liftOutput );
+    if (scaling < 0.)
+    {
+        scaling = 0.;
+    }
+    else if (scaling > 5.)
+    {
+        scaling = 5.;
+    }
+
+    driveOutput = 1 / (scaling + 1);
+    liftOutput = 1 / (scaling + 1);
+    powerTrain.setScaling(driveOutput);
+    manipulator.setScaling(liftOutput);
 }
 
 } // namespace lcchs

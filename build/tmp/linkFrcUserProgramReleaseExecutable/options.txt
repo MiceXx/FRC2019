@@ -5,11 +5,12 @@ C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\fr
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\2qwfizm1dbzjgxchgj1ltl2h5\\RobotAutonomousPeriodic.o
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\2vzwm1huua54nv6wfcupor1s7\\RobotElevator.o
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\3bg5a77l7vd4edmrxq5jco6ri\\Robot.o
-C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\3mgkkwpv1aa6p9ibqef1sk5y4\\RobotFunctions.o
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\4gp9vrxj7dzh4ka0gvroker9i\\RobotVision.o
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\5fg5hwbjioquu22fzbfbmnbj2\\RobotAutonomousInit.o
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\6z7xgf8kaa3xw4nrcgjur2itc\\RobotTeleopInit.o
+C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\713lq5hbbgi8mzf61gs8apq8h\\RocketAngles.o
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\8xbj13z9olykyaz0sbhsj6s4u\\Manipulator.o
+C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\agc27hc7menemcd3d6aaf4wrv\\RobotTracking.o
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\b5x1p1a35mxddo3ztdnz9fuk3\\OperatorInterface.o
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\biznmyfp3z431mmtf5jlwqjsh\\main.o
 C:\\Users\\DriveTeam\\Desktop\\frc2019\\build\\objs\\frcUserProgram\\release\\frcUserProgramCpp\\c1c6o7aunhlq99wkwedn6at7s\\RobotPeriodic.o

@@ -18,6 +18,20 @@ void Robot::TeleopPeriodic()
     x += 0.05;
     y += 1.0;
 
+    //Reset gyro after passing 360 or -360
+    double gyroAngle = gyro.GetAngle();
+
+    if (gyroAngle < -360)
+    {
+        gyro.Reset();
+        //std::cout << "the gyro was reset after -360" << std::endl;
+    }
+    else if (gyroAngle > 360)
+    {
+        gyro.Reset();
+        //std::cout << "the gyro was reset after 360" << std::endl;
+    }
+
     //autonomous teleop
 
     if (button1->Get())
@@ -33,6 +47,33 @@ void Robot::TeleopPeriodic()
 
     //if (abs(jStick->GetZ()) > 0.1) {gyro.Reset();}
 
+    //FOR ROCKET ANGLES
+    if (button5->Get())
+    {
+        rotateToAngle45();
+    }
+    else if (button6->Get())
+    {
+        rotateToAngle90();
+    }
+    else if (button7->Get())
+    {
+        rotateToAngle135();
+    }
+    else if (button8->Get())
+    {
+        rotateToAngleNeg135();
+    }
+    else if (button9->Get())
+    {
+        rotateToAngleNeg90();
+    }
+    else if (button10->Get())
+    {
+        rotateToAngleNeg45();
+    }
+    //
+    //align robot w/ tracking
     else if (button2->Get())
     {
         alignRobot();

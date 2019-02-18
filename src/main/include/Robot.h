@@ -44,6 +44,13 @@ private:
   void gyroResetPos();
   void alignRobot();
   void changeCam();
+  //ROCKET ANGLE
+  void rotateToAngle45();
+  void rotateToAngle90();
+  void rotateToAngle135();
+  void rotateToAngleNeg45();
+  void rotateToAngleNeg90();
+  void rotateToAngleNeg135();
 
   double lastButtonpress = 0;
 
@@ -79,7 +86,14 @@ private:
   JoystickButton *button2 = new JoystickButton(jStick, 2);
   JoystickButton *button3 = new JoystickButton(jStick, 3);
   JoystickButton *button4 = new JoystickButton(jStick, 4);
+  JoystickButton *button5 = new JoystickButton(jStick, 5);
+  JoystickButton *button6 = new JoystickButton(jStick, 6);
   JoystickButton *button7 = new JoystickButton(jStick, 7);
+  JoystickButton *button8 = new JoystickButton(jStick, 8);
+  JoystickButton *button9 = new JoystickButton(jStick, 9);
+  JoystickButton *button10 = new JoystickButton(jStick, 10);
+
+  JoystickButton *button14 = new JoystickButton(jStick, 14);
 
   nt::NetworkTableEntry xEntry;
   nt::NetworkTableEntry yEntry;
@@ -94,6 +108,11 @@ private:
   bool liftReset;
   int gamePadPOV;
   int liftDestination;
+  int ballOpenings[4] = {0, -50000, -100000, -150000};
+  int hatchOpenings[4] = {0, -30000, -60000, -120000};
+  int liftLevel;
+  bool selectBall;
+  bool selectHatch;
 
   //Roller
   double captureCommand;

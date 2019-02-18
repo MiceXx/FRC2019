@@ -11,7 +11,7 @@ void Robot::activateRoller()
     captureCommand = driveStation.getLeftTrigger();
     shootCommand = driveStation.getRightTrigger();
 
-    std::cout << "the trigger was pressed" << shootCommand << std::endl;
+    //std::cout << "the trigger was pressed" << shootCommand << std::endl;
 
     if (shootCommand > 0.5)
     {
