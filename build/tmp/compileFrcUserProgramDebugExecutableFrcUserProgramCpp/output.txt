@@ -5,4 +5,6 @@ compiling GripPipeline.cpp successful.
 
 compiling RobotVision.cpp successful.
 
+compiling RobotTeleopPeriodic.cpp successful.
+
 Finished compileFrcUserProgramDebugExecutableFrcUserProgramCpp, see full log file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramDebugExecutableFrcUserProgramCpp/output.txt.

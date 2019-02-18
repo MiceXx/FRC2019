@@ -15,25 +15,38 @@ void Robot::operateLift()
     liftCommand = driveStation.getLeftHandY();
     liftReset = driveStation.getYButton();
 
-    if (gamePadPOV != 0 && currentPov == 0)
+    // if (gyroAngle > -135 +tolerance || 45 )
+    // {
+
+    // }
+    // else
+
+    // Hatch Openings
+    if (gamePadPOV != 90 && currentPov == 90)
     {
-        if (liftLevel < 3)
-        {
-            liftLevel++;
-        }
+        selectHatch = true;
+        selectBall = false;
     }
 
-    if (gamePadPOV != 180 && currentPov == 180)
+    if (gamePadPOV != -90 && currentPov == -90)
     {
-        if (liftLevel > 0)
-        {
-            liftLevel--;
-        }
+        selectBall = true;
+        selectHatch = false;
     }
+    //
 
     gamePadPOV = currentPov;
 
-    liftDestination = ballOpenings[liftLevel];
+    if (selectHatch)
+    {
+        liftDestination = hatchOpenings[liftLevel];
+    }
+    else
+    {
+        liftDestination = ballOpenings[liftLevel];
+    }
+
+    
 
     if (liftReset)
     {

@@ -62,7 +62,7 @@ void Robot::TeleopPeriodic()
     }
     else if (button8->Get())
     {
-        rotateToAngleNeg135();
+        rotateToAngleNeg45();
     }
     else if (button9->Get())
     {
@@ -70,7 +70,7 @@ void Robot::TeleopPeriodic()
     }
     else if (button10->Get())
     {
-        rotateToAngleNeg45();
+        rotateToAngleNeg135();
     }
     //
     //align robot w/ tracking
