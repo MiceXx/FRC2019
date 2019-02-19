@@ -16,6 +16,9 @@
 
 #include "OperatorInterface.hpp"
 #include "PowerTrain.hpp"
+#include "Elevator.hpp"
+#include "Brush.hpp"
+#include "Hinges.hpp"
 #include "Manipulator.hpp"
 #include "Roller.hpp"
 
@@ -39,6 +42,8 @@ public:
 protected:
   void operateLift();
   void activateRoller();
+  void operateBrush();
+  void operateHinges();
 
 private:
   void gyroResetPos();
@@ -76,9 +81,12 @@ private:
 
   //frc::lcchs::PowerTrain powerTrain;
 
+  frc::lcchs::Elevator elevator;
+
   frc::lcchs::Manipulator manipulator;
 
   frc::Joystick *jStick = new Joystick(kJoystickChannelone);
+  //frc::Joystick *jStick2 = new Joystick(kJoystickChanneltwo);
   frc::ADXRS450_Gyro gyro{GyroChannel};
 
   //joystick buttons
@@ -123,6 +131,19 @@ private:
   double driveOutput;
 
   PowerTrain powerTrain;
+  
+  //Brushes
+  Brush grapple;
+   
+  //Hinges 
+  Hinges wrist;
+
+  // Debug display options
+  // Default to power train debug if nothing is selected
+  bool liftDebug;
+  bool rollerDebug;
+  bool hingeDebug;
+  bool grappleDebug;
 };
 
 } // namespace lcchs

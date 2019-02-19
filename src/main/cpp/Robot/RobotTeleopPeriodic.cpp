@@ -87,6 +87,10 @@ void Robot::TeleopPeriodic()
 
     //Lift
     operateLift();
+    //hinge
+    operateHinges();
+    //toothbrush
+    operateBrush();
 
     //roller
     activateRoller();

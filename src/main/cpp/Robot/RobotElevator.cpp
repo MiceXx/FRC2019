@@ -63,8 +63,8 @@ void Robot::operateLift()
 
     if (liftReset)
     {
-        manipulator.resetEncoder();
-        liftDestination = manipulator.getPosition();
+        elevator.resetEncoder();
+        liftDestination = elevator.getPosition();
     }
     else if (abs(liftCommand) > 0.05)
     {

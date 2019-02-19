@@ -29,6 +29,10 @@ public:
   // controller functions
 
   double getLeftHandY();
+  
+  double getRightHandY();
+
+  bool getAButton(); 
 
   bool getAButton();
 
@@ -38,6 +42,17 @@ public:
 
   bool getYButton();
 
+  bool getRightBumper();
+
+  bool getLeftBumper();
+
+  int getPov();
+  
+
+  private:
+
+    static constexpr int ControllerChannel = 1;
+    frc::XboxController gamePad{ControllerChannel};
   double getLeftTrigger();
   double getRightTrigger();
 

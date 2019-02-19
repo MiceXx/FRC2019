@@ -36,27 +36,27 @@ std::string OperatorInterface::getString(int stringId, std::string preset)
 //Button IO
 void OperatorInterface::setButton(int ButtonId, bool value)
 {
-  std::string prefix = "DB/Button ";
-  SmartDashboard::PutNumber(prefix + std::to_string(ButtonId), value);
+  std::string prefix= "DB/Button ";
+  SmartDashboard::PutBoolean(prefix +std::to_string(ButtonId) , value);
 }
 
 bool OperatorInterface::getButton(int ButtonId, bool preset)
 {
-  std::string prefix = "DB/Button ";
-  return SmartDashboard::GetNumber(prefix + std::to_string(ButtonId), preset);
+  std::string prefix= "DB/Button ";
+  return SmartDashboard::GetBoolean(prefix +std::to_string(ButtonId) , preset);
 }
 
 //LED IO
 void OperatorInterface::setLed(int LedId, bool value)
 {
-  std::string prefix = "DB/LED ";
-  SmartDashboard::PutNumber(prefix + std::to_string(LedId), value);
+  std::string prefix= "DB/LED ";
+  SmartDashboard::PutBoolean(prefix +std::to_string(LedId) , value);
 }
 
 bool OperatorInterface::getLed(int LedId, bool preset)
 {
-  std::string prefix = "DB/LED ";
-  return SmartDashboard::GetNumber(prefix + std::to_string(LedId), preset);
+  std::string prefix= "DB/LED ";
+  return SmartDashboard::GetBoolean(prefix +std::to_string(LedId) , preset);
 }
 
 //gamepad IO
@@ -64,6 +64,12 @@ bool OperatorInterface::getLed(int LedId, bool preset)
 double OperatorInterface::getLeftHandY()
 {
   return gamePad.GetY(XboxController::kLeftHand);
+}
+
+double OperatorInterface::getRightHandY()
+{
+  return gamePad.GetY(XboxController::kRightHand);
+
 }
 
 bool OperatorInterface::getYButton()
@@ -91,6 +97,16 @@ int OperatorInterface::getPov()
   return gamePad.GetPOV();
 }
 
+bool OperatorInterface::getRightBumper()
+{
+  return gamePad.GetBumper(XboxController::kRightHand);
+}
+
+bool OperatorInterface::getLeftBumper()
+{
+  return gamePad.GetBumper(XboxController::kLeftHand);
+}
+//bumpers
 double OperatorInterface::getLeftTrigger()
 {
   return gamePad.GetTriggerAxis(XboxController::kLeftHand);
