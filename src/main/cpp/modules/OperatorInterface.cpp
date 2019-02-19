@@ -2,34 +2,35 @@
 
 #include "OperatorInterface.hpp"
 
-
-namespace  frc{
-namespace  lcchs{
+namespace frc
+{
+namespace lcchs
+{
 
 //Slider IO
 void OperatorInterface::setSlider(int sliderId, double value)
 {
-  std::string prefix= "DB/Slider ";
-  SmartDashboard::PutNumber(prefix +std::to_string(sliderId) , value);
+  std::string prefix = "DB/Slider ";
+  SmartDashboard::PutNumber(prefix + std::to_string(sliderId), value);
 }
 
 double OperatorInterface::getSlider(int sliderId, double preset)
 {
-  std::string prefix= "DB/Slider ";
-  return SmartDashboard::GetNumber(prefix +std::to_string(sliderId) , preset);
+  std::string prefix = "DB/Slider ";
+  return SmartDashboard::GetNumber(prefix + std::to_string(sliderId), preset);
 }
 
 //String IO
 void OperatorInterface::setString(int stringId, std::string value)
 {
-  std::string prefix= "DB/String ";
-  SmartDashboard::PutString(prefix +std::to_string(stringId) , value);
+  std::string prefix = "DB/String ";
+  SmartDashboard::PutString(prefix + std::to_string(stringId), value);
 }
 
 std::string OperatorInterface::getString(int stringId, std::string preset)
 {
-  std::string prefix= "DB/String ";
-  return SmartDashboard::GetString(prefix +std::to_string(stringId) , preset);
+  std::string prefix = "DB/String ";
+  return SmartDashboard::GetString(prefix + std::to_string(stringId), preset);
 }
 
 //Button IO
@@ -44,7 +45,6 @@ bool OperatorInterface::getButton(int ButtonId, bool preset)
   std::string prefix= "DB/Button ";
   return SmartDashboard::GetBoolean(prefix +std::to_string(ButtonId) , preset);
 }
-
 
 //LED IO
 void OperatorInterface::setLed(int LedId, bool value)
@@ -64,7 +64,6 @@ bool OperatorInterface::getLed(int LedId, bool preset)
 double OperatorInterface::getLeftHandY()
 {
   return gamePad.GetY(XboxController::kLeftHand);
-
 }
 
 double OperatorInterface::getRightHandY()
@@ -108,16 +107,15 @@ bool OperatorInterface::getLeftBumper()
   return gamePad.GetBumper(XboxController::kLeftHand);
 }
 //bumpers
+double OperatorInterface::getLeftTrigger()
+{
+  return gamePad.GetTriggerAxis(XboxController::kLeftHand);
+}
 
+double OperatorInterface::getRightTrigger()
+{
+  return gamePad.GetTriggerAxis(XboxController::kRightHand);
+}
 
-
-
-
-
-
-
-
-
-
-}  // namespace lcchs
+} // namespace lcchs
 } // namespace frc

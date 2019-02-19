@@ -1,8 +1,9 @@
 #include "Elevator.hpp"
 
-namespace frc {
-namespace lcchs {
-
+namespace frc
+{
+namespace lcchs
+{
 
 void Elevator::moveLift( double speed ){
   m_liftmotor.Set(speed*scalingFactor);
@@ -41,8 +42,17 @@ void Elevator::resetEncoder()
 
 void Elevator::setPosition(int destination)
 {
-  m_liftmotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position,destination);
-}  
+  // if (limitSwitch.Get() && destination > m_liftmotor.GetSelectedSensorPosition())
+  // {
+  //   m_liftmotor.StopMotor();
+  // }
+  // else
+  // {
+  //   m_liftmotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position, destination);
+  // }
+  m_liftmotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position, destination);
 
-}  // namespace lcchs
-}  // namespace frc
+} // namespace lcchs
+
+} // namespace lcchs
+} // namespace frc

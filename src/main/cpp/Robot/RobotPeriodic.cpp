@@ -23,6 +23,8 @@ void Robot::RobotPeriodic()
     rollerDebug  = driveStation.getButton( 1 );
     hingeDebug   = driveStation.getButton( 2 );
    
+    frc::SmartDashboard::PutNumber("Joystick X", jStick->GetX());
+    frc::SmartDashboard::PutNumber("Joystick Y", jStick->GetY());
 
     // Drive the PC Dashboard compatible fields.
     if( liftDebug )
@@ -64,7 +66,7 @@ void Robot::RobotPeriodic()
     frc::SmartDashboard::PutNumber("Joystick X Lift", jStick2->GetX());
     frc::SmartDashboard::PutNumber("Joystick Y Lift", jStick2->GetY());
 
-    if (button7->Get())
+    if (button14->Get())
     {
         double now = Timer().GetFPGATimestamp();
         double debounceTime = 1;
@@ -75,20 +77,22 @@ void Robot::RobotPeriodic()
         }
     }
 
-    //Set Scaling   
-            double scaling=driveStation.getSlider(0);
-         
-            if(scaling<0.){
-             scaling=0.;
-             }
-             else if (scaling>5.){
-            scaling=5.;
-            }
+    //Set Scaling
+    double scaling = driveStation.getSlider(0);
 
-            driveOutput=1/(scaling+1);
-            liftOutput=1/(scaling+1);
-            powerTrain.setScaling( driveOutput );
-            elevator.setScaling( liftOutput );
+    if (scaling < 0.)
+    {
+        scaling = 0.;
+    }
+    else if (scaling > 5.)
+    {
+        scaling = 5.;
+    }
+
+    driveOutput = 1 / (scaling + 1);
+    liftOutput = 1 / (scaling + 1);
+    powerTrain.setScaling(driveOutput);
+    manipulator.setScaling(liftOutput);
 }
 
 } // namespace lcchs

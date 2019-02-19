@@ -7,7 +7,6 @@ namespace frc
 {
 namespace lcchs
 {
-
 //gyro reset position
 void Robot::gyroResetPos()
 {
@@ -16,7 +15,7 @@ void Robot::gyroResetPos()
     {
         powerTrain.driveRobot(-0.2, 0.2, -0.2, 0);
     }
-    else if (gyroAngle < -3.5)
+    if (gyroAngle < -3.5)
     {
         powerTrain.driveRobot(0.2, -0.2, 0.2, 0);
     }
@@ -38,10 +37,14 @@ void Robot::alignRobot()
     double ty = limelightTable->GetNumber("ty", 0.0);
     double targetY = 11;
 
+    double ta0 = limelightTable->GetNumber("ta0", 0.0);
+    double ta1 = limelightTable->GetNumber("ta1", 0.0);
+
     double targetAngle = 0;
 
     double tolerance = 2;
     double toleranceArea = 4.5;
+    double toleranceAngle = 0.3;
 
     double alignSpeed = 0.2;
 
@@ -50,11 +53,11 @@ void Robot::alignRobot()
 
     if (gyroAngle > targetAngle + gyroTolerance)
     {
-        gyroRotation = -0.25;
+        gyroRotation = -0;
     }
     else if (gyroAngle < targetAngle - gyroTolerance)
     {
-        gyroRotation = 0.25;
+        gyroRotation = 0;
     }
 
     if (targetArea - ta > 5)
@@ -80,7 +83,7 @@ void Robot::alignRobot()
                 powerTrain.driveRobot(alignSpeed, 0, gyroRotation);
             }
         }
-        else if (tx < targetX - tolerance)
+        if (tx < targetX - tolerance)
         {
             if (ta > targetArea + toleranceArea)
             { //  move back+left
@@ -105,6 +108,19 @@ void Robot::alignRobot()
             { //   move forward
                 powerTrain.driveRobot(0, -alignSpeed, gyroRotation);
             }
+            // //ANGLE ADJUSTMENT( not working properly)
+            //  if (ta1 < ta0 - toleranceAngle)
+            // {
+            //     powerTrain.driveRobot(0, 0, -alignSpeed);
+            //     std::cout << "the robot will turn left" << std::endl;
+            // }
+
+            //  if (ta1 > ta0 + toleranceAngle)
+            // {
+            //     powerTrain.driveRobot(0, 0, alignSpeed);
+            //     std::cout << "the robot will turn right" << std::endl;
+            // }
+            // //
             else
             {
                 powerTrain.driveRobot(0, 0, gyroRotation);
@@ -115,11 +131,11 @@ void Robot::alignRobot()
     {
         powerTrain.driveRobot(0, 0, gyroRotation);
     }
-
+    //don't use this
     // if (gyroAngle > 1 ){
     //     powerTrain.driveRobot( -0.2, 0.2, -0.6, 0);
     // }
-    // else if(gyroAngle < -1 ){
+    //  if(gyroAngle < -1 ){
     //     powerTrain.driveRobot( 0.2, -0.2, 0.5, 0);
     //}
 }
@@ -133,7 +149,7 @@ void Robot::changeCam()
     {
         limelightTable->PutNumber("camMode", 0);
     }
-    else
+
     {
         limelightTable->PutNumber("camMode", 1.0);
     }
