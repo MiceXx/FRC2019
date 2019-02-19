@@ -42,17 +42,15 @@ namespace lcchs{
         elevator.setPosition(liftDestination);
     }
 
-                 
+    driveStation.setString( 5,"Position: " + std::to_string(liftPosition) );
 
-    driveStation.setString( 5,std::to_string(liftPosition) );
+    driveStation.setString( 6,"Velocity" + std::to_string(liftVelocity) );
 
-    driveStation.setString( 6,std::to_string(liftVelocity) );
-
-    driveStation.setString( 7,std::to_string(liftCommand) );
+    driveStation.setString( 7,"Command" + std::to_string(liftCommand) );
 
     driveStation.setString( 8,std::to_string(liftDestination) );
 
-    driveStation.setString( 9,std::to_string(gamePadPOV) );
+    driveStation.setString( 9,std::to_string(gamePadPOV) );                 
 
   }//operateLift()
 

@@ -10,7 +10,8 @@ void Brush::closeBrush()
 }
 void Brush::openBrush()
 {
-    toothbrushes.Set(1);
+    double ninetyDegrees = 90/(toothbrushes.GetMaxAngle()-toothbrushes.GetMinAngle());
+    toothbrushes.Set(ninetyDegrees);
 
 }
 

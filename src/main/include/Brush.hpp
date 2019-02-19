@@ -11,7 +11,7 @@ void closeBrush();
 void openBrush();
 
 private:
-static constexpr int toothbrushesChannel = 6;
+static constexpr int toothbrushesChannel = 0;
 
 frc::Servo toothbrushes{toothbrushesChannel};
 };

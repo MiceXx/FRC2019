@@ -53,8 +53,6 @@ class Robot : public frc::TimedRobot
     const std::string kAutoNameCustom = "My Auto";
     std::string m_autoSelected;
 
-    frc::PWMVictorSPX m_left{0};
-
     static constexpr int kJoystickChannelone = 0;
 
     static constexpr int kJoystickChanneltwo = 1;
@@ -108,6 +106,13 @@ class Robot : public frc::TimedRobot
    
    //Hinges 
    Hinges wrist;
+
+   // Debug display options
+   // Default to power train debug if nothing is selected
+   bool liftDebug;
+   bool rollerDebug;
+   bool hingeDebug;
+   bool grappleDebug;
   
 };
 

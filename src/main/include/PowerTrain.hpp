@@ -33,10 +33,10 @@ public:
 //  static constexpr int kFrontRightChannel = 2;
 //  static constexpr int kRearRightChannel  = 3;
 
-  WPI_TalonSRX m_frontLeft{kFrontLeftChannel};
-  WPI_TalonSRX m_rearLeft{kRearLeftChannel};
-  WPI_TalonSRX m_frontRight{kFrontRightChannel};
-  WPI_TalonSRX m_rearRight{kRearRightChannel};
+  WPI_VictorSPX m_frontLeft{kFrontLeftChannel};
+  WPI_VictorSPX m_rearLeft{kRearLeftChannel};
+  WPI_VictorSPX m_frontRight{kFrontRightChannel};
+  WPI_VictorSPX m_rearRight{kRearRightChannel};
   frc::MecanumDrive m_robotDrive{m_frontLeft, m_rearLeft, m_frontRight,
                                  m_rearRight};
 };

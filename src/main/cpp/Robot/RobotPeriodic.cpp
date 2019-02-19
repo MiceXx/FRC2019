@@ -18,22 +18,51 @@ namespace lcchs
 {
 void Robot::RobotPeriodic()
 {
+    // Get the debug information selection for the PC Dashboard.
+    liftDebug    = driveStation.getButton( 0 );
+    rollerDebug  = driveStation.getButton( 1 );
+    hingeDebug   = driveStation.getButton( 2 );
+   
+
+    // Drive the PC Dashboard compatible fields.
+    if( liftDebug )
+    {
+       driveStation.setButton( 1, false );
+       driveStation.setButton( 2, false );
+
+    }
+    else if( rollerDebug )
+    {
+        driveStation.setButton( 2, false );
+        driveStation.setButton( 0, false );
+    }
+    else if( hingeDebug )
+    {
+        driveStation.setButton( 1, false );
+        driveStation.setButton( 0, false );
+    }
+   
+    else
+    {
+      std::string speedX = std::to_string(jStick->GetX());
+      frc::SmartDashboard::PutString("DB/String 0", speedX);
+
+      std::string speedY = std::to_string(jStick->GetY());
+      frc::SmartDashboard::PutString("DB/String 1", speedY);
+
+      std::string speedZ = std::to_string(jStick->GetZ());
+      frc::SmartDashboard::PutString("DB/String 2", speedZ);
+
+      std::string GyroAngle = std::to_string(gyro.GetAngle());
+      frc::SmartDashboard::PutString("DB/String 3", GyroAngle);
+    }
+
+    driveStation.setString( 4,std::to_string(liftPosition) );
+
     frc::SmartDashboard::PutNumber("Joystick X", jStick->GetX());
     frc::SmartDashboard::PutNumber("Joystick Y", jStick->GetY());
     frc::SmartDashboard::PutNumber("Joystick X Lift", jStick2->GetX());
     frc::SmartDashboard::PutNumber("Joystick Y Lift", jStick2->GetY());
-
-    std::string speedX = std::to_string(jStick->GetX());
-    frc::SmartDashboard::PutString("DB/String 0", speedX);
-
-    std::string speedY = std::to_string(jStick->GetY());
-    frc::SmartDashboard::PutString("DB/String 1", speedY);
-
-    std::string speedZ = std::to_string(jStick->GetZ());
-    frc::SmartDashboard::PutString("DB/String 2", speedZ);
-
-    std::string GyroAngle = std::to_string(gyro.GetAngle());
-    frc::SmartDashboard::PutString("DB/String 3", GyroAngle);
 
     if (button7->Get())
     {

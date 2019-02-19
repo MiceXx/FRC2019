@@ -36,13 +36,13 @@ std::string OperatorInterface::getString(int stringId, std::string preset)
 void OperatorInterface::setButton(int ButtonId, bool value)
 {
   std::string prefix= "DB/Button ";
-  SmartDashboard::PutNumber(prefix +std::to_string(ButtonId) , value);
+  SmartDashboard::PutBoolean(prefix +std::to_string(ButtonId) , value);
 }
 
 bool OperatorInterface::getButton(int ButtonId, bool preset)
 {
   std::string prefix= "DB/Button ";
-  return SmartDashboard::GetNumber(prefix +std::to_string(ButtonId) , preset);
+  return SmartDashboard::GetBoolean(prefix +std::to_string(ButtonId) , preset);
 }
 
 
@@ -50,13 +50,13 @@ bool OperatorInterface::getButton(int ButtonId, bool preset)
 void OperatorInterface::setLed(int LedId, bool value)
 {
   std::string prefix= "DB/LED ";
-  SmartDashboard::PutNumber(prefix +std::to_string(LedId) , value);
+  SmartDashboard::PutBoolean(prefix +std::to_string(LedId) , value);
 }
 
 bool OperatorInterface::getLed(int LedId, bool preset)
 {
   std::string prefix= "DB/LED ";
-  return SmartDashboard::GetNumber(prefix +std::to_string(LedId) , preset);
+  return SmartDashboard::GetBoolean(prefix +std::to_string(LedId) , preset);
 }
 
 //gamepad IO

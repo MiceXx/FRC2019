@@ -34,7 +34,7 @@ int Elevator::getVelocity()
 }
 
 void Elevator::resetEncoder()
-{
+{ 
   m_liftmotor.SetSelectedSensorPosition(0);
   m_liftmotor.StopMotor();
 }
