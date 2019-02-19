@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 
 /**
  * This function is called every robot packet, no matter the mode. Use
@@ -54,7 +55,7 @@ void Robot::RobotPeriodic()
         std::string speedZ = std::to_string(jStick->GetZ());
         frc::SmartDashboard::PutString("DB/String 2", speedZ);
 
-        std::string GyroAngle = std::to_string(gyro.GetAngle());
+        std::string GyroAngle = std::to_string(gyroAngle);
         frc::SmartDashboard::PutString("DB/String 3", GyroAngle);
 
         frc::SmartDashboard::PutString("DB/String 4", std::to_string(liftLevel));
@@ -100,6 +101,8 @@ void Robot::RobotPeriodic()
     liftOutput = 1 / (scaling + 1);
     powerTrain.setScaling(driveOutput);
     elevator.setScaling(liftOutput);
+
+    gyroAngle = gyro.GetAngle() / 0.69106781186;
 }
 
 } // namespace lcchs

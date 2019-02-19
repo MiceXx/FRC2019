@@ -10,7 +10,7 @@ namespace lcchs
 
 void Robot::rotateToAngle45()
 {
-    double gyroAngle = gyro.GetAngle();
+
     double tolerance = 3;
     double rocketAngle = 45;
 
@@ -49,7 +49,6 @@ void Robot::rotateToAngle45()
         if (gyroAngle > rocketAngle + tolerance) //rotate to 45 degrees
         {
             powerTrain.driveRobot(0, 0, -0.4);
-            std::cout << "the robot will rotate to 45 degrees" << std::endl;
         }
         else if (gyroAngle < rocketAngle - tolerance) //rotate to 45 degrees
         {
@@ -64,7 +63,7 @@ void Robot::rotateToAngle45()
 
 void Robot::rotateToAngle90()
 {
-    double gyroAngle = gyro.GetAngle();
+
     double tolerance = 3;
     double rocketAngle = 90;
 
@@ -73,7 +72,6 @@ void Robot::rotateToAngle90()
         if (gyroAngle > rocketAngle + tolerance) //rotate to 45 degrees
         {
             powerTrain.driveRobot(0, 0, -0.4);
-            std::cout << "the rbot will rotate to 45 degrees" << std::endl;
         }
         else if (gyroAngle < rocketAngle - tolerance) //rotate to 45 degrees
         {
@@ -88,7 +86,7 @@ void Robot::rotateToAngle90()
 
 void Robot::rotateToAngle135()
 {
-    double gyroAngle = gyro.GetAngle();
+
     double tolerance = 3;
     double rocketAngle = 135;
 
@@ -97,7 +95,6 @@ void Robot::rotateToAngle135()
         if (gyroAngle > rocketAngle + tolerance) //rotate to 45 degrees
         {
             powerTrain.driveRobot(0, 0, -0.4);
-            std::cout << "the rbot will rotate to 45 degrees" << std::endl;
         }
         else if (gyroAngle < rocketAngle - tolerance) //rotate to 45 degrees
         {
@@ -112,7 +109,7 @@ void Robot::rotateToAngle135()
 
 void Robot::rotateToAngleNeg45()
 {
-    double gyroAngle = gyro.GetAngle();
+
     double tolerance = 3;
     double rocketAngle = -45;
 
@@ -121,7 +118,6 @@ void Robot::rotateToAngleNeg45()
         if (gyroAngle > rocketAngle + tolerance) //rotate to 45 degrees
         {
             powerTrain.driveRobot(0, 0, -0.4);
-            std::cout << "the rbot will rotate to 45 degrees" << std::endl;
         }
         else if (gyroAngle < rocketAngle - tolerance) //rotate to 45 degrees
         {
@@ -136,7 +132,7 @@ void Robot::rotateToAngleNeg45()
 
 void Robot::rotateToAngleNeg90()
 {
-    double gyroAngle = gyro.GetAngle();
+
     double tolerance = 3;
     double rocketAngle = -90;
 
@@ -145,7 +141,6 @@ void Robot::rotateToAngleNeg90()
         if (gyroAngle > rocketAngle + tolerance) //rotate to 45 degrees
         {
             powerTrain.driveRobot(0, 0, -0.4);
-            std::cout << "the rbot will rotate to 45 degrees" << std::endl;
         }
         else if (gyroAngle < rocketAngle - tolerance) //rotate to 45 degrees
         {
@@ -160,7 +155,7 @@ void Robot::rotateToAngleNeg90()
 
 void Robot::rotateToAngleNeg135()
 {
-    double gyroAngle = gyro.GetAngle();
+
     double tolerance = 3;
     double rocketAngle = -135;
 

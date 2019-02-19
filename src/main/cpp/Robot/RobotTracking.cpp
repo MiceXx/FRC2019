@@ -10,7 +10,6 @@ namespace lcchs
 //gyro reset position
 void Robot::gyroResetPos()
 {
-    double gyroAngle = gyro.GetAngle();
     if (gyroAngle > 3.5)
     {
         powerTrain.driveRobot(-0.2, 0.2, -0.2, 0);
@@ -23,30 +22,30 @@ void Robot::gyroResetPos()
 
 void Robot::alignRobot()
 {
-    double gyroAngle = gyro.GetAngle();
     auto limelightTable = networkTableInstance.GetTable("limelight-howl");
 
     bool tv = static_cast<bool>(limelightTable->GetNumber("tv", 0.0));
 
     double ta = limelightTable->GetNumber("ta", 0.0);
-    double targetArea = 22.5;
+    double targetArea = 14.0;
 
     double tx = limelightTable->GetNumber("tx", 0.0);
-    double targetX = 0.9;
+    double targetX = 0.0;
 
     double ty = limelightTable->GetNumber("ty", 0.0);
-    double targetY = 11;
+    double targetY = 11.0;
 
     double ta0 = limelightTable->GetNumber("ta0", 0.0);
     double ta1 = limelightTable->GetNumber("ta1", 0.0);
 
     double targetAngle = 0;
 
-    double tolerance = 2;
-    double toleranceArea = 4.5;
+    double tolerance = 0.8;
+    double toleranceArea = 4;
     double toleranceAngle = 0.3;
 
-    double alignSpeed = 0.2;
+    double alignSpeedY = 0.35;
+    double alignSpeedX = 0.45;
 
     double gyroRotation = 0;
     double gyroTolerance = 1.5;
@@ -62,7 +61,7 @@ void Robot::alignRobot()
 
     if (targetArea - ta > 5)
     {
-        alignSpeed = 0.35;
+        alignSpeedY = 0.25;
     }
 
     if (tv)
@@ -72,41 +71,41 @@ void Robot::alignRobot()
         {
             if (ta > targetArea + toleranceArea)
             { //  move back and right
-                powerTrain.driveRobot(alignSpeed, alignSpeed, gyroRotation);
+                powerTrain.driveRobot(alignSpeedX, alignSpeedY, gyroRotation);
             }
             else if (ta < targetArea - toleranceArea)
             { //    move forward and right
-                powerTrain.driveRobot(alignSpeed, -alignSpeed, gyroRotation);
+                powerTrain.driveRobot(alignSpeedX, -alignSpeedY, gyroRotation);
             }
             else
             { // move right
-                powerTrain.driveRobot(alignSpeed, 0, gyroRotation);
+                powerTrain.driveRobot(alignSpeedX, 0, gyroRotation);
             }
         }
-        if (tx < targetX - tolerance)
+        else if (tx < targetX - tolerance)
         {
             if (ta > targetArea + toleranceArea)
             { //  move back+left
-                powerTrain.driveRobot(-alignSpeed, alignSpeed, gyroRotation);
+                powerTrain.driveRobot(-alignSpeedX, alignSpeedY, gyroRotation);
             }
             else if (ta < targetArea - toleranceArea)
             { // move forward+left
-                powerTrain.driveRobot(-alignSpeed, -alignSpeed, gyroRotation);
+                powerTrain.driveRobot(-alignSpeedX, -alignSpeedY, gyroRotation);
             }
             else
             { //  move left
-                powerTrain.driveRobot(-alignSpeed, 0, gyroRotation);
+                powerTrain.driveRobot(-alignSpeedX, 0, gyroRotation);
             }
         }
         else
         {
             if (ta > targetArea + toleranceArea)
             { //  move back
-                powerTrain.driveRobot(0, alignSpeed, gyroRotation);
+                powerTrain.driveRobot(0, alignSpeedY, gyroRotation);
             }
             else if (ta < targetArea - toleranceArea)
             { //   move forward
-                powerTrain.driveRobot(0, -alignSpeed, gyroRotation);
+                powerTrain.driveRobot(0, -alignSpeedY, gyroRotation);
             }
             // //ANGLE ADJUSTMENT( not working properly)
             //  if (ta1 < ta0 - toleranceAngle)
@@ -149,7 +148,7 @@ void Robot::changeCam()
     {
         limelightTable->PutNumber("camMode", 0);
     }
-
+    else
     {
         limelightTable->PutNumber("camMode", 1.0);
     }

@@ -19,7 +19,6 @@ void Robot::TeleopPeriodic()
     y += 1.0;
 
     //Reset gyro after passing 360 or -360
-    double gyroAngle = gyro.GetAngle();
 
     if (gyroAngle < -360)
     {
@@ -81,7 +80,6 @@ void Robot::TeleopPeriodic()
 
     else
     {
-        //m_robotDrive.DriveCartesian(jStick->GetX(), -jStick->GetY(), jStick->GetZ());//, gyro.GetAngle());
         powerTrain.driveRobot(jStick->GetX(), jStick->GetY(), jStick->GetZ());
     }
 
