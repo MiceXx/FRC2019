@@ -111,7 +111,7 @@ private:
   bool liftReset;
   int gamePadPOV;
   int liftDestination;
-  int ballOpenings[4] = {0, -10400, -25000, -35000};
+  int ballOpenings[4] = {0, -10400, -25000, -34000};
   int hatchOpenings[4] = {0, -4300, -18000, -32000};
   int liftLevel;
   bool selectBall;

@@ -56,6 +56,16 @@ void Robot::RobotPeriodic()
 
         std::string GyroAngle = std::to_string(gyro.GetAngle());
         frc::SmartDashboard::PutString("DB/String 3", GyroAngle);
+
+        frc::SmartDashboard::PutString("DB/String 4", std::to_string(liftLevel));
+
+        frc::SmartDashboard::PutString("DB/String 5", std::to_string(liftPosition));
+
+        frc::SmartDashboard::PutString("DB/String 6", std::to_string(liftVelocity));
+
+        frc::SmartDashboard::PutString("DB/String 7", std::to_string(liftDestination));
+
+        frc::SmartDashboard::PutString("DB/String 8", std::to_string(liftCommand));
     }
 
     driveStation.setString(4, std::to_string(liftPosition));

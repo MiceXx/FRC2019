@@ -1,23 +1,18 @@
 #include <ctre/Phoenix.h>
-namespace frc 
+namespace frc
 {
 namespace lcchs
 {
-class Hinges {
+class Hinges
+{
 
+  public:
+    void rotateHinges(double Direction);
 
-public:
-
-void rotateHinges(double Direction);
-
-
-private:
-
-
-static constexpr int hingeMotorChannel = 8;
-WPI_VictorSPX hingeMotor{hingeMotorChannel};
+  private:
+    static constexpr int hingeMotorChannel = 8;
+    WPI_TalonSRX hingeMotor{hingeMotorChannel};
 };
 
-
-}//namespace lcchs
-}//namespace frc
+} //namespace lcchs
+} //namespace frc
