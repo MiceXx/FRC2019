@@ -19,7 +19,6 @@
 #include "Elevator.hpp"
 #include "Brush.hpp"
 #include "Hinges.hpp"
-#include "Manipulator.hpp"
 #include "Roller.hpp"
 
 namespace frc
@@ -83,10 +82,7 @@ private:
 
   frc::lcchs::Elevator elevator;
 
-  frc::lcchs::Manipulator manipulator;
-
   frc::Joystick *jStick = new Joystick(kJoystickChannelone);
-  //frc::Joystick *jStick2 = new Joystick(kJoystickChanneltwo);
   frc::ADXRS450_Gyro gyro{GyroChannel};
 
   //joystick buttons
@@ -131,11 +127,11 @@ private:
   double driveOutput;
 
   PowerTrain powerTrain;
-  
+
   //Brushes
   Brush grapple;
-   
-  //Hinges 
+
+  //Hinges
   Hinges wrist;
 
   // Debug display options

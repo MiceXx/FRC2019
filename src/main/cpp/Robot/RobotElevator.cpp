@@ -10,8 +10,8 @@ void Robot::operateLift()
     int currentPov = driveStation.getPov();
 
     //lift Ops
-    liftPosition = manipulator.getPosition();
-    liftVelocity = manipulator.getVelocity();
+    liftPosition = elevator.getPosition();
+    liftVelocity = elevator.getVelocity();
     liftCommand = driveStation.getLeftHandY();
     liftReset = driveStation.getYButton();
 
@@ -23,12 +23,18 @@ void Robot::operateLift()
 
     if (gamePadPOV != 0 && currentPov == 0)
     {
-        liftLevel++;
+        if (liftLevel < 3)
+        {
+            liftLevel++;
+        }
     }
 
     if (gamePadPOV != 180 && currentPov == 180)
     {
-        liftLevel--;
+        if (liftLevel > 0)
+        {
+            liftLevel--;
+        }
     }
 
     // Hatch Openings
@@ -68,14 +74,14 @@ void Robot::operateLift()
     }
     else if (abs(liftCommand) > 0.05)
     {
-        manipulator.moveLift(liftCommand);
+        elevator.moveLift(liftCommand);
         liftDestination = liftPosition;
         selectHatch = false;
         selectBall = false;
     }
     else
     {
-        manipulator.setPosition(liftDestination);
+        elevator.setPosition(liftDestination);
     }
 
     driveStation.setString(5, std::to_string(liftPosition));

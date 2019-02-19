@@ -17,10 +17,7 @@ public:
 
   void setScaling(double scaling);
 
-  void setScaling( double scaling );
-  
   void initializeElevator();
-  void initializeManipulator();
 
   //
   //bool bottomLift();
