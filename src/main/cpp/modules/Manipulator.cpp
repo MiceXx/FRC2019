@@ -1,22 +1,37 @@
 #include "Manipulator.hpp"
 
-namespace frc {
-namespace lcchs {
+namespace frc
+{
+namespace lcchs
+{
 
-
-void Manipulator::moveLift( double speed ){
-  m_liftmotor.Set(speed*scalingFactor);
+void Manipulator::moveLift(double speed)
+{
+  // if (limitSwitch.Get() && speed > 0)
+  // {
+  //   m_liftmotor.StopMotor();
+  // }
+  // else
+  // {
+  //   m_liftmotor.Set(speed * scalingFactor);
+  // }
+  m_liftmotor.Set(speed * scalingFactor);
 }
 
-void Manipulator::setScaling(double scaling){
-  if(scaling<0.){
-      scalingFactor=0;
-    }
-    else if (scaling>1.){
-      scalingFactor=1;
-    } else {
-      scalingFactor = scaling;
-    }
+void Manipulator::setScaling(double scaling)
+{
+  if (scaling < 0.)
+  {
+    scalingFactor = 0;
+  }
+  else if (scaling > 1.)
+  {
+    scalingFactor = 1;
+  }
+  else
+  {
+    scalingFactor = scaling;
+  }
 }
 void Manipulator::initializeManipulator()
 {
@@ -41,8 +56,17 @@ void Manipulator::resetEncoder()
 
 void Manipulator::setPosition(int destination)
 {
-  m_liftmotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position,destination);
-}  
+  // if (limitSwitch.Get() && destination > m_liftmotor.GetSelectedSensorPosition())
+  // {
+  //   m_liftmotor.StopMotor();
+  // }
+  // else
+  // {
+  //   m_liftmotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position, destination);
+  // }
+  m_liftmotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position, destination);
 
-}  // namespace lcchs
-}  // namespace frc
+} // namespace lcchs
+
+} // namespace lcchs
+} // namespace frc

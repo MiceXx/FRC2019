@@ -21,6 +21,16 @@ void Robot::operateLift()
     // }
     // else
 
+    if (gamePadPOV != 0 && currentPov == 0)
+    {
+        liftLevel++;
+    }
+
+    if (gamePadPOV != 180 && currentPov == 180)
+    {
+        liftLevel--;
+    }
+
     // Hatch Openings
     if (gamePadPOV != 90 && currentPov == 90)
     {
@@ -28,7 +38,7 @@ void Robot::operateLift()
         selectBall = false;
     }
 
-    if (gamePadPOV != -90 && currentPov == -90)
+    if (gamePadPOV != 270 && currentPov == 270)
     {
         selectBall = true;
         selectHatch = false;
@@ -41,12 +51,15 @@ void Robot::operateLift()
     {
         liftDestination = hatchOpenings[liftLevel];
     }
-    else
+    else if (selectBall)
     {
         liftDestination = ballOpenings[liftLevel];
     }
 
-    
+    //Move Wrist at top
+    // if (liftLevel = 3 && selctball = true){
+
+    // }
 
     if (liftReset)
     {
@@ -57,6 +70,8 @@ void Robot::operateLift()
     {
         manipulator.moveLift(liftCommand);
         liftDestination = liftPosition;
+        selectHatch = false;
+        selectBall = false;
     }
     else
     {
@@ -72,6 +87,8 @@ void Robot::operateLift()
     driveStation.setString(8, std::to_string(liftDestination));
 
     driveStation.setString(9, std::to_string(gamePadPOV));
+
+    driveStation.setString(4, std::to_string(liftLevel));
 
 } //operateLift()
 

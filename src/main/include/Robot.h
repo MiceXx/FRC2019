@@ -92,7 +92,6 @@ private:
   JoystickButton *button8 = new JoystickButton(jStick, 8);
   JoystickButton *button9 = new JoystickButton(jStick, 9);
   JoystickButton *button10 = new JoystickButton(jStick, 10);
-
   JoystickButton *button14 = new JoystickButton(jStick, 14);
 
   nt::NetworkTableEntry xEntry;
@@ -108,8 +107,8 @@ private:
   bool liftReset;
   int gamePadPOV;
   int liftDestination;
-  int ballOpenings[4] = {0, -50000, -100000, -150000};
-  int hatchOpenings[4] = {0, -30000, -60000, -120000};
+  int ballOpenings[4] = {0, -10400, -25000, -35000};
+  int hatchOpenings[4] = {0, -4300, -18000, -32000};
   int liftLevel;
   bool selectBall;
   bool selectHatch;

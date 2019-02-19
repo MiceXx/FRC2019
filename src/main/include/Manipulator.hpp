@@ -2,6 +2,7 @@
 #define MANIPULATOR
 
 #include <ctre/Phoenix.h>
+#include <frc/DigitalInput.h>
 
 namespace frc
 {
@@ -34,7 +35,11 @@ private:
 
   static constexpr int kLiftMotorChannel = 5;
 
+  static constexpr int limitSwitchChannel = 0;
+
   WPI_TalonSRX m_liftmotor{kLiftMotorChannel};
+
+  frc::DigitalInput limitSwitch{limitSwitchChannel};
 };
 
 } // namespace lcchs

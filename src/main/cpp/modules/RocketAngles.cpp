@@ -49,7 +49,7 @@ void Robot::rotateToAngle45()
         if (gyroAngle > rocketAngle + tolerance) //rotate to 45 degrees
         {
             powerTrain.driveRobot(0, 0, -0.4);
-            std::cout << "the rbot will rotate to 45 degrees" << std::endl;
+            std::cout << "the robot will rotate to 45 degrees" << std::endl;
         }
         else if (gyroAngle < rocketAngle - tolerance) //rotate to 45 degrees
         {
