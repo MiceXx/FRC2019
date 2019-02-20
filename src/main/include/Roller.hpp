@@ -29,12 +29,23 @@ class Roller
         m_rollerLeft.Set(0);
     }
 
+    bool ballCaptured()
+    {
+        return limitSwitch.Get();
+    }
+
   private:
-    static constexpr int kRollerLeftChannel = 6;
+   
+    static constexpr int kRollerLeftChannel  = 6;
     static constexpr int kRollerRightChannel = 7;
+    static constexpr int limitSwitchChannel  = 2;
+
 
     WPI_TalonSRX m_rollerRight{kRollerRightChannel};
+
     WPI_TalonSRX m_rollerLeft{kRollerLeftChannel};
+
+    frc::DigitalInput limitSwitch{limitSwitchChannel};
 };
 
 } // namespace lcchs

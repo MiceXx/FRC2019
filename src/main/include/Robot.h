@@ -134,8 +134,11 @@ private:
   //Brushes
   Brush grapple;
 
-  //Hinges
+  //Wrist hinge
   Hinges wrist;
+  double wristCommand;
+  double wristDestination;
+  double wristPosition;
   // angleTo45 =
   // int wristAngles[3] { 0, angleTo45 }
 

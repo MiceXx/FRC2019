@@ -51,8 +51,13 @@ void Elevator::setPosition(int destination)
   //   m_liftmotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position, destination);
   // }
   m_liftmotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position, destination);
-
-} // namespace lcchs
-
+} 
+  
+  
+  
+  bool Elevator::isGrounded(){
+  
+  return limitSwitch.Get();
+}
 } // namespace lcchs
 } // namespace frc
