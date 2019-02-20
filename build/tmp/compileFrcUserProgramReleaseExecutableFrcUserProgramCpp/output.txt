@@ -1,47 +1,8 @@
-<<<<<<< HEAD
 See file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramReleaseExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramReleaseExecutableFrcUserProgramCpp.
-compiling RobotTeleopPeriodic.cpp successful.
-=======
-See file:///C:/Users/Robotics%206/Desktop/FRC2019/build/tmp/compileFrcUserProgramReleaseExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramReleaseExecutableFrcUserProgramCpp.
-compiling Robot.cpp successful.
->>>>>>> 77f1a53bf0da0ed1240f0bb80d0404eb5eedab2e
-
-compiling RocketAngles.cpp successful.
-
-<<<<<<< HEAD
-compiling RobotVision.cpp successful.
-
-Finished compileFrcUserProgramReleaseExecutableFrcUserProgramCpp, see full log file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramReleaseExecutableFrcUserProgramCpp/output.txt.
-=======
-compiling main.cpp successful.
-
-compiling RobotAutonomousPeriodic.cpp successful.
-
-compiling RobotVision.cpp successful.
-
-compiling RobotAutonomousInit.cpp successful.
-
-compiling RobotBrushes.cpp successful.
-
 compiling RobotElevator.cpp successful.
-
-compiling RobotHinges.cpp successful.
 
 compiling GripPipeline.cpp successful.
 
-compiling RobotTeleopInit.cpp successful.
+compiling RobotVision.cpp successful.
 
-compiling RobotPeriodic.cpp successful.
-
-compiling RobotTeleopPeriodic.cpp successful.
-
-compiling Robot.cpp successful.
-
-compiling RobotTracking.cpp successful.
-
-compiling RobotInit.cpp successful.
-
-compiling RobotRoller.cpp successful.
-
-Finished compileFrcUserProgramReleaseExecutableFrcUserProgramCpp, see full log file:///C:/Users/Robotics%206/Desktop/FRC2019/build/tmp/compileFrcUserProgramReleaseExecutableFrcUserProgramCpp/output.txt.
->>>>>>> 77f1a53bf0da0ed1240f0bb80d0404eb5eedab2e
+Finished compileFrcUserProgramReleaseExecutableFrcUserProgramCpp, see full log file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramReleaseExecutableFrcUserProgramCpp/output.txt.

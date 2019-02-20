@@ -119,9 +119,10 @@ private:
   int liftLevel;
   bool selectBall;
   bool selectHatch;
+  int loadingStation = -10000;
 
-  //Roller
-  double captureCommand;
+                       //Roller
+                       double captureCommand;
   double shootCommand;
   frc::lcchs::Roller roller;
 

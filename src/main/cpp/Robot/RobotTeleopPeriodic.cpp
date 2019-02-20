@@ -85,7 +85,8 @@ void Robot::TeleopPeriodic()
 
     //Lift
     operateLift();
-    //hinge
+
+        //hinge
     operateHinges();
 
     if (driveStation.getXButton())

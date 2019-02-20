@@ -14,6 +14,7 @@ void Robot::operateLift()
     liftVelocity = elevator.getVelocity();
     liftCommand = driveStation.getLeftHandY();
     liftReset = driveStation.getYButton();
+    bool ballButtonPress = driveStation.getBButton();
 
     // if (gyroAngle > -135 +tolerance || 45 )
     // {
@@ -61,9 +62,13 @@ void Robot::operateLift()
     {
         liftDestination = ballOpenings[liftLevel];
     }
+    else if (ballButtonPress)
+    {
+        liftDestination = loadingStation;
+    }
 
     //Move Wrist at top
-    if (/*liftPosition < -26000 && */ selectBall)
+    if (liftPosition < -26000 && selectBall)
     {
         wrist.rotateHinges(0.4);
     }
@@ -84,7 +89,6 @@ void Robot::operateLift()
     {
         elevator.setPosition(liftDestination);
     }
-
 
 } //operateLift()
 

@@ -42,7 +42,9 @@ void Robot::alignRobot()
 
     double tolerance = 0.8;
     double toleranceArea = 4;
+
     double toleranceAngle = 0.3;
+    //double tapeRotation = 0;
 
     double alignSpeedY = 0.35;
     double alignSpeedX = 0.45;
@@ -50,19 +52,31 @@ void Robot::alignRobot()
     double gyroRotation = 0;
     double gyroTolerance = 1.5;
 
-    if (gyroAngle > targetAngle + gyroTolerance)
-    {
-        gyroRotation = -0;
-    }
-    else if (gyroAngle < targetAngle - gyroTolerance)
-    {
-        gyroRotation = 0;
-    }
+    // if (gyroAngle > targetAngle + gyroTolerance)
+    // {
+    //     gyroRotation = -0;
+    // }
+    // else if (gyroAngle < targetAngle - gyroTolerance)
+    // {
+    //     gyroRotation = 0;
+    // }
 
     if (targetArea - ta > 5)
     {
         alignSpeedY = 0.25;
     }
+
+    //ANGLE ADJUSTMENT( not working properly)
+    if (ta1 < ta0 - toleranceAngle)
+    {
+        gyroRotation = -0.5
+    }
+
+    else if (ta1 > ta0 + toleranceAngle)
+    {
+        gyroRotation = 0.5
+    }
+    //
 
     if (tv)
     {
@@ -107,19 +121,6 @@ void Robot::alignRobot()
             { //   move forward
                 powerTrain.driveRobot(0, -alignSpeedY, gyroRotation);
             }
-            // //ANGLE ADJUSTMENT( not working properly)
-            //  if (ta1 < ta0 - toleranceAngle)
-            // {
-            //     powerTrain.driveRobot(0, 0, -alignSpeed);
-            //     std::cout << "the robot will turn left" << std::endl;
-            // }
-
-            //  if (ta1 > ta0 + toleranceAngle)
-            // {
-            //     powerTrain.driveRobot(0, 0, alignSpeed);
-            //     std::cout << "the robot will turn right" << std::endl;
-            // }
-            // //
             else
             {
                 powerTrain.driveRobot(0, 0, gyroRotation);
