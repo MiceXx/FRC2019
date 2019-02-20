@@ -63,10 +63,10 @@ void Robot::operateLift()
     }
 
     //Move Wrist at top
-    // if (liftLevel = 3 &&selctball = true)
-    // {
-
-    // }
+    if (/*liftPosition < -26000 && */ selectBall)
+    {
+        wrist.rotateHinges(0.4);
+    }
 
     if (liftReset)
     {

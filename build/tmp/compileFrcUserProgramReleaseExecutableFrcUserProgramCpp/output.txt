@@ -1,46 +1,8 @@
 See file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramReleaseExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramReleaseExecutableFrcUserProgramCpp.
-compiling Elevator.cpp successful.
-
-compiling Hinges.cpp successful.
+compiling RobotTeleopPeriodic.cpp successful.
 
 compiling GripPipeline.cpp successful.
 
-compiling main.cpp successful.
-
-compiling OperatorInterface.cpp successful.
-
-compiling PowerTrain.cpp successful.
-
-compiling Robot.cpp successful.
-
-compiling RocketAngles.cpp successful.
-
 compiling RobotVision.cpp successful.
-
-compiling RobotAutonomousInit.cpp successful.
-
-compiling RobotAutonomousPeriodic.cpp successful.
-
-compiling RobotBrushes.cpp successful.
-
-compiling RobotElevator.cpp successful.
-
-compiling RobotHinges.cpp successful.
-
-compiling RobotPeriodic.cpp successful.
-
-compiling RobotRoller.cpp successful.
-
-compiling RobotInit.cpp successful.
-
-compiling RobotTeleopInit.cpp successful.
-
-compiling Brush.cpp successful.
-
-compiling RobotTeleopPeriodic.cpp successful.
-
-compiling RobotTracking.cpp successful.
-
-compiling Robot.cpp successful.
 
 Finished compileFrcUserProgramReleaseExecutableFrcUserProgramCpp, see full log file:///C:/Users/DriveTeam/Desktop/frc2019/build/tmp/compileFrcUserProgramReleaseExecutableFrcUserProgramCpp/output.txt.
