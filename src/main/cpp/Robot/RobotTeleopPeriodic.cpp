@@ -89,10 +89,7 @@ void Robot::TeleopPeriodic()
         //hinge
     operateHinges();
 
-    if (driveStation.getXButton())
-    {
-        wrist.angleForTime(0.3, 2);
-    }
+    
     //toothbrush
     operateBrush();
 
