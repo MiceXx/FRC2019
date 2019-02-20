@@ -7,8 +7,6 @@ namespace lcchs
 
 void Robot::operateHinges()
 {
-  wristCommand = driveStation.getRightHandY();
-
   wrist.rotateHinges(wristCommand);
 
 }

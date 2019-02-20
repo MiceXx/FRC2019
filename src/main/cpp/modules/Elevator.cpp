@@ -42,22 +42,14 @@ void Elevator::resetEncoder()
 
 void Elevator::setPosition(int destination)
 {
-  // if (limitSwitch.Get() && destination > m_liftmotor.GetSelectedSensorPosition())
-  // {
-  //   m_liftmotor.StopMotor();
-  // }
-  // else
-  // {
-  //   m_liftmotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position, destination);
-  // }
   m_liftmotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position, destination);
 } 
   
   
-  
-  bool Elevator::isGrounded(){
-  
-  return limitSwitch.Get();
-}
+//bool Elevator::isGrounded()
+//{
+//  return limitSwitch.Get();
+//}
+
 } // namespace lcchs
 } // namespace frc

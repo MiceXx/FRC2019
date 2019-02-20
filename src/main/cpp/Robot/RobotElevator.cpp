@@ -9,18 +9,6 @@ void Robot::operateLift()
 {
     int currentPov = driveStation.getPov();
 
-    //lift Ops
-    liftPosition = elevator.getPosition();
-    liftVelocity = elevator.getVelocity();
-    liftCommand = driveStation.getLeftHandY();
-    liftReset = driveStation.getYButton();
-
-    // if (gyroAngle > -135 +tolerance || 45 )
-    // {
-
-    // }
-    // else
-
     if (gamePadPOV != 0 && currentPov == 0)
     {
         if (liftLevel < 3)

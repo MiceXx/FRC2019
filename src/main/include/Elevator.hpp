@@ -19,8 +19,7 @@ public:
 
   void initializeElevator();
 
-  //
-  bool isGrounded ();
+  //bool isGrounded ();
 
   int getPosition();
 
@@ -35,11 +34,10 @@ private:
 
   static constexpr int kLiftMotorChannel = 5;
 
-  static constexpr int limitSwitchChannel = 0;
-
   WPI_TalonSRX m_liftmotor{kLiftMotorChannel};
 
-  frc::DigitalInput limitSwitch{limitSwitchChannel};
+  //static constexpr int limitSwitchChannel = 0;
+  //frc::DigitalInput limitSwitch{limitSwitchChannel};
 
 };
 

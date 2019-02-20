@@ -29,10 +29,10 @@ class Roller
         m_rollerLeft.Set(0);
     }
 
-    bool ballCaptured()
-    {
-        return limitSwitch.Get();
-    }
+    //bool ballCaptured()
+    //{
+    //    return limitSwitch.Get();
+    //}
 
   private:
    
@@ -45,7 +45,7 @@ class Roller
 
     WPI_TalonSRX m_rollerLeft{kRollerLeftChannel};
 
-    frc::DigitalInput limitSwitch{limitSwitchChannel};
+    //frc::DigitalInput limitSwitch{limitSwitchChannel};
 };
 
 } // namespace lcchs

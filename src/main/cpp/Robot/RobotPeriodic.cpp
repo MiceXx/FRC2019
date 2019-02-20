@@ -67,6 +67,21 @@ void Robot::RobotPeriodic()
         grappleDebug = false;
     }
 
+    // Lift Ops
+    liftPosition = elevator.getPosition();
+    liftVelocity = elevator.getVelocity();
+    liftCommand  = driveStation.getLeftHandY();
+    liftReset    = driveStation.getYButton();
+
+    // Roller Ops
+    captureCommand = driveStation.getLeftTrigger();
+    shootCommand = driveStation.getRightTrigger();
+
+    // Wrist Ops
+    wristCommand = driveStation.getRightHandY();
+
+
+
     if(liftDebug) 
     {
         driveStation.setString(0,"Lift Debug");
@@ -85,7 +100,7 @@ void Robot::RobotPeriodic()
        
         driveStation.setString(7, "velocity: " + std::to_string(liftVelocity));
        
-        driveStation.setString(8, "Switch: " + std::to_string(elevator.isGrounded()));
+        driveStation.setString(8, " " );
 
         driveStation.setString(9, " " );
     }
@@ -103,7 +118,7 @@ void Robot::RobotPeriodic()
 
         driveStation.setString(5, "Select DB Button 1");
 
-        driveStation.setString(6, "Switch: " + std::to_string(roller.ballCaptured()));
+        driveStation.setString(6, " " );
        
         driveStation.setString(7, " " );
        
