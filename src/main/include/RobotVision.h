@@ -1,9 +1,16 @@
 #pragma once
-
-class RobotVision {
+namespace frc
+{
+namespace lcchs
+{
+class RobotVision
+{
 public:
   RobotVision();
   void RobotVisionInit();
- private:
+
+private:
   static void VisionThread();
 };
+} // namespace lcchs
+} // namespace frc

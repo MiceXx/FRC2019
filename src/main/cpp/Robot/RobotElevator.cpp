@@ -63,7 +63,8 @@ void Robot::operateLift()
     }
 
     //Move Wrist at top
-    // if (liftLevel = 3 && selctball = true){
+    // if (liftLevel = 3 &&selctball = true)
+    // {
 
     // }
 

@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 
 /**
  * This function is called every robot packet, no matter the mode. Use
@@ -166,7 +167,7 @@ void Robot::RobotPeriodic()
 
         driveStation.setString(3, "stickZ: " + std::to_string(jStick->GetZ()));
 
-        driveStation.setString(4, "Gyro: " + std::to_string(gyro.GetAngle()));
+        driveStation.setString(4, "Gyro: " + std::to_string(gyroAngle));
 
         driveStation.setString(5, "Default Selection");
 
@@ -216,6 +217,8 @@ void Robot::RobotPeriodic()
     liftOutput = 1 / (scaling + 1);
     powerTrain.setScaling(driveOutput);
     elevator.setScaling(liftOutput);
+
+    gyroAngle = gyro.GetAngle() / 0.69106781186;
 }
 
 } // namespace lcchs

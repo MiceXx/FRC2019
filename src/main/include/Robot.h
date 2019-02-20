@@ -20,6 +20,7 @@
 #include "Brush.hpp"
 #include "Hinges.hpp"
 #include "Roller.hpp"
+#include "RobotVision.h"
 
 namespace frc
 {
@@ -48,6 +49,10 @@ private:
   void gyroResetPos();
   void alignRobot();
   void changeCam();
+
+  //GYRO ANGLE
+  double gyroAngle;
+
   //ROCKET ANGLE
   void rotateToAngle45();
   void rotateToAngle90();
@@ -62,8 +67,6 @@ private:
   const std::string kAutoNameDefault = "Default";
   const std::string kAutoNameCustom = "My Auto";
   std::string m_autoSelected;
-
-
 
   static constexpr int kJoystickChannelone = 0;
 
@@ -136,6 +139,8 @@ private:
   double wristCommand;
   double wristDestination;
   double wristPosition;
+  // angleTo45 =
+  // int wristAngles[3] { 0, angleTo45 }
 
   // Debug display options
   // Default to power train debug if nothing is selected
