@@ -20,7 +20,7 @@ public:
   void initializeElevator();
 
   //
-  //bool bottomLift();
+  bool isGrounded ();
 
   int getPosition();
 
@@ -40,6 +40,7 @@ private:
   WPI_TalonSRX m_liftmotor{kLiftMotorChannel};
 
   frc::DigitalInput limitSwitch{limitSwitchChannel};
+
 };
 
 } // namespace lcchs

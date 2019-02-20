@@ -63,7 +63,7 @@ private:
   const std::string kAutoNameCustom = "My Auto";
   std::string m_autoSelected;
 
-  frc::PWMVictorSPX m_left{0};
+
 
   static constexpr int kJoystickChannelone = 0;
 
@@ -131,8 +131,11 @@ private:
   //Brushes
   Brush grapple;
 
-  //Hinges
+  //Wrist hinge
   Hinges wrist;
+  double wristCommand;
+  double wristDestination;
+  double wristPosition;
 
   // Debug display options
   // Default to power train debug if nothing is selected

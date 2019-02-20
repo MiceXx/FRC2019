@@ -19,56 +19,172 @@ namespace lcchs
 void Robot::RobotPeriodic()
 {
     // Get the debug information selection for the PC Dashboard.
-    liftDebug = driveStation.getButton(0);
-    rollerDebug = driveStation.getButton(1);
-    hingeDebug = driveStation.getButton(2);
+    bool button0 = driveStation.getButton(0);
+    bool button1 = driveStation.getButton(1);
+    bool button2 = driveStation.getButton(2);
+    bool button3 = driveStation.getButton(3);
 
     frc::SmartDashboard::PutNumber("Joystick X", jStick->GetX());
     frc::SmartDashboard::PutNumber("Joystick Y", jStick->GetY());
 
     // Drive the PC Dashboard compatible fields.
-    if (liftDebug)
+    if (button0 )
     {
-        driveStation.setButton(1, false);
-        driveStation.setButton(2, false);
+        liftDebug    = true;
+        rollerDebug  = false;
+        hingeDebug   = false;
+        grappleDebug = false;
+    }
+    else if (button1 )
+    {
+        liftDebug    = false;
+        rollerDebug  = true;
+        hingeDebug   = false;
+        grappleDebug = false;
+    }
+    else if (button2 )
+    {
+        liftDebug    = false;
+        rollerDebug  = false;
+        hingeDebug   = true;
+        grappleDebug = false;
+
+    }
+    else if (button3 )
+    {
+        liftDebug    = false;
+        rollerDebug  = false;
+        hingeDebug   = false;
+        grappleDebug = true;
+
+    }
+    else
+    {
+        liftDebug    = false;
+        rollerDebug  = false;
+        hingeDebug   = false;
+        grappleDebug = false;
+    }
+
+    if(liftDebug) 
+    {
+        driveStation.setString(0,"Lift Debug");
+        
+        driveStation.setString(1, "command: " + std::to_string(liftCommand));
+
+        driveStation.setString(2, "level: " + std::to_string(liftLevel));
+
+        driveStation.setString(3, "destination: " + std::to_string(liftDestination));
+
+        driveStation.setString(4, "POV: " + std::to_string(gamePadPOV));
+
+        driveStation.setString(5, "Select DB Button 0");
+
+        driveStation.setString(6, "position: " + std::to_string(liftPosition));
+       
+        driveStation.setString(7, "velocity: " + std::to_string(liftVelocity));
+       
+        driveStation.setString(8, "Switch: " + std::to_string(elevator.isGrounded()));
+
+        driveStation.setString(9, " " );
     }
     else if (rollerDebug)
     {
-        driveStation.setButton(2, false);
-        driveStation.setButton(0, false);
+        driveStation.setString(0,"Roller Debug");
+        
+        driveStation.setString(1, "capture: " + std::to_string(captureCommand));
+
+        driveStation.setString(2, "shoot: " + std::to_string(shootCommand));
+
+        driveStation.setString(3, " " );
+
+        driveStation.setString(4, " " );
+
+        driveStation.setString(5, "Select DB Button 1");
+
+        driveStation.setString(6, "Switch: " + std::to_string(roller.ballCaptured()));
+       
+        driveStation.setString(7, " " );
+       
+        driveStation.setString(8, " " );
+
+        driveStation.setString(9, " " );
     }
     else if (hingeDebug)
     {
-        driveStation.setButton(1, false);
-        driveStation.setButton(0, false);
-    }
+        driveStation.setString(0,"Hinge Debug");
+        
+        driveStation.setString(1, "command: " + std::to_string(wristCommand));
 
+        driveStation.setString(2, "level: " + std::to_string(liftLevel));
+
+        driveStation.setString(3, "destination: " + std::to_string(wristDestination));
+
+        driveStation.setString(4, " " );
+
+        driveStation.setString(5, "Select DB Button 2");
+
+        driveStation.setString(6, "position: " + std::to_string(wristPosition));
+       
+        driveStation.setString(7, " " );
+       
+        driveStation.setString(8, " " );
+
+        driveStation.setString(9, " " );
+    }
+        else if (grappleDebug)
+    {
+        driveStation.setString(0,"Grapple Debug");
+        
+        driveStation.setString(1, "");
+
+        driveStation.setString(2, "" );
+
+        driveStation.setString(3, "" );
+
+        driveStation.setString(4, " " );
+
+        driveStation.setString(5, "Select DB Button 3");
+
+        driveStation.setString(6, "" );
+       
+        driveStation.setString(7, " " );
+       
+        driveStation.setString(8, " " );
+
+        driveStation.setString(9, " " );
+    }
     else
     {
-        std::string speedX = std::to_string(jStick->GetX());
-        frc::SmartDashboard::PutString("DB/String 0", speedX);
+        //Drive debug by default.
 
-        std::string speedY = std::to_string(jStick->GetY());
-        frc::SmartDashboard::PutString("DB/String 1", speedY);
+        driveStation.setString( 0,"Drive Debug" );
 
-        std::string speedZ = std::to_string(jStick->GetZ());
-        frc::SmartDashboard::PutString("DB/String 2", speedZ);
+        driveStation.setString(1, "stickX: " + std::to_string(jStick->GetX()));
 
-        std::string GyroAngle = std::to_string(gyro.GetAngle());
-        frc::SmartDashboard::PutString("DB/String 3", GyroAngle);
+        driveStation.setString(2, "stickY: " + std::to_string(jStick->GetY()));
 
-        frc::SmartDashboard::PutString("DB/String 4", std::to_string(liftLevel));
+        driveStation.setString(3, "stickZ: " + std::to_string(jStick->GetZ()));
 
-        frc::SmartDashboard::PutString("DB/String 5", std::to_string(liftPosition));
+        driveStation.setString(4, "Gyro: " + std::to_string(gyro.GetAngle()));
 
-        frc::SmartDashboard::PutString("DB/String 6", std::to_string(liftVelocity));
+        driveStation.setString(5, "Default Selection");
 
-        frc::SmartDashboard::PutString("DB/String 7", std::to_string(liftDestination));
+        driveStation.setString(6, " " );
 
-        frc::SmartDashboard::PutString("DB/String 8", std::to_string(liftCommand));
+        driveStation.setString(7, " " );
+
+        driveStation.setString(8, " " );
+
+        driveStation.setString(9, " " );
     }
 
-    driveStation.setString(4, std::to_string(liftPosition));
+    driveStation.setLed(0, liftDebug);
+    driveStation.setLed(1, rollerDebug);
+    driveStation.setLed(2, hingeDebug);
+    driveStation.setLed(3, grappleDebug);
+
+
 
     frc::SmartDashboard::PutNumber("Joystick X", jStick->GetX());
     frc::SmartDashboard::PutNumber("Joystick Y", jStick->GetY());
