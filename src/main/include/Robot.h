@@ -13,6 +13,7 @@
 #include <networktables/NetworkTable.h>
 #include <networktables/NetworkTableEntry.h>
 #include <networktables/NetworkTableInstance.h>
+#include <cmath>
 
 #include "OperatorInterface.hpp"
 #include "PowerTrain.hpp"
@@ -139,7 +140,12 @@ private:
   Hinges wrist;
   double wristCommand;
   double wristDestination;
-  double wristPosition;
+  double wristPosition = 1;
+  double currentTime;
+  double wristStopTime;
+
+  double wristAngles[4]={0, 0.05, 0.05, 0.5};
+
   // angleTo45 =
   // int wristAngles[3] { 0, angleTo45 }
 

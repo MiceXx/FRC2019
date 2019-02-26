@@ -31,11 +31,14 @@ void Hinges::setScaling(double scaling)
 void Hinges::angleForTime(double speed, double timeAllocated)
 {
     double start = Timer().GetFPGATimestamp();
-    while (Timer().GetFPGATimestamp() - start < timeAllocated)
+    if (Timer().GetFPGATimestamp() - start < timeAllocated)
     {
         this->rotateHinges(speed);
         std::cout << "the time.." << Timer().GetFPGATimestamp() << std::endl;
     }
 }
+
+
+
 } // namespace lcchs
 } // namespace frc

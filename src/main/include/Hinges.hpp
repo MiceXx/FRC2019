@@ -1,4 +1,6 @@
 #include <ctre/Phoenix.h>
+#include <cmath>
+
 namespace frc
 {
 namespace lcchs

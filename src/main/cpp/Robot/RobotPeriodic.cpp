@@ -136,13 +136,13 @@ void Robot::RobotPeriodic()
 
         driveStation.setString(3, "destination: " + std::to_string(wristDestination));
 
-        driveStation.setString(4, " " );
+        driveStation.setString(4, "current time: " + std::to_string(currentTime));
 
         driveStation.setString(5, "Select DB Button 2");
 
         driveStation.setString(6, "position: " + std::to_string(wristPosition));
        
-        driveStation.setString(7, " " );
+        driveStation.setString(7, "stop time: " + std::to_string(wristStopTime));
        
         driveStation.setString(8, " " );
 

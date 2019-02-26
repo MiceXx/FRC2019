@@ -57,14 +57,17 @@ void Robot::operateLift()
     if (selectHatch)
     {
         liftDestination = hatchOpenings[liftLevel];
+        wristDestination = wristAngles[liftLevel];
     }
     else if (selectBall)
     {
         liftDestination = ballOpenings[liftLevel];
+        wristDestination = wristAngles[liftLevel];
     }
     else if (ballButtonPress)
     {
         liftDestination = loadingStation;
+        wristDestination = 0.05;
     }
 
     //Move Wrist at top
@@ -77,6 +80,7 @@ void Robot::operateLift()
     {
         elevator.resetEncoder();
         liftDestination = elevator.getPosition();
+        liftLevel = 0;
     }
     else if (abs(liftCommand) > 0.05)
     {
