@@ -4,3 +4,4 @@
 **/*.lock
 **/*.bin 
 **/output.txt
+.vscode/**

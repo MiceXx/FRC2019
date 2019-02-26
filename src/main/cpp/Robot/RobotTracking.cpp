@@ -67,11 +67,11 @@ void Robot::alignRobot()
     }
 
     //ANGLE ADJUSTMENT( not working properly)
-    if (ta0 > ta1 + toleranceAngle)
+    if (ta0 > ta1 + toleranceAngle) //If one side is larger than the other side
     {
         gyroRotation = 0.25;
     }
-    if (tx > targetX)
+    if (tx > targetX)   //spin left
     {
         gyroRotation = -gyroRotation;
     }
