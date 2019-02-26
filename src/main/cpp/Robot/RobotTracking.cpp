@@ -27,7 +27,7 @@ void Robot::alignRobot()
     bool tv = static_cast<bool>(limelightTable->GetNumber("tv", 0.0));
 
     double ta = limelightTable->GetNumber("ta", 0.0);
-    double targetArea = 14.0;
+    double targetArea = 15;
 
     double tx = limelightTable->GetNumber("tx", 0.0);
     double targetX = 0.0;
@@ -40,33 +40,44 @@ void Robot::alignRobot()
 
     double targetAngle = 0;
 
-    double tolerance = 0.8;
+    double tolerance = 0.85;
     double toleranceArea = 4;
+
     double toleranceAngle = 0.3;
+    //double tapeRotation = 0;
 
     double alignSpeedY = 0.35;
-    double alignSpeedX = 0.45;
+    double alignSpeedX = 0.37;
 
     double gyroRotation = 0;
     double gyroTolerance = 1.5;
 
-    if (gyroAngle > targetAngle + gyroTolerance)
-    {
-        gyroRotation = -0;
-    }
-    else if (gyroAngle < targetAngle - gyroTolerance)
-    {
-        gyroRotation = 0;
-    }
+    // if (gyroAngle > targetAngle + gyroTolerance)
+    // {
+    //     gyroRotation = -0;
+    // }
+    // else if (gyroAngle < targetAngle - gyroTolerance)
+    // {
+    //     gyroRotation = 0;
+    // }
 
     if (targetArea - ta > 5)
     {
         alignSpeedY = 0.25;
     }
 
+    //ANGLE ADJUSTMENT( not working properly)
+    if (ta0 > ta1 + toleranceAngle)
+    {
+        gyroRotation = 0.25;
+    }
+    if (tx > targetX)
+    {
+        gyroRotation = -gyroRotation;
+    }
+
     if (tv)
     {
-
         if (tx > targetX + tolerance)
         {
             if (ta > targetArea + toleranceArea)
@@ -107,19 +118,6 @@ void Robot::alignRobot()
             { //   move forward
                 powerTrain.driveRobot(0, -alignSpeedY, gyroRotation);
             }
-            // //ANGLE ADJUSTMENT( not working properly)
-            //  if (ta1 < ta0 - toleranceAngle)
-            // {
-            //     powerTrain.driveRobot(0, 0, -alignSpeed);
-            //     std::cout << "the robot will turn left" << std::endl;
-            // }
-
-            //  if (ta1 > ta0 + toleranceAngle)
-            // {
-            //     powerTrain.driveRobot(0, 0, alignSpeed);
-            //     std::cout << "the robot will turn right" << std::endl;
-            // }
-            // //
             else
             {
                 powerTrain.driveRobot(0, 0, gyroRotation);

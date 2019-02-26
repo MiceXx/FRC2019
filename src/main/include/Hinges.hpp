@@ -6,12 +6,16 @@ namespace lcchs
 class Hinges
 {
 
-  public:
-    void rotateHinges(double Direction);
+public:
+  void rotateHinges(double Direction);
+  void setScaling(double scaling);
+  void angleForTime(double speed, double time);
 
-  private:
-    static constexpr int hingeMotorChannel = 8;
-    WPI_TalonSRX hingeMotor{hingeMotorChannel};
+private:
+  double scalingFactor = 1;
+
+  static constexpr int hingeMotorChannel = 8;
+  WPI_TalonSRX hingeMotor{hingeMotorChannel};
 };
 
 } //namespace lcchs
