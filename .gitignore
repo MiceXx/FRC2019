@@ -1,6 +1,6 @@
 **/build/**
 **/.gradle/5.0/**
-**/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+**/.gradle/buildOutputCleanup/**
 **/*.lock
 **/*.bin 
 **/output.txt
