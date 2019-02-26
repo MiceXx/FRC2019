@@ -9,15 +9,15 @@ compiling main.cpp successful.
 
 compiling RobotVision.cpp successful.
 
-compiling RobotBrushes.cpp successful.
-
 compiling RocketAngles.cpp successful.
 
 compiling RobotAutonomousPeriodic.cpp successful.
 
-compiling RobotElevator.cpp successful.
-
 compiling RobotHinges.cpp successful.
+
+compiling RobotBrushes.cpp successful.
+
+compiling RobotElevator.cpp successful.
 
 compiling RobotAutonomousInit.cpp successful.
 
@@ -27,11 +27,11 @@ compiling RobotTeleopInit.cpp successful.
 
 compiling RobotTeleopPeriodic.cpp successful.
 
-compiling RobotPeriodic.cpp successful.
+compiling RobotTracking.cpp successful.
 
 compiling Robot.cpp successful.
 
-compiling RobotTracking.cpp successful.
+compiling RobotPeriodic.cpp successful.
 
 compiling RobotInit.cpp successful.
 
