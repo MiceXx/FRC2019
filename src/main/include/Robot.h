@@ -164,10 +164,10 @@ frc::DigitalInput limitLiftBottom {1};
 frc::DigitalInput limitWristTop {2};
 frc::DigitalInput limitWristBottom {3};
 
-bool liftRaised;
-bool liftLowered;
-bool wristRaised;
-bool wristLowered;
+bool liftRaised = false;
+bool liftLowered = false;
+bool wristRaised = false;
+bool wristLowered = false;
 };
 
 } // namespace lcchs

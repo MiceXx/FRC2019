@@ -70,10 +70,14 @@ void Robot::operateLift()
         wristDestination = 0.05;
     }
 
-    //Move Wrist at top
-    if (liftPosition < -26000 && selectBall)
-    {
-        wrist.rotateHinges(0.4);
+    if (liftLowered && (liftCommand > 0 || liftDestination > liftPosition)){
+        liftCommand = 0;
+        liftDestination = liftPosition;
+    }
+
+    if (liftRaised && (liftCommand < 0 || liftDestination < liftPosition)){
+        liftCommand = 0;
+        liftDestination = liftPosition;
     }
 
     if (liftReset)

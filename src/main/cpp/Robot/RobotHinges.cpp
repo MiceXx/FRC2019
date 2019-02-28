@@ -31,9 +31,7 @@ void Robot::operateHinges()
 
 
   if(std::abs(wristCommand) > 0.05){
-
     wristSpeed = wristCommand;
-
   }
   else if(currentTime < wristStopTime){
     
@@ -48,6 +46,15 @@ void Robot::operateHinges()
   else {
   
   }
+
+  if (wristLowered && wristSpeed > 0){
+        wristSpeed = 0;
+    }
+
+  if (wristRaised && wristSpeed < 0){
+        wristSpeed = 0;
+    }
+
   wrist.rotateHinges(wristSpeed);
   wristPosition -= wristSpeed * 0.02;
 }
