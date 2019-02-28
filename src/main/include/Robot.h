@@ -14,6 +14,7 @@
 #include <networktables/NetworkTableEntry.h>
 #include <networktables/NetworkTableInstance.h>
 #include <cmath>
+#include <frc/DigitalInput.h>
 
 #include "OperatorInterface.hpp"
 #include "PowerTrain.hpp"
@@ -155,6 +156,18 @@ private:
   bool rollerDebug;
   bool hingeDebug;
   bool grappleDebug;
+
+//limit Switches
+
+frc::DigitalInput limitLiftTop {0};
+frc::DigitalInput limitLiftBottom {1};
+frc::DigitalInput limitWristTop {2};
+frc::DigitalInput limitWristBottom {3};
+
+bool liftRaised;
+bool liftLowered;
+bool wristRaised;
+bool wristLowered;
 };
 
 } // namespace lcchs

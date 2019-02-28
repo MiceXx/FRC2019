@@ -80,7 +80,11 @@ void Robot::RobotPeriodic()
     // Wrist Ops
     wristCommand = driveStation.getRightHandY();
 
-
+    //Limit Switches
+    liftRaised=   limitLiftTop.Get();
+    liftLowered=  limitLiftBottom.Get();
+    wristRaised=  limitWristTop.Get();
+    wristLowered= limitWristBottom.Get();
 
     if(liftDebug) 
     {
@@ -100,7 +104,7 @@ void Robot::RobotPeriodic()
        
         driveStation.setString(7, "velocity: " + std::to_string(liftVelocity));
        
-        driveStation.setString(8, " " );
+        driveStation.setString(8, "t/b: " + std::to_string(liftRaised) + " " + std::to_string(liftLowered) );   
 
         driveStation.setString(9, " " );
     }
@@ -144,7 +148,7 @@ void Robot::RobotPeriodic()
        
         driveStation.setString(7, "stop time: " + std::to_string(wristStopTime));
        
-        driveStation.setString(8, " " );
+        driveStation.setString(8, "t/b: " + std::to_string(wristRaised) + " " + std::to_string(wristLowered) );
 
         driveStation.setString(9, " " );
     }

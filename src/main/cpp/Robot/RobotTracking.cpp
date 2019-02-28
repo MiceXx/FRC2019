@@ -44,17 +44,17 @@ void Robot::alignRobot()
     double alignSpeedY = 0.35;
     double alignSpeedX = 0.37;
 
-    double gyroRotation = 0;
-    double gyroTolerance = 1.5;
+     double gyroRotation = 0;
+     double gyroTolerance = 1.5;
 
-    if (gyroAngle > targetAngle + gyroTolerance)
-    {
-        gyroRotation = -0.25;
-    }
-    else if (gyroAngle < targetAngle - gyroTolerance)
-    {
-        gyroRotation = 0.25;
-    }
+    // if (gyroAngle > targetAngle + gyroTolerance)
+    // {
+    //     gyroRotation = -0.25;
+    // }
+    // else if (gyroAngle < targetAngle - gyroTolerance)
+    // {
+    //     gyroRotation = 0.25;
+    // }
 
     if (targetArea - ta > 5)
     {
