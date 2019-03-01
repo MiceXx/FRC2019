@@ -81,10 +81,10 @@ void Robot::RobotPeriodic()
     wristCommand = driveStation.getRightHandY();
 
     //Limit Switches
-    liftRaised=   limitLiftTop.Get();
-    liftLowered=  limitLiftBottom.Get();
-    wristRaised=  limitWristTop.Get();
-    wristLowered= limitWristBottom.Get();
+    // liftRaised=   limitLiftTop.Get();
+    // liftLowered=  limitLiftBottom.Get();
+    // wristRaised=  limitWristTop.Get();
+    // wristLowered= limitWristBottom.Get();
 
     if(liftDebug) 
     {

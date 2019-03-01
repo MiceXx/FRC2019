@@ -18,6 +18,8 @@
 namespace frc {
     namespace lcchs{
       void Robot::AutonomousInit() {
+
+        TeleopInit();
         m_autoSelected = m_chooser.GetSelected();
         // m_autoSelected = SmartDashboard::GetString("Auto Selector",
         //     kAutoNameDefault);

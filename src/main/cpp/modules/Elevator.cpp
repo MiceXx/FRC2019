@@ -22,11 +22,15 @@ void Elevator::setScaling(double scaling){
 void Elevator::initializeElevator()
 {
   m_liftmotor.ConfigSelectedFeedbackSensor(CTRE_MagEncoder_Absolute);
+  m_liftmotor.SetSensorPhase(false);
+  //m_liftmotor.SetInverted(true);
+
 }
 
 int Elevator::getPosition()
 {
   return m_liftmotor.GetSelectedSensorPosition();
+
 }
 
 int Elevator::getVelocity()

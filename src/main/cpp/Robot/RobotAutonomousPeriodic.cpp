@@ -6,6 +6,7 @@
 namespace frc {
     namespace lcchs{
         void Robot::AutonomousPeriodic() {
+            TeleopPeriodic();
         if (m_autoSelected == kAutoNameCustom) {
             // Custom Auto goes here
         } else {
