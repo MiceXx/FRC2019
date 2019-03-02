@@ -21,6 +21,7 @@ void Robot::RobotInit()
     liftDestination = elevator.getPosition();
 
     gyro.Calibrate();
+    roller.init();
 }
 } // namespace lcchs
 } // namespace frc

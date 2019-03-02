@@ -26,10 +26,7 @@ namespace frc {
         std::cout << "Auto selected: " << m_autoSelected << std::endl;
 
         /* start of networking tables*/
-        auto dataTable = networkTableInstance.GetTable("datatable");
         auto smartDashboard = networkTableInstance.GetTable("SmartDashboard");
-        xEntry = dataTable->GetEntry("X");
-        yEntry = dataTable->GetEntry("Y");
         /* end of networking tables*/
 
 

@@ -9,6 +9,10 @@ namespace lcchs
 class Roller
 {
   public:
+    void init(){
+        m_rollerRight.SetSafetyEnabled(false);
+        m_rollerLeft.SetSafetyEnabled(false);
+    };
     void shootBall()
     {
 
@@ -35,7 +39,6 @@ class Roller
     //}
 
   private:
-   
     static constexpr int kRollerLeftChannel  = 6;
     static constexpr int kRollerRightChannel = 7;
     static constexpr int limitSwitchChannel  = 2;

@@ -34,7 +34,6 @@ void Hinges::angleForTime(double speed, double timeAllocated)
     if (Timer().GetFPGATimestamp() - start < timeAllocated)
     {
         this->rotateHinges(speed);
-        std::cout << "the time.." << Timer().GetFPGATimestamp() << std::endl;
     }
 }
 

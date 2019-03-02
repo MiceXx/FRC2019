@@ -19,7 +19,6 @@
 #include "OperatorInterface.hpp"
 #include "PowerTrain.hpp"
 #include "Elevator.hpp"
-#include "Brush.hpp"
 #include "Hinges.hpp"
 #include "Roller.hpp"
 #include "RobotVision.h"
@@ -44,7 +43,6 @@ public:
 protected:
   void operateLift();
   void activateRoller();
-  void operateBrush();
   void operateHinges();
 
 private:
@@ -93,18 +91,15 @@ private:
   //joystick buttons
   JoystickButton *button1 = new JoystickButton(jStick, 1);
   JoystickButton *button2 = new JoystickButton(jStick, 2);
-  JoystickButton *button3 = new JoystickButton(jStick, 3);
-  JoystickButton *button4 = new JoystickButton(jStick, 4);
-  JoystickButton *button5 = new JoystickButton(jStick, 5);
-  JoystickButton *button6 = new JoystickButton(jStick, 6);
-  JoystickButton *button7 = new JoystickButton(jStick, 7);
-  JoystickButton *button8 = new JoystickButton(jStick, 8);
-  JoystickButton *button9 = new JoystickButton(jStick, 9);
-  JoystickButton *button10 = new JoystickButton(jStick, 10);
-  JoystickButton *button14 = new JoystickButton(jStick, 14);
+  // JoystickButton *button3 = new JoystickButton(jStick, 3);
+  // JoystickButton *button4 = new JoystickButton(jStick, 4);
+  // JoystickButton *button5 = new JoystickButton(jStick, 5);
+  // JoystickButton *button6 = new JoystickButton(jStick, 6);
+ // JoystickButton *button7 = new JoystickButton(jStick, 7);
+ // JoystickButton *button8 = new JoystickButton(jStick, 8);
+// JoystickButton *button9 = new JoystickButton(jStick, 9);
+  // JoystickButton *button10 = new JoystickButton(jStick, 10);
 
-  nt::NetworkTableEntry xEntry;
-  nt::NetworkTableEntry yEntry;
   nt::NetworkTableInstance networkTableInstance = nt::NetworkTableInstance::GetDefault();
 
   frc::lcchs::OperatorInterface driveStation;
@@ -116,12 +111,12 @@ private:
   bool liftReset;
   int gamePadPOV;
   int liftDestination;
-  int ballOpenings[4] = {0, -10400, -25000, -34000};
-  int hatchOpenings[4] = {0, -4300, -18000, -32000};
+  int ballOpenings[4] = {0, -13600, -34000, -48500};
+  int hatchOpenings[4] = {0, -3400, -25400, -46500};
   int liftLevel;
   bool selectBall;
   bool selectHatch;
-  int loadingStation = -10000;
+  int loadingStation = -23600;
 
                        //Roller
                        double captureCommand;
@@ -133,9 +128,6 @@ private:
   double driveOutput;
 
   PowerTrain powerTrain;
-
-  //Brushes
-  Brush grapple;
 
   //Wrist hinge
   Hinges wrist;
@@ -156,13 +148,6 @@ private:
   bool rollerDebug;
   bool hingeDebug;
   bool grappleDebug;
-
-//limit Switches
-
-frc::DigitalInput limitLiftTop {0};
-frc::DigitalInput limitLiftBottom {1};
-frc::DigitalInput limitWristTop {2};
-frc::DigitalInput limitWristBottom {3};
 
 bool liftRaised;
 bool liftLowered;

@@ -21,9 +21,9 @@ void Elevator::setScaling(double scaling){
 }
 void Elevator::initializeElevator()
 {
+  // m_liftmotor.SetSafetyEnabled(false);
   m_liftmotor.ConfigSelectedFeedbackSensor(CTRE_MagEncoder_Absolute);
   m_liftmotor.SetSensorPhase(false);
-  //m_liftmotor.SetInverted(true);
 
 }
 
