@@ -150,16 +150,18 @@ void Robot::rotateToAngleNeg135()
 
 void Robot::rotateToRocketAngles()
 {
-    double tolerance = 3;
+    double tolerance = 2;
+
+    double rotationSpeed = 0.3;
 
     //Right Rocket
 
     //RIGHT ROTATION
 
     // rotates to 60 from above 60 (right)
-    if (gyroAngle < 75 - tolerance && gyroAngle > 60 + tolerance)
+    if (gyroAngle > 30 + tolerance && gyroAngle < 60 - tolerance)
     {
-        powerTrain.driveRobot(0, 0, 0.4);
+        powerTrain.driveRobot(0, 0, rotationSpeed);
     }
     else
     {
@@ -167,9 +169,9 @@ void Robot::rotateToRocketAngles()
     }
 
     // rotates to 90 from above 90 (right)
-    if (gyroAngle < 105 - tolerance && gyroAngle > 90 + tolerance)
+    if (gyroAngle > 75 + tolerance && gyroAngle < 90 - tolerance)
     {
-        powerTrain.driveRobot(0, 0, 0.4);
+        powerTrain.driveRobot(0, 0, rotationSpeed);
     }
     else
     {
@@ -177,9 +179,9 @@ void Robot::rotateToRocketAngles()
     }
 
     // rotates to 120 from above 120 (right)
-    if (gyroAngle < 120 - tolerance && gyroAngle > 120 + tolerance)
+    if (gyroAngle > 105 + tolerance && gyroAngle < 120 - tolerance)
     {
-        powerTrain.driveRobot(0, 0, 0.4);
+        powerTrain.driveRobot(0, 0, rotationSpeed);
     }
     else
     {
@@ -189,9 +191,9 @@ void Robot::rotateToRocketAngles()
     //LEFT ROTATION
 
     // rotates to 60 from below 60 (left)
-    if (gyroAngle > 75 + tolerance && gyroAngle > 60 + tolerance)
+    if (gyroAngle < 75 - tolerance && gyroAngle > 60 + tolerance)
     {
-        powerTrain.driveRobot(0, 0, -0.4);
+        powerTrain.driveRobot(0, 0, -rotationSpeed);
     }
     else
     {
@@ -199,9 +201,9 @@ void Robot::rotateToRocketAngles()
     }
 
     // rotates to 90 from above 90 (left)
-    if (gyroAngle > 105 + tolerance && gyroAngle > 90 + tolerance)
+    if (gyroAngle < 105 - tolerance && gyroAngle > 90 + tolerance)
     {
-        powerTrain.driveRobot(0, 0, -0.4);
+        powerTrain.driveRobot(0, 0, -rotationSpeed);
     }
     else
     {
@@ -209,9 +211,9 @@ void Robot::rotateToRocketAngles()
     }
 
     // rotates to 120 from above 120 (left)
-    if (gyroAngle > 120 + tolerance && gyroAngle > 120 + tolerance)
+    if (gyroAngle < 180 - tolerance && gyroAngle > 120 + tolerance)
     {
-        powerTrain.driveRobot(0, 0, -0.4);
+        powerTrain.driveRobot(0, 0, -rotationSpeed);
     }
     else
     {
@@ -222,10 +224,10 @@ void Robot::rotateToRocketAngles()
 
     //RIGHT ROTATION
 
-    // rotates to 60 from above 60 (right)
-    if (gyroAngle < -75 - tolerance && gyroAngle > -60 + tolerance)
+    // rotates to -60 from above -60 (right)
+    if (gyroAngle > -75 + tolerance && gyroAngle < -60 - tolerance)
     {
-        powerTrain.driveRobot(0, 0, 0.4);
+        powerTrain.driveRobot(0, 0, rotationSpeed);
     }
     else
     {
@@ -233,9 +235,9 @@ void Robot::rotateToRocketAngles()
     }
 
     // rotates to 90 from above 90 (right)
-    if (gyroAngle < -105 - tolerance && gyroAngle > -90 + tolerance)
+    if (gyroAngle > -105 + tolerance && gyroAngle < -90 - tolerance)
     {
-        powerTrain.driveRobot(0, 0, 0.4);
+        powerTrain.driveRobot(0, 0, rotationSpeed);
     }
     else
     {
@@ -243,9 +245,9 @@ void Robot::rotateToRocketAngles()
     }
 
     // rotates to 120 from above 120 (right)
-    if (gyroAngle < -120 - tolerance && gyroAngle > -120 + tolerance)
+    if (gyroAngle > -180 + tolerance && gyroAngle < -120 - tolerance)
     {
-        powerTrain.driveRobot(0, 0, 0.4);
+        powerTrain.driveRobot(0, 0, rotationSpeed);
     }
     else
     {
@@ -255,9 +257,9 @@ void Robot::rotateToRocketAngles()
     //LEFT ROTATION
 
     // rotates to 60 from below 60 (left)
-    if (gyroAngle > -75 + tolerance && gyroAngle > -60 + tolerance)
+    if (gyroAngle < -30 - tolerance && gyroAngle > -60 + tolerance)
     {
-        powerTrain.driveRobot(0, 0, -0.4);
+        powerTrain.driveRobot(0, 0, -rotationSpeed);
     }
     else
     {
@@ -265,9 +267,9 @@ void Robot::rotateToRocketAngles()
     }
 
     // rotates to 90 from above 90 (left)
-    if (gyroAngle > -105 + tolerance && gyroAngle > -90 + tolerance)
+    if (gyroAngle < -75 - tolerance && gyroAngle > -90 + tolerance)
     {
-        powerTrain.driveRobot(0, 0, -0.4);
+        powerTrain.driveRobot(0, 0, -rotationSpeed);
     }
     else
     {
@@ -275,9 +277,31 @@ void Robot::rotateToRocketAngles()
     }
 
     // rotates to 120 from above 120 (left)
-    if (gyroAngle > -120 + tolerance && gyroAngle > -120 + tolerance)
+    if (gyroAngle < -105 - tolerance && gyroAngle > -120 + tolerance)
     {
-        powerTrain.driveRobot(0, 0, -0.4);
+        powerTrain.driveRobot(0, 0, -rotationSpeed);
+    }
+    else
+    {
+        powerTrain.driveRobot(0, 0, 0);
+    }
+
+    // Cargo Ship
+
+    //rotates right
+    if (gyroAngle < 0 - tolerance && gyroAngle > -30 + tolerance)
+    {
+        powerTrain.driveRobot(0, 0, rotationSpeed);
+    }
+    else
+    {
+        powerTrain.driveRobot(0, 0, 0);
+    }
+
+    //rotates left
+    if (gyroAngle > 0 + tolerance && gyroAngle < 30 - tolerance)
+    {
+        powerTrain.driveRobot(0, 0, -rotationSpeed);
     }
     else
     {

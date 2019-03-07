@@ -53,13 +53,13 @@ private:
   //GYRO ANGLE
   double gyroAngle;
 
-  //ROCKET ANGLE
-  void rotateToAngle45();
-  void rotateToAngle90();
-  void rotateToAngle135();
-  void rotateToAngleNeg45();
-  void rotateToAngleNeg90();
-  void rotateToAngleNeg135();
+  //ROCKET ANGLES
+  // void rotateToAngle45();
+  // void rotateToAngle90();
+  // void rotateToAngle135();
+  // void rotateToAngleNeg45();
+  // void rotateToAngleNeg90();
+  // void rotateToAngleNeg135();
   void rotateToRocketAngles();
 
   double lastButtonpress = 0;
