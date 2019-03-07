@@ -8,41 +8,11 @@ namespace frc
 namespace lcchs
 {
 
-void Robot::rotateToAngle45()
+/*void Robot::rotateToAngle45()
 {
 
     double tolerance = 3;
     double rocketAngle = 45;
-
-    // if (gyroAngle != 400)
-    // {
-    //     rocketAngle = 45;
-    // }
-    // else if (button6->Get())
-    // {
-    //     rocketAngle = 90;
-    //     std::cout << "the rocket angle was changed to 90" << std::endl;
-    // }
-    // else if (button7->Get())
-    // {
-    //     rocketAngle = 135;
-    // }
-    // else if (button10->Get())
-    // {
-    //     rocketAngle = -45;
-    // }
-    // else if (button9->Get())
-    // {
-    //     rocketAngle = -90;
-    // }
-    // else if (button8->Get())
-    // {
-    //     rocketAngle = -135;
-    // }
-    // else
-    // {
-    //     rocketAngle = 45;
-    // }
 
     if (gyroAngle != rocketAngle + tolerance)
     {
@@ -174,6 +144,144 @@ void Robot::rotateToAngleNeg135()
         {
             powerTrain.driveRobot(0, 0, 0);
         }
+    }
+}
+*/
+
+void Robot::rotateToRocketAngles()
+{
+    double tolerance = 3;
+
+    //Right Rocket
+
+    //RIGHT ROTATION
+
+    // rotates to 60 from above 60 (right)
+    if (gyroAngle < 75 - tolerance && gyroAngle > 60 + tolerance)
+    {
+        powerTrain.driveRobot(0, 0, 0.4);
+    }
+    else
+    {
+        powerTrain.driveRobot(0, 0, 0);
+    }
+
+    // rotates to 90 from above 90 (right)
+    if (gyroAngle < 105 - tolerance && gyroAngle > 90 + tolerance)
+    {
+        powerTrain.driveRobot(0, 0, 0.4);
+    }
+    else
+    {
+        powerTrain.driveRobot(0, 0, 0);
+    }
+
+    // rotates to 120 from above 120 (right)
+    if (gyroAngle < 120 - tolerance && gyroAngle > 120 + tolerance)
+    {
+        powerTrain.driveRobot(0, 0, 0.4);
+    }
+    else
+    {
+        powerTrain.driveRobot(0, 0, 0);
+    }
+
+    //LEFT ROTATION
+
+    // rotates to 60 from below 60 (left)
+    if (gyroAngle > 75 + tolerance && gyroAngle > 60 + tolerance)
+    {
+        powerTrain.driveRobot(0, 0, -0.4);
+    }
+    else
+    {
+        powerTrain.driveRobot(0, 0, 0);
+    }
+
+    // rotates to 90 from above 90 (left)
+    if (gyroAngle > 105 + tolerance && gyroAngle > 90 + tolerance)
+    {
+        powerTrain.driveRobot(0, 0, -0.4);
+    }
+    else
+    {
+        powerTrain.driveRobot(0, 0, 0);
+    }
+
+    // rotates to 120 from above 120 (left)
+    if (gyroAngle > 120 + tolerance && gyroAngle > 120 + tolerance)
+    {
+        powerTrain.driveRobot(0, 0, -0.4);
+    }
+    else
+    {
+        powerTrain.driveRobot(0, 0, 0);
+    }
+
+    //Left Rocket
+
+    //RIGHT ROTATION
+
+    // rotates to 60 from above 60 (right)
+    if (gyroAngle < -75 - tolerance && gyroAngle > -60 + tolerance)
+    {
+        powerTrain.driveRobot(0, 0, 0.4);
+    }
+    else
+    {
+        powerTrain.driveRobot(0, 0, 0);
+    }
+
+    // rotates to 90 from above 90 (right)
+    if (gyroAngle < -105 - tolerance && gyroAngle > -90 + tolerance)
+    {
+        powerTrain.driveRobot(0, 0, 0.4);
+    }
+    else
+    {
+        powerTrain.driveRobot(0, 0, 0);
+    }
+
+    // rotates to 120 from above 120 (right)
+    if (gyroAngle < -120 - tolerance && gyroAngle > -120 + tolerance)
+    {
+        powerTrain.driveRobot(0, 0, 0.4);
+    }
+    else
+    {
+        powerTrain.driveRobot(0, 0, 0);
+    }
+
+    //LEFT ROTATION
+
+    // rotates to 60 from below 60 (left)
+    if (gyroAngle > -75 + tolerance && gyroAngle > -60 + tolerance)
+    {
+        powerTrain.driveRobot(0, 0, -0.4);
+    }
+    else
+    {
+        powerTrain.driveRobot(0, 0, 0);
+    }
+
+    // rotates to 90 from above 90 (left)
+    if (gyroAngle > -105 + tolerance && gyroAngle > -90 + tolerance)
+    {
+        powerTrain.driveRobot(0, 0, -0.4);
+    }
+    else
+    {
+        powerTrain.driveRobot(0, 0, 0);
+    }
+
+    // rotates to 120 from above 120 (left)
+    if (gyroAngle > -120 + tolerance && gyroAngle > -120 + tolerance)
+    {
+        powerTrain.driveRobot(0, 0, -0.4);
+    }
+    else
+    {
+        powerTrain.driveRobot(0, 0, 0);
     }
 }
 } // namespace lcchs

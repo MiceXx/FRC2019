@@ -60,6 +60,7 @@ private:
   void rotateToAngleNeg45();
   void rotateToAngleNeg90();
   void rotateToAngleNeg135();
+  void rotateToRocketAngles();
 
   double lastButtonpress = 0;
 
@@ -95,9 +96,9 @@ private:
   // JoystickButton *button4 = new JoystickButton(jStick, 4);
   // JoystickButton *button5 = new JoystickButton(jStick, 5);
   // JoystickButton *button6 = new JoystickButton(jStick, 6);
- // JoystickButton *button7 = new JoystickButton(jStick, 7);
- // JoystickButton *button8 = new JoystickButton(jStick, 8);
-// JoystickButton *button9 = new JoystickButton(jStick, 9);
+  // JoystickButton *button7 = new JoystickButton(jStick, 7);
+  // JoystickButton *button8 = new JoystickButton(jStick, 8);
+  // JoystickButton *button9 = new JoystickButton(jStick, 9);
   // JoystickButton *button10 = new JoystickButton(jStick, 10);
 
   nt::NetworkTableInstance networkTableInstance = nt::NetworkTableInstance::GetDefault();
@@ -118,8 +119,8 @@ private:
   bool selectHatch;
   int loadingStation = -23600;
 
-                       //Roller
-                       double captureCommand;
+  //Roller
+  double captureCommand;
   double shootCommand;
   frc::lcchs::Roller roller;
 
@@ -137,7 +138,7 @@ private:
   double currentTime;
   double wristStopTime;
 
-  double wristAngles[4]={0, 0.05, 0.05, 0.5};
+  double wristAngles[4] = {0, 0.05, 0.05, 0.5};
 
   // angleTo45 =
   // int wristAngles[3] { 0, angleTo45 }
@@ -149,10 +150,10 @@ private:
   bool hingeDebug;
   bool grappleDebug;
 
-bool liftRaised;
-bool liftLowered;
-bool wristRaised;
-bool wristLowered;
+  bool liftRaised;
+  bool liftLowered;
+  bool wristRaised;
+  bool wristLowered;
 };
 
 } // namespace lcchs

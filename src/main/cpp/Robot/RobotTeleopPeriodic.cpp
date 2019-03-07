@@ -66,12 +66,22 @@ void Robot::TeleopPeriodic()
     //     rotateToAngleNeg135();
     // }
     //
+
+    //Rocket angles V2 (Align manually, then press trigger)
+    if (button1->Get())
+    {
+        rotateToRocketAngles();
+    }
+    else
+    {
+        powerTrain.driveRobot(jStick->GetX(), jStick->GetY(), jStick->GetZ());
+    }
+
     //align robot w/ tracking
-     if (button2->Get())
+    if (button2->Get())
     {
         alignRobot();
     }
-
     else
     {
         powerTrain.driveRobot(jStick->GetX(), jStick->GetY(), jStick->GetZ());
@@ -80,7 +90,7 @@ void Robot::TeleopPeriodic()
     //Lift
     operateLift();
 
-        //hinge
+    //hinge
     operateHinges();
 
     //roller
