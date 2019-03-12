@@ -163,61 +163,37 @@ void Robot::rotateToRocketAngles()
     {
         powerTrain.driveRobot(0, 0, rotationSpeed);
     }
-    else
-    {
-        powerTrain.driveRobot(0, 0, 0);
-    }
 
     // rotates to 90 from above 90 (right)
-    if (gyroAngle > 75 + tolerance && gyroAngle < 90 - tolerance)
+    else if (gyroAngle > 75 + tolerance && gyroAngle < 90 - tolerance)
     {
         powerTrain.driveRobot(0, 0, rotationSpeed);
-    }
-    else
-    {
-        powerTrain.driveRobot(0, 0, 0);
     }
 
     // rotates to 120 from above 120 (right)
-    if (gyroAngle > 105 + tolerance && gyroAngle < 120 - tolerance)
+    else if (gyroAngle > 105 + tolerance && gyroAngle < 120 - tolerance)
     {
         powerTrain.driveRobot(0, 0, rotationSpeed);
-    }
-    else
-    {
-        powerTrain.driveRobot(0, 0, 0);
     }
 
     //LEFT ROTATION
 
     // rotates to 60 from below 60 (left)
-    if (gyroAngle < 75 - tolerance && gyroAngle > 60 + tolerance)
+    else if (gyroAngle < 75 - tolerance && gyroAngle > 60 + tolerance)
     {
         powerTrain.driveRobot(0, 0, -rotationSpeed);
-    }
-    else
-    {
-        powerTrain.driveRobot(0, 0, 0);
     }
 
     // rotates to 90 from above 90 (left)
-    if (gyroAngle < 105 - tolerance && gyroAngle > 90 + tolerance)
+    else if (gyroAngle < 105 - tolerance && gyroAngle > 90 + tolerance)
     {
         powerTrain.driveRobot(0, 0, -rotationSpeed);
-    }
-    else
-    {
-        powerTrain.driveRobot(0, 0, 0);
     }
 
     // rotates to 120 from above 120 (left)
-    if (gyroAngle < 180 - tolerance && gyroAngle > 120 + tolerance)
+    else if (gyroAngle < 180 - tolerance && gyroAngle > 120 + tolerance)
     {
         powerTrain.driveRobot(0, 0, -rotationSpeed);
-    }
-    else
-    {
-        powerTrain.driveRobot(0, 0, 0);
     }
 
     //Left Rocket
@@ -225,81 +201,53 @@ void Robot::rotateToRocketAngles()
     //RIGHT ROTATION
 
     // rotates to -60 from above -60 (right)
-    if (gyroAngle > -75 + tolerance && gyroAngle < -60 - tolerance)
+    else if (gyroAngle > -75 + tolerance && gyroAngle < -60 - tolerance)
     {
         powerTrain.driveRobot(0, 0, rotationSpeed);
-    }
-    else
-    {
-        powerTrain.driveRobot(0, 0, 0);
     }
 
     // rotates to 90 from above 90 (right)
-    if (gyroAngle > -105 + tolerance && gyroAngle < -90 - tolerance)
+    else if (gyroAngle > -105 + tolerance && gyroAngle < -90 - tolerance)
     {
         powerTrain.driveRobot(0, 0, rotationSpeed);
-    }
-    else
-    {
-        powerTrain.driveRobot(0, 0, 0);
     }
 
     // rotates to 120 from above 120 (right)
-    if (gyroAngle > -180 + tolerance && gyroAngle < -120 - tolerance)
+    else if (gyroAngle > -180 + tolerance && gyroAngle < -120 - tolerance)
     {
         powerTrain.driveRobot(0, 0, rotationSpeed);
-    }
-    else
-    {
-        powerTrain.driveRobot(0, 0, 0);
     }
 
     //LEFT ROTATION
 
     // rotates to 60 from below 60 (left)
-    if (gyroAngle < -30 - tolerance && gyroAngle > -60 + tolerance)
+    else if (gyroAngle < -30 - tolerance && gyroAngle > -60 + tolerance)
     {
         powerTrain.driveRobot(0, 0, -rotationSpeed);
-    }
-    else
-    {
-        powerTrain.driveRobot(0, 0, 0);
     }
 
     // rotates to 90 from above 90 (left)
-    if (gyroAngle < -75 - tolerance && gyroAngle > -90 + tolerance)
+    else if (gyroAngle < -75 - tolerance && gyroAngle > -90 + tolerance)
     {
         powerTrain.driveRobot(0, 0, -rotationSpeed);
-    }
-    else
-    {
-        powerTrain.driveRobot(0, 0, 0);
     }
 
     // rotates to 120 from above 120 (left)
-    if (gyroAngle < -105 - tolerance && gyroAngle > -120 + tolerance)
+    else if (gyroAngle < -105 - tolerance && gyroAngle > -120 + tolerance)
     {
         powerTrain.driveRobot(0, 0, -rotationSpeed);
-    }
-    else
-    {
-        powerTrain.driveRobot(0, 0, 0);
     }
 
     // Cargo Ship
 
     //rotates right
-    if (gyroAngle < 0 - tolerance && gyroAngle > -30 + tolerance)
+    else if (gyroAngle < 0 - tolerance && gyroAngle > -30 + tolerance)
     {
         powerTrain.driveRobot(0, 0, rotationSpeed);
     }
-    else
-    {
-        powerTrain.driveRobot(0, 0, 0);
-    }
 
     //rotates left
-    if (gyroAngle > 0 + tolerance && gyroAngle < 30 - tolerance)
+    else if (gyroAngle > 0 + tolerance && gyroAngle < 30 - tolerance)
     {
         powerTrain.driveRobot(0, 0, -rotationSpeed);
     }
