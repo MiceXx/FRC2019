@@ -19,7 +19,7 @@ namespace lcchs
 {
 void Robot::RobotPeriodic()
 {
-    
+
     // Get the debug information selection for the PC Dashboard.
     // bool button0 = driveStation.getButton(0);
     // bool button1 = driveStation.getButton(1);
@@ -71,8 +71,8 @@ void Robot::RobotPeriodic()
     // Lift Ops
     liftPosition = elevator.getPosition();
     liftVelocity = elevator.getVelocity();
-    liftCommand  = driveStation.getLeftHandY();
-    liftReset    = driveStation.getYButton();
+    liftCommand = driveStation.getLeftHandY();
+    liftReset = driveStation.getYButton();
 
     // Roller Ops
     captureCommand = driveStation.getLeftTrigger();
@@ -81,7 +81,7 @@ void Robot::RobotPeriodic()
     // Wrist Ops
     wristCommand = driveStation.getRightHandY();
 
-/*
+    /*
     if(liftDebug) 
     {
         driveStation.setString(0,"Lift Debug");
@@ -228,12 +228,25 @@ void Robot::RobotPeriodic()
     //     scaling = 5.;
     // }
 
-   // driveOutput = 1 / (scaling + 1);
-   // liftOutput = 1 / (scaling + 1);
-   // powerTrain.setScaling(driveOutput);
-   // elevator.setScaling(liftOutput);
+    // driveOutput = 1 / (scaling + 1);
+    // liftOutput = 1 / (scaling + 1);
+    // powerTrain.setScaling(driveOutput);
+    // elevator.setScaling(liftOutput);
 
-    gyroAngle = gyro.GetAngle() / 0.69106781186;
+    double gyroReading = gyro.GetAngle() / 0.69106781186;
+
+    if (gyroReading > 180)
+    {
+        gyroAngle = gyroAngle - 360;
+    }
+    else if (gyroReading < -180)
+    {
+        gyroAngle = gyroAngle + 360;
+    }
+    else
+    {
+        gyroAngle = gyroReading;
+    }
 }
 
 } // namespace lcchs

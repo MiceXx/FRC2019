@@ -241,13 +241,13 @@ void Robot::rotateToRocketAngles()
     // Cargo Ship
 
     //rotates right
-    else if (gyroAngle < 0 - tolerance && gyroAngle > -30 + tolerance)
+    else if (gyroAngle > -30 + tolerance && gyroAngle < 0 - tolerance)
     {
         powerTrain.driveRobot(0, 0, rotationSpeed);
     }
 
     //rotates left
-    else if (gyroAngle > 0 + tolerance && gyroAngle < 30 - tolerance)
+    else if (gyroAngle < 30 - tolerance && gyroAngle > 0 + tolerance)
     {
         powerTrain.driveRobot(0, 0, -rotationSpeed);
     }
