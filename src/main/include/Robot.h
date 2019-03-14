@@ -44,6 +44,7 @@ protected:
   void operateLift();
   void activateRoller();
   void operateHinges();
+  void writeDebugInfo();
 
 private:
   void gyroResetPos();
