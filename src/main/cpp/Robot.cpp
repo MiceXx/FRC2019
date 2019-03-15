@@ -5,8 +5,8 @@ namespace lcchs{
 
 void Robot::TestPeriodic() 
 {
-    writeDebugInfo();
     TeleopPeriodic();
+    writeDebugInfo();
 }
 
 void Robot::writeDebugInfo() 
@@ -174,6 +174,13 @@ void Robot::writeDebugInfo()
         driveStation.setString(9, " " );
     }
 
+
+        driveStation.setString(7, " " + std::to_string(IsDisabled()) );
+
+        driveStation.setString(8, " " + std::to_string(IsAutonomous()) );
+
+        driveStation.setString(9, " " + std::to_string(IsOperatorControl()) );
+
     driveStation.setLed(0, liftDebug);
     driveStation.setLed(1, rollerDebug);
     driveStation.setLed(2, hingeDebug);
@@ -195,6 +202,11 @@ void Robot::writeDebugInfo()
     //     }
     // }
 
+   
+}
+
+ void Robot::readInput()
+ {
     //Set Scaling
     double scaling = driveStation.getSlider(0);
 
@@ -211,7 +223,40 @@ void Robot::writeDebugInfo()
     liftOutput = 1 / (scaling + 1);
     powerTrain.setScaling(driveOutput);
     elevator.setScaling(liftOutput);
-}
+
+
+     // Lift Ops
+    liftPosition = elevator.getPosition();
+    liftVelocity = elevator.getVelocity();
+    liftCommand = driveStation.getLeftHandY();
+    liftReset = driveStation.getYButton();
+
+    // Roller Ops
+    captureCommand = driveStation.getLeftTrigger();
+    shootCommand = driveStation.getRightTrigger();
+
+    // Wrist Ops
+    wristCommand = driveStation.getRightHandY();
+
+  
+
+    double gyroReading = gyro.GetAngle() / 0.69106781186;
+
+    if (gyroReading > 180)
+    {
+        gyroAngle = gyroAngle - 360;
+    }
+    else if (gyroReading < -180)
+    {
+        gyroAngle = gyroAngle + 360;
+    }
+    else
+    {
+        gyroAngle = gyroReading;
+    }
+
+
+ }   // readInput
 
 
 }   // namespacelcchs

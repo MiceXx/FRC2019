@@ -19,37 +19,7 @@ namespace lcchs
 {
 void Robot::RobotPeriodic()
 {
-
-
-    // Lift Ops
-    liftPosition = elevator.getPosition();
-    liftVelocity = elevator.getVelocity();
-    liftCommand = driveStation.getLeftHandY();
-    liftReset = driveStation.getYButton();
-
-    // Roller Ops
-    captureCommand = driveStation.getLeftTrigger();
-    shootCommand = driveStation.getRightTrigger();
-
-    // Wrist Ops
-    wristCommand = driveStation.getRightHandY();
-
-  
-
-    double gyroReading = gyro.GetAngle() / 0.69106781186;
-
-    if (gyroReading > 180)
-    {
-        gyroAngle = gyroAngle - 360;
-    }
-    else if (gyroReading < -180)
-    {
-        gyroAngle = gyroAngle + 360;
-    }
-    else
-    {
-        gyroAngle = gyroReading;
-    }
+   //Empty  
 }
 
 } // namespace lcchs

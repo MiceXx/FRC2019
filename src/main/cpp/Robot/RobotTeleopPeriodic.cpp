@@ -12,6 +12,8 @@ double x = 0;
 double y = 0;
 void Robot::TeleopPeriodic()
 {
+    readInput();
+
     //Reset gyro after passing 360 or -360
 
     if (gyroAngle < -360)

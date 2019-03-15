@@ -45,7 +45,8 @@ protected:
   void activateRoller();
   void operateHinges();
   void writeDebugInfo();
-
+  void readInput();
+  
 private:
   void gyroResetPos();
   void alignRobot();
