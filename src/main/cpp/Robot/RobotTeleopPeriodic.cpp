@@ -68,14 +68,10 @@ void Robot::TeleopPeriodic()
     //
 
     //Rocket angles V2 (Align manually, then press trigger)
-    if (button1->Get())
-    {
-        rotateToRocketAngles();
-    }
-    else
-    {
-        powerTrain.driveRobot(jStick->GetX(), jStick->GetY(), jStick->GetZ());
-    }
+    // if (button1->Get())
+    // {
+    //     rotateToRocketAngles();
+    // }
 
     //align robot w/ tracking
     if (button2->Get())
