@@ -32,7 +32,7 @@ void Elevator::initializeElevator()
   // m_liftmotor.SetStatusFramePeriod(StatusFrame::Status_1_General_, 5, 30);
   m_liftmotor.SetSensorPhase(false);
 
-  m_liftmotor.SetNeutralMode(NeutralMode::Coast);
+  m_liftmotor.SetNeutralMode(NeutralMode::EEPROMSetting);
 }
 
 int Elevator::getPosition()
@@ -53,8 +53,8 @@ void Elevator::resetEncoder()
 
 void Elevator::setPosition(int destination)
 {
-  // m_liftmotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position, destination);
-  m_liftmotor.SetSelectedSensorPosition(destination, 0, 0);
+  m_liftmotor.Set(ctre::phoenix::motorcontrol::ControlMode::MotionMagic, destination);
+  //m_liftmotor.SetSelectedSensorPosition(destination, 0, 0);
 }
 
 //bool Elevator::isGrounded()

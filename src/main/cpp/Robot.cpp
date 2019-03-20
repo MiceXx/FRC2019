@@ -230,6 +230,7 @@ void Robot::writeDebugInfo()
     liftVelocity = elevator.getVelocity();
     liftCommand = driveStation.getLeftHandY();
     liftReset = driveStation.getYButton();
+    
 
     // Roller Ops
     captureCommand = driveStation.getLeftTrigger();

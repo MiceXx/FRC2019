@@ -9,12 +9,7 @@ namespace lcchs
 void Robot::operateLift()
 {
     int currentPov = driveStation.getPov();
-
-    //lift Ops
-    liftPosition = elevator.getPosition();
-    liftVelocity = elevator.getVelocity();
-    liftCommand = driveStation.getLeftHandY();
-    liftReset = driveStation.getYButton();
+   
     bool ballButtonPress = driveStation.getBButton();
 
     // if (gyroAngle > -135 +tolerance || 45 )
@@ -71,7 +66,6 @@ void Robot::operateLift()
         wristDestination = 0.05;
     }
 
-
     if (liftReset)
     {
         elevator.resetEncoder();
@@ -81,14 +75,15 @@ void Robot::operateLift()
         selectHatch = false;
         selectBall = false;
     }
-    else if (abs(liftCommand) > 0.05)
+    else if (std::abs(liftCommand) > 0.05)
     {
         elevator.moveLift(liftCommand);
         liftDestination = liftPosition;
+        
         selectHatch = false;
         selectBall = false;
     }
-    else if (abs(liftDestination - liftPosition) > 250)
+    else if (std::abs(liftDestination - liftPosition) > 250)
     {
         elevator.setPosition(liftDestination);
     }
