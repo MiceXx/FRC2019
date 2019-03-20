@@ -32,7 +32,7 @@ void Robot::alignRobot()
 
     //ROCKET ANGLES
     double rotationSpeed = 0.3;
-    double toleranceRocket = 2;
+    double toleranceRocket = 0.5;
 
     double targetArea = 15;
     double targetX = 0.0;

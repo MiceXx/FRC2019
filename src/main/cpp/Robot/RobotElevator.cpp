@@ -44,14 +44,12 @@ void Robot::operateLift()
     {
         selectHatch = true;
         selectBall = false;
-        elevatorAutoMode = true;
     }
 
     if (gamePadPOV != 270 && currentPov == 270)
     {
         selectBall = true;
         selectHatch = false;
-        elevatorAutoMode = true;
     }
     //
 
@@ -73,48 +71,31 @@ void Robot::operateLift()
         wristDestination = 0.05;
     }
 
-    //Move Wrist at top
-    if (liftPosition < -26000 && selectBall)
-    {
-        wrist.rotateHinges(0.4);
-    }
 
     if (liftReset)
     {
         elevator.resetEncoder();
         liftDestination = elevator.getPosition();
         liftLevel = 0;
-    }
-    else if (!elevatorAutoMode)
-    //else if (abs(liftCommand) > 0.05)
-    {
-        if (abs(liftCommand) > 0.05)
-        {
-            elevator.moveLift(liftCommand);
-            liftDestination = liftPosition;
-            selectHatch = false;
-            selectBall = false;
-        }
-        else
-        {
-            elevator.moveLift(0.0);
-        }
-    }
-    else if (elevatorAutoMode)
-    {
-        while (liftDestination != liftPosition)
-        {
-            elevator.setPosition(liftDestination);
-        }
 
-        elevator.moveLift(0.0);
+        selectHatch = false;
+        selectBall = false;
+    }
+    else if (abs(liftCommand) > 0.05)
+    {
+        elevator.moveLift(liftCommand);
+        liftDestination = liftPosition;
+        selectHatch = false;
+        selectBall = false;
+    }
+    else if (abs(liftDestination - liftPosition) > 250)
+    {
+        elevator.setPosition(liftDestination);
     }
     else
     {
         elevator.moveLift(0.0);
     }
-
-    elevatorAutoMode = false;
 
     // //large current draw fix
     // if ((liftPosition < -13600 && liftPosition > 12000) || (liftPosition < -34000 && liftPosition > -33000) || (liftPosition < -48500 && liftPosition > -47000) && (liftVelocity = 0))

@@ -111,15 +111,14 @@ private:
   int liftPosition;
   int liftVelocity;
   double liftCommand;
-  bool liftReset;
-  bool elevatorAutoMode = false;
+  bool liftReset = false;
   int gamePadPOV;
   int liftDestination;
   int ballOpenings[4] = {0, -13600, -34000, -48500};
   int hatchOpenings[4] = {0, -3400, -25400, -46500};
-  int liftLevel;
-  bool selectBall;
-  bool selectHatch;
+  int liftLevel = 0;
+  bool selectBall = false;
+  bool selectHatch = false;
   int loadingStation = -23600;
 
   //Roller
