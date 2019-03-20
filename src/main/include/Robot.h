@@ -44,6 +44,8 @@ protected:
   void operateLift();
   void activateRoller();
   void operateHinges();
+  void writeDebugInfo();
+  void readInput();
 
 private:
   void gyroResetPos();
@@ -110,6 +112,7 @@ private:
   int liftVelocity;
   double liftCommand;
   bool liftReset;
+  bool elevatorAutoMode = false;
   int gamePadPOV;
   int liftDestination;
   int ballOpenings[4] = {0, -13600, -34000, -48500};
