@@ -51,6 +51,11 @@ void Elevator::resetEncoder()
   m_liftmotor.StopMotor();
 }
 
+void Elevator::stopMotor()
+{
+  m_liftmotor.StopMotor();
+}
+
 void Elevator::setPosition(int destination)
 {
   m_liftmotor.Set(ctre::phoenix::motorcontrol::ControlMode::MotionMagic, destination);

@@ -1,70 +1,69 @@
 #include "Robot.h"
 
-namespace frc {
-namespace lcchs{
+namespace frc
+{
+namespace lcchs
+{
 
-void Robot::TestPeriodic() 
+void Robot::TestPeriodic()
 {
     TeleopPeriodic();
     writeDebugInfo();
 }
 
-void Robot::writeDebugInfo() 
+void Robot::writeDebugInfo()
 {
 
-     //Get the debug information selection for the PC Dashboard.
-     bool button0 = driveStation.getButton(0);
-     bool button1 = driveStation.getButton(1);
-     bool button2 = driveStation.getButton(2);
-     bool button3 = driveStation.getButton(3);
+    //Get the debug information selection for the PC Dashboard.
+    bool button0 = driveStation.getButton(0);
+    bool button1 = driveStation.getButton(1);
+    bool button2 = driveStation.getButton(2);
+    bool button3 = driveStation.getButton(3);
 
-     frc::SmartDashboard::PutNumber("Joystick X", jStick->GetX());
-     frc::SmartDashboard::PutNumber("Joystick Y", jStick->GetY());
+    frc::SmartDashboard::PutNumber("Joystick X", jStick->GetX());
+    frc::SmartDashboard::PutNumber("Joystick Y", jStick->GetY());
 
-     //Drive the PC Dashboard compatible fields.
-     if (button0 )
-     {
-         liftDebug    = true;
-         rollerDebug  = false;
-         hingeDebug   = false;
-         grappleDebug = false;
-     }
-     else if (button1 )
-     {
-         liftDebug    = false;
-        rollerDebug  = true;
-        hingeDebug   = false;
+    //Drive the PC Dashboard compatible fields.
+    if (button0)
+    {
+        liftDebug = true;
+        rollerDebug = false;
+        hingeDebug = false;
         grappleDebug = false;
     }
-    else if (button2 )
+    else if (button1)
     {
-        liftDebug    = false;
-        rollerDebug  = false;
-        hingeDebug   = true;
+        liftDebug = false;
+        rollerDebug = true;
+        hingeDebug = false;
         grappleDebug = false;
-
     }
-    else if (button3 )
+    else if (button2)
     {
-        liftDebug    = false;
-        rollerDebug  = false;
-        hingeDebug   = false;
+        liftDebug = false;
+        rollerDebug = false;
+        hingeDebug = true;
+        grappleDebug = false;
+    }
+    else if (button3)
+    {
+        liftDebug = false;
+        rollerDebug = false;
+        hingeDebug = false;
         grappleDebug = true;
-
     }
     else
     {
-        liftDebug    = false;
-        rollerDebug  = false;
-        hingeDebug   = false;
+        liftDebug = false;
+        rollerDebug = false;
+        hingeDebug = false;
         grappleDebug = false;
-    
     }
-      
-    if(liftDebug) 
+
+    if (liftDebug)
     {
-        driveStation.setString(0,"Lift Debug");
-        
+        driveStation.setString(0, "Lift Debug");
+
         driveStation.setString(1, "command: " + std::to_string(liftCommand));
 
         driveStation.setString(2, "level: " + std::to_string(liftLevel));
@@ -76,39 +75,39 @@ void Robot::writeDebugInfo()
         driveStation.setString(5, "Select DB Button 0");
 
         driveStation.setString(6, "position: " + std::to_string(liftPosition));
-       
-        driveStation.setString(7, "velocity: " + std::to_string(liftVelocity));
-       
-        driveStation.setString(8, "t/b: " + std::to_string(liftRaised) + " " + std::to_string(liftLowered) );   
 
-        driveStation.setString(9, " " );
+        driveStation.setString(7, "velocity: " + std::to_string(liftVelocity));
+
+        driveStation.setString(8, "t/b: " + std::to_string(liftRaised) + " " + std::to_string(liftLowered));
+
+        driveStation.setString(9, " ");
     }
     else if (rollerDebug)
     {
-        driveStation.setString(0,"Roller Debug");
-        
+        driveStation.setString(0, "Roller Debug");
+
         driveStation.setString(1, "capture: " + std::to_string(captureCommand));
 
         driveStation.setString(2, "shoot: " + std::to_string(shootCommand));
 
-        driveStation.setString(3, " " );
+        driveStation.setString(3, " ");
 
-        driveStation.setString(4, " " );
+        driveStation.setString(4, " ");
 
         driveStation.setString(5, "Select DB Button 1");
 
-        driveStation.setString(6, " " );
-       
-        driveStation.setString(7, " " );
-       
-        driveStation.setString(8, " " );
+        driveStation.setString(6, " ");
 
-        driveStation.setString(9, " " );
+        driveStation.setString(7, " ");
+
+        driveStation.setString(8, " ");
+
+        driveStation.setString(9, " ");
     }
     else if (hingeDebug)
     {
-        driveStation.setString(0,"Hinge Debug");
-        
+        driveStation.setString(0, "Hinge Debug");
+
         driveStation.setString(1, "command: " + std::to_string(wristCommand));
 
         driveStation.setString(2, "level: " + std::to_string(liftLevel));
@@ -120,40 +119,40 @@ void Robot::writeDebugInfo()
         driveStation.setString(5, "Select DB Button 2");
 
         driveStation.setString(6, "position: " + std::to_string(wristPosition));
-       
-        driveStation.setString(7, "stop time: " + std::to_string(wristStopTime));
-       
-        driveStation.setString(8, "t/b: " + std::to_string(wristRaised) + " " + std::to_string(wristLowered) );
 
-        driveStation.setString(9, " " );
+        driveStation.setString(7, "stop time: " + std::to_string(wristStopTime));
+
+        driveStation.setString(8, "t/b: " + std::to_string(wristRaised) + " " + std::to_string(wristLowered));
+
+        driveStation.setString(9, " ");
     }
-        else if (grappleDebug)
+    else if (grappleDebug)
     {
-        driveStation.setString(0,"Grapple Debug");
-        
+        driveStation.setString(0, "Grapple Debug");
+
         driveStation.setString(1, "");
 
-        driveStation.setString(2, "" );
+        driveStation.setString(2, "");
 
-        driveStation.setString(3, "" );
+        driveStation.setString(3, "");
 
-        driveStation.setString(4, " " );
+        driveStation.setString(4, " ");
 
         driveStation.setString(5, "Select DB Button 3");
 
-        driveStation.setString(6, "" );
-       
-        driveStation.setString(7, " " );
-       
-        driveStation.setString(8, " " );
+        driveStation.setString(6, "");
 
-        driveStation.setString(9, " " );
+        driveStation.setString(7, " ");
+
+        driveStation.setString(8, " ");
+
+        driveStation.setString(9, " ");
     }
     else
     {
         //Drive debug by default.
 
-        driveStation.setString( 0,"Drive Debug" );
+        driveStation.setString(0, "Drive Debug");
 
         driveStation.setString(1, "stickX: " + std::to_string(jStick->GetX()));
 
@@ -165,28 +164,19 @@ void Robot::writeDebugInfo()
 
         driveStation.setString(5, "Default Selection");
 
-        driveStation.setString(6, " " );
+        driveStation.setString(6, " ");
 
-        driveStation.setString(7, " " );
+        driveStation.setString(7, " ");
 
-        driveStation.setString(8, " " );
+        driveStation.setString(8, " ");
 
-        driveStation.setString(9, " " );
+        driveStation.setString(9, " ");
     }
-
-
-        driveStation.setString(7, " " + std::to_string(IsDisabled()) );
-
-        driveStation.setString(8, " " + std::to_string(IsAutonomous()) );
-
-        driveStation.setString(9, " " + std::to_string(IsOperatorControl()) );
 
     driveStation.setLed(0, liftDebug);
     driveStation.setLed(1, rollerDebug);
     driveStation.setLed(2, hingeDebug);
     driveStation.setLed(3, grappleDebug);
-
-
 
     frc::SmartDashboard::PutNumber("Joystick X", jStick->GetX());
     frc::SmartDashboard::PutNumber("Joystick Y", jStick->GetY());
@@ -201,12 +191,10 @@ void Robot::writeDebugInfo()
     //         lastButtonpress = now;
     //     }
     // }
-
-   
 }
 
- void Robot::readInput()
- {
+void Robot::readInput()
+{
     //Set Scaling
     double scaling = driveStation.getSlider(0);
 
@@ -224,13 +212,11 @@ void Robot::writeDebugInfo()
     powerTrain.setScaling(driveOutput);
     elevator.setScaling(liftOutput);
 
-
-     // Lift Ops
+    // Lift Ops
     liftPosition = elevator.getPosition();
     liftVelocity = elevator.getVelocity();
     liftCommand = driveStation.getLeftHandY();
     liftReset = driveStation.getYButton();
-    
 
     // Roller Ops
     captureCommand = driveStation.getLeftTrigger();
@@ -238,8 +224,6 @@ void Robot::writeDebugInfo()
 
     // Wrist Ops
     wristCommand = driveStation.getRightHandY();
-
-  
 
     double gyroReading = gyro.GetAngle() / 0.69106781186;
 
@@ -256,9 +240,7 @@ void Robot::writeDebugInfo()
         gyroAngle = gyroReading;
     }
 
+} // readInput
 
- }   // readInput
-
-
-}   // namespacelcchs
-}  // namespacefrc
+} // namespace lcchs
+} // namespace frc

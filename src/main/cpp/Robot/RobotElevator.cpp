@@ -9,7 +9,7 @@ namespace lcchs
 void Robot::operateLift()
 {
     int currentPov = driveStation.getPov();
-   
+
     bool ballButtonPress = driveStation.getBButton();
 
     // if (gyroAngle > -135 +tolerance || 45 )
@@ -24,6 +24,7 @@ void Robot::operateLift()
         {
             liftLevel++;
         }
+        elevatorAutoMode = true;
     }
 
     if (gamePadPOV != 180 && currentPov == 180)
@@ -32,6 +33,7 @@ void Robot::operateLift()
         {
             liftLevel--;
         }
+        elevatorAutoMode = true;
     }
 
     // Hatch Openings
@@ -39,12 +41,14 @@ void Robot::operateLift()
     {
         selectHatch = true;
         selectBall = false;
+        elevatorAutoMode = true;
     }
 
     if (gamePadPOV != 270 && currentPov == 270)
     {
         selectBall = true;
         selectHatch = false;
+        elevatorAutoMode = true;
     }
     //
 
@@ -64,6 +68,7 @@ void Robot::operateLift()
     {
         liftDestination = loadingStation;
         wristDestination = 0.05;
+        elevatorAutoMode = true;
     }
 
     if (liftReset)
@@ -74,41 +79,27 @@ void Robot::operateLift()
 
         selectHatch = false;
         selectBall = false;
+
+        elevatorAutoMode = false;
     }
     else if (std::abs(liftCommand) > 0.05)
     {
         elevator.moveLift(liftCommand);
-        liftDestination = liftPosition;
-        
+
         selectHatch = false;
         selectBall = false;
+
+        elevatorAutoMode = false;
     }
-    else if (std::abs(liftDestination - liftPosition) > 250)
+    else if ((std::abs(liftDestination - liftPosition) > 300) && elevatorAutoMode)
     {
         elevator.setPosition(liftDestination);
     }
     else
     {
-        elevator.moveLift(0.0);
+        elevator.stopMotor();
+        elevatorAutoMode = false;
     }
-
-    // //large current draw fix
-    // if ((liftPosition < -13600 && liftPosition > 12000) || (liftPosition < -34000 && liftPosition > -33000) || (liftPosition < -48500 && liftPosition > -47000) && (liftVelocity = 0))
-    // {
-    //     // elevator.moveLift(-0.1);
-
-    //     //liftDestination = liftDestination - 1000;
-
-    //     double start = Timer().GetFPGATimestamp();
-    //     if (Timer().GetFPGATimestamp() - start < 2)
-    //     {
-    //         elevator.moveLift(-0.8);
-    //     }
-    // }
-    // // else if (liftLevel = 0)
-    // // {
-    // // }
-
 } //operateLift()
 
 } //namespace lcchs

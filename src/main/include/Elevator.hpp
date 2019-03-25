@@ -27,6 +27,8 @@ public:
 
   void resetEncoder();
 
+  void stopMotor();
+
   void setPosition(int destination);
 
 private:
