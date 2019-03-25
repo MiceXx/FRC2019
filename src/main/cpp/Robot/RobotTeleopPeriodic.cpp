@@ -26,6 +26,10 @@ void Robot::TeleopPeriodic()
         gyro.Reset();
         //std::cout << "the gyro was reset after 360" << std::endl;
     }
+    if (button4->Get())
+    {
+        gyro.Reset();
+    }
 
     //autonomous teleop
 
@@ -33,11 +37,6 @@ void Robot::TeleopPeriodic()
     // {
     //     gyroResetPos();
     //     std::cout << "the botton was pressed" << std::endl;
-    // }
-
-    // else if (button4->Get())
-    // {
-    //     gyro.Reset();
     // }
 
     //if (abs(jStick->GetZ()) > 0.1) {gyro.Reset();}

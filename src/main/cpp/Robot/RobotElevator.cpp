@@ -71,6 +71,23 @@ void Robot::operateLift()
         elevatorAutoMode = true;
     }
 
+    //Rate Limiter (ramp up/down time)
+    //we want tomake them asymetrical
+    double rampUpTime = 0.07;
+
+    if ((liftCommand - liftCommandFilter) > rampUpTime)
+    {
+        liftCommandFilter += rampUpTime;
+    }
+    else if ((liftCommand - liftCommandFilter) < -rampUpTime)
+    {
+        liftCommandFilter -= rampUpTime;
+    }
+    else
+    {
+        liftCommandFilter = liftCommand;
+    }
+
     if (liftReset)
     {
         elevator.resetEncoder();
@@ -82,16 +99,16 @@ void Robot::operateLift()
 
         elevatorAutoMode = false;
     }
-    else if (std::abs(liftCommand) > 0.05)
+    else if (std::abs(liftCommandFilter) > 0.05)
     {
-        elevator.moveLift(liftCommand);
+        elevator.moveLift(liftCommandFilter);
 
         selectHatch = false;
         selectBall = false;
 
         elevatorAutoMode = false;
     }
-    else if ((std::abs(liftDestination - liftPosition) > 300) && elevatorAutoMode)
+    else if ((std::abs(liftDestination - liftPosition) > 200) && elevatorAutoMode)
     {
         elevator.setPosition(liftDestination);
     }

@@ -94,8 +94,8 @@ private:
   //joystick buttons
   JoystickButton *button1 = new JoystickButton(jStick, 1);
   JoystickButton *button2 = new JoystickButton(jStick, 2);
-  // JoystickButton *button3 = new JoystickButton(jStick, 3);
-  // JoystickButton *button4 = new JoystickButton(jStick, 4);
+  JoystickButton *button3 = new JoystickButton(jStick, 3);
+  JoystickButton *button4 = new JoystickButton(jStick, 4);
   // JoystickButton *button5 = new JoystickButton(jStick, 5);
   // JoystickButton *button6 = new JoystickButton(jStick, 6);
   // JoystickButton *button7 = new JoystickButton(jStick, 7);
@@ -110,13 +110,14 @@ private:
   // lift
   int liftPosition;
   int liftVelocity;
-  double liftCommand;
+  double liftCommand = 0;
+  double liftCommandFilter = 0;
   bool liftReset = false;
   int gamePadPOV;
   int liftDestination;
-  bool elevatorAutoMode =false;
-  int ballOpenings[4] = {0, -13600, -34000, -48500};
-  int hatchOpenings[4] = {0, -3400, -25400, -46500};
+  bool elevatorAutoMode = false;
+  int ballOpenings[4] = {0, -16300, -38000, -51300};
+  int hatchOpenings[4] = {0, -4800, -28000, -48000};
   int liftLevel = 0;
   bool selectBall = false;
   bool selectHatch = false;
