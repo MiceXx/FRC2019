@@ -31,8 +31,8 @@ void Robot::alignRobot()
     double ta1 = limelightTable->GetNumber("ta1", 0.0);
 
     //ROCKET ANGLES
-    double rotationSpeed = 0.3;
-    double toleranceRocket = 0.5;
+    double rotationSpeed = 0.35;
+    double toleranceRocket = 1.5;
 
     double targetArea = 15;
     double targetX = 0.0;

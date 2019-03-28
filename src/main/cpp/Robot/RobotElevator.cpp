@@ -9,7 +9,7 @@ namespace lcchs
 void Robot::operateLift()
 {
     int currentPov = driveStation.getPov();
-   
+
     bool ballButtonPress = driveStation.getBButton();
 
     if (gamePadPOV != 0 && currentPov == 0) //up
@@ -18,6 +18,7 @@ void Robot::operateLift()
         {
             liftLevel++;
         }
+        elevatorAutoMode = true;
     }
 
     if (gamePadPOV != 180 && currentPov == 180) //down
@@ -26,6 +27,7 @@ void Robot::operateLift()
         {
             liftLevel--;
         }
+        elevatorAutoMode = true;
     }
 
     // Hatch Openings
@@ -33,12 +35,14 @@ void Robot::operateLift()
     {
         selectHatch = true;
         selectBall = false;
+        elevatorAutoMode = true;
     }
 
     if (gamePadPOV != 270 && currentPov == 270) //left
     {
         selectBall = true;
         selectHatch = false;
+        elevatorAutoMode = true;
     }
     //
 
@@ -58,6 +62,24 @@ void Robot::operateLift()
     {
         liftDestination = loadingStation;
         wristDestination = 0.05;
+        elevatorAutoMode = true;
+    }
+
+    //Rate Limiter (ramp up/down time)
+    //we want tomake them asymetrical
+    double rampUpTime = 0.07;
+
+    if ((liftCommand - liftCommandFilter) > rampUpTime)
+    {
+        liftCommandFilter += rampUpTime;
+    }
+    else if ((liftCommand - liftCommandFilter) < -rampUpTime)
+    {
+        liftCommandFilter -= rampUpTime;
+    }
+    else
+    {
+        liftCommandFilter = liftCommand;
     }
 
     if (liftReset)
@@ -68,41 +90,27 @@ void Robot::operateLift()
 
         selectHatch = false;
         selectBall = false;
+
+        elevatorAutoMode = false;
     }
-    else if (std::abs(liftCommand) > 0.05)
+    else if (std::abs(liftCommandFilter) > 0.05)
     {
-        elevator.moveLift(liftCommand);
-        liftDestination = liftPosition;
-        
+        elevator.moveLift(liftCommandFilter);
+
         selectHatch = false;
         selectBall = false;
+
+        elevatorAutoMode = false;
     }
-    else if (std::abs(liftDestination - liftPosition) > 250)
+    else if ((std::abs(liftDestination - liftPosition) > 200) && elevatorAutoMode)
     {
         elevator.setPosition(liftDestination);
     }
     else
     {
-        elevator.moveLift(0.0);
+        elevator.stopMotor();
+        elevatorAutoMode = false;
     }
-
-    // //large current draw fix
-    // if ((liftPosition < -13600 && liftPosition > 12000) || (liftPosition < -34000 && liftPosition > -33000) || (liftPosition < -48500 && liftPosition > -47000) && (liftVelocity = 0))
-    // {
-    //     // elevator.moveLift(-0.1);
-
-    //     //liftDestination = liftDestination - 1000;
-
-    //     double start = Timer().GetFPGATimestamp();
-    //     if (Timer().GetFPGATimestamp() - start < 2)
-    //     {
-    //         elevator.moveLift(-0.8);
-    //     }
-    // }
-    // // else if (liftLevel = 0)
-    // // {
-    // // }
-
 } //operateLift()
 
 } //namespace lcchs
