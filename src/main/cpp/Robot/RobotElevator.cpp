@@ -12,13 +12,7 @@ void Robot::operateLift()
    
     bool ballButtonPress = driveStation.getBButton();
 
-    // if (gyroAngle > -135 +tolerance || 45 )
-    // {
-
-    // }
-    // else
-
-    if (gamePadPOV != 0 && currentPov == 0)
+    if (gamePadPOV != 0 && currentPov == 0) //up
     {
         if (liftLevel < 3)
         {
@@ -26,7 +20,7 @@ void Robot::operateLift()
         }
     }
 
-    if (gamePadPOV != 180 && currentPov == 180)
+    if (gamePadPOV != 180 && currentPov == 180) //down
     {
         if (liftLevel > 0)
         {
@@ -35,13 +29,13 @@ void Robot::operateLift()
     }
 
     // Hatch Openings
-    if (gamePadPOV != 90 && currentPov == 90)
+    if (gamePadPOV != 90 && currentPov == 90) //right
     {
         selectHatch = true;
         selectBall = false;
     }
 
-    if (gamePadPOV != 270 && currentPov == 270)
+    if (gamePadPOV != 270 && currentPov == 270) //left
     {
         selectBall = true;
         selectHatch = false;
