@@ -16,16 +16,18 @@ void Robot::TeleopPeriodic()
 
     //Reset gyro after passing 360 or -360
 
-    if (gyroAngle < -360)
-    {
-        gyro.Reset();
-        //std::cout << "the gyro was reset after -360" << std::endl;
-    }
-    else if (gyroAngle > 360)
-    {
-        gyro.Reset();
-        //std::cout << "the gyro was reset after 360" << std::endl;
-    }
+    // if (gyroAngle < -360)
+    // {
+    //     gyro.Reset();
+    //     //std::cout << "the gyro was reset after -360" << std::endl;
+    // }
+    // else if (gyroAngle > 360)
+    // {
+    //     gyro.Reset();
+    //     //std::cout << "the gyro was reset after 360" << std::endl;
+    // }
+
+//for testing
     if (button4->Get())
     {
         gyro.Reset();

@@ -170,7 +170,7 @@ void Robot::writeDebugInfo()
 
         driveStation.setString(8, " ");
 
-        driveStation.setString(9, " ");
+        driveStation.setString(9, "Gyro Rate: " + std::to_string(gyro.GetRate()));
     }
 
     driveStation.setLed(0, liftDebug);
@@ -239,8 +239,6 @@ void Robot::readInput()
     {
         gyroAngle = gyroReading;
     }
-
-    
 
 } // readInput
 

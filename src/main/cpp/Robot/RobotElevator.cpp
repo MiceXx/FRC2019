@@ -71,7 +71,14 @@ void Robot::operateLift()
 
     gamePadPOV = currentPov;
 
-    if (selectHatch)
+    if (ballButtonPress)
+    {
+        liftDestination = loadingStation;
+        wristDestination = 0.05;
+        elevatorAutoMode = true;
+    }
+
+    else if (selectHatch)
     {
         liftDestination = hatchOpenings[liftLevel];
         wristDestination = wristAngles[liftLevel];
@@ -80,12 +87,6 @@ void Robot::operateLift()
     {
         liftDestination = ballOpenings[liftLevel];
         wristDestination = wristAngles[liftLevel];
-    }
-    else if (ballButtonPress)
-    {
-        liftDestination = loadingStation;
-        wristDestination = 0.05;
-        elevatorAutoMode = true;
     }
 
     //Rate Limiter (ramp up/down time)
