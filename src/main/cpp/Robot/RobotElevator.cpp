@@ -6,6 +6,27 @@ namespace frc
 namespace lcchs
 {
 
+int findClosestPositionIndex(double num, int targets[4]) //targets are in increasing order
+{
+    double minDif = 999999;
+    int minIndex = 0;
+
+    for (int i = 0; i < 4; i++)
+    {
+        double Dif = std::abs(targets[i] - num);
+        if (Dif < minDif)
+        {
+            minIndex = i;
+            minDif = Dif;
+        }
+        else
+        {
+            return minIndex;
+        }
+    }
+    return minIndex;
+}
+
 void Robot::operateLift()
 {
     int currentPov = driveStation.getPov();
@@ -21,7 +42,7 @@ void Robot::operateLift()
         elevatorAutoMode = true;
     }
 
-    if (gamePadPOV != 180 && currentPov == 180) //down
+    else if (gamePadPOV != 180 && currentPov == 180) //down
     {
         if (liftLevel > 0)
         {
@@ -31,18 +52,20 @@ void Robot::operateLift()
     }
 
     // Hatch Openings
-    if (gamePadPOV != 90 && currentPov == 90) //right
+    else if (gamePadPOV != 90 && currentPov == 90) //right
     {
         selectHatch = true;
         selectBall = false;
         elevatorAutoMode = true;
+        liftLevel = findClosestPositionIndex(liftPosition, hatchOpenings);
     }
 
-    if (gamePadPOV != 270 && currentPov == 270) //left
+    else if (gamePadPOV != 270 && currentPov == 270) //left
     {
         selectBall = true;
         selectHatch = false;
         elevatorAutoMode = true;
+        liftLevel = findClosestPositionIndex(liftPosition, ballOpenings);
     }
     //
 
