@@ -41,7 +41,8 @@ public:
   void setRobotScaling();
 
 protected:
-  void operateLift();
+  void operateLiftAuto();
+  void operateLiftManual();
   void activateRoller();
   void operateHinges();
   void writeDebugInfo();

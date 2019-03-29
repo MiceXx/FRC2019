@@ -85,8 +85,14 @@ void Robot::TeleopPeriodic()
     }
 
     //Lift
-    operateLift();
-
+    if (std::abs(liftCommand) > 0.01)
+    {
+        operateLiftManual();
+    }
+    else
+    {
+        operateLiftAuto();
+    }
     //hinge
     operateHinges();
 

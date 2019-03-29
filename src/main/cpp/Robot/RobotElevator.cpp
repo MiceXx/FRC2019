@@ -6,7 +6,27 @@ namespace frc
 namespace lcchs
 {
 
-void Robot::operateLift()
+int findClosestPositionIndex(double num, int targets[4]) //targets are in increasing order
+{
+    double minDif = 999999;
+    int minIndex = 0;
+
+    for (int i = 0; i < 4; i++)
+    {
+        double Dif = std::abs(targets[i] - num);
+        if (Dif < minDif)
+        {
+            minIndex = i;
+            minDif = Dif;
+        }
+        else
+        {
+            return minIndex;
+        }
+    }
+    return minIndex;
+}
+void Robot::operateLiftAuto()
 {
     int currentPov = driveStation.getPov();
 
@@ -18,33 +38,48 @@ void Robot::operateLift()
         {
             liftLevel++;
         }
-        elevatorAutoMode = true;
+        //elevatorAutoMode = true;
     }
 
-    if (gamePadPOV != 180 && currentPov == 180) //down
+    else if (gamePadPOV != 180 && currentPov == 180) //down
     {
         if (liftLevel > 0)
         {
             liftLevel--;
         }
-        elevatorAutoMode = true;
+        //elevatorAutoMode = true;
     }
 
     // Hatch Openings
-    if (gamePadPOV != 90 && currentPov == 90) //right
+    else if (gamePadPOV != 90 && currentPov == 90) //right
     {
         selectHatch = true;
         selectBall = false;
-        elevatorAutoMode = true;
+        //elevatorAutoMode = true;
     }
 
-    if (gamePadPOV != 270 && currentPov == 270) //left
+    else if (gamePadPOV != 270 && currentPov == 270) //left
     {
         selectBall = true;
         selectHatch = false;
-        elevatorAutoMode = true;
+        //elevatorAutoMode = true;
     }
     //
+    else
+    {
+        if (selectHatch)
+        {
+            liftLevel = findClosestPositionIndex(liftPosition, hatchOpenings);
+        }
+        if (selectBall)
+        {
+            liftLevel = findClosestPositionIndex(liftPosition, ballOpenings);
+        }
+        else
+        {
+            liftLevel = 0;
+        }
+    }
 
     gamePadPOV = currentPov;
 
@@ -62,11 +97,36 @@ void Robot::operateLift()
     {
         liftDestination = loadingStation;
         wristDestination = 0.05;
-        elevatorAutoMode = true;
+        //elevatorAutoMode = true;
     }
 
+    if (liftReset)
+    {
+        elevator.resetEncoder();
+        liftDestination = elevator.getPosition();
+        liftLevel = 0;
+
+        selectHatch = false;
+        selectBall = false;
+
+        //elevatorAutoMode = false;
+    }
+    else if (std::abs(liftDestination - liftPosition) > 200)
+    {
+        elevator.setPosition(liftDestination);
+    }
+    else
+    {
+        elevator.stopMotor();
+        //elevatorAutoMode = false;
+    }
+} //operateLift()
+
+void Robot::operateLiftManual()
+{
     //Rate Limiter (ramp up/down time)
     //we want tomake them asymetrical
+
     double rampUpTime = 0.07;
 
     if ((liftCommand - liftCommandFilter) > rampUpTime)
@@ -82,36 +142,21 @@ void Robot::operateLift()
         liftCommandFilter = liftCommand;
     }
 
-    if (liftReset)
-    {
-        elevator.resetEncoder();
-        liftDestination = elevator.getPosition();
-        liftLevel = 0;
-
-        selectHatch = false;
-        selectBall = false;
-
-        elevatorAutoMode = false;
-    }
-    else if (std::abs(liftCommandFilter) > 0.05)
+    if (std::abs(liftCommandFilter) > rampUpTime)
     {
         elevator.moveLift(liftCommandFilter);
 
         selectHatch = false;
         selectBall = false;
 
-        elevatorAutoMode = false;
-    }
-    else if ((std::abs(liftDestination - liftPosition) > 200) && elevatorAutoMode)
-    {
-        elevator.setPosition(liftDestination);
+        //elevatorAutoMode = false;
     }
     else
     {
         elevator.stopMotor();
-        elevatorAutoMode = false;
+        //elevatorAutoMode = false;
     }
-} //operateLift()
+}
 
 } //namespace lcchs
 } //namespace frc
