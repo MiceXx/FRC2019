@@ -48,9 +48,9 @@ protected:
   void readInput();
 
 private:
-  void gyroResetPos();
   void alignRobot();
   void changeCam();
+  void wheelDriftFix();
 
   //GYRO ANGLE
   double gyroAngle;

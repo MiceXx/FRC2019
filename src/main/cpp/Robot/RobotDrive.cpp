@@ -7,18 +7,6 @@ namespace frc
 {
 namespace lcchs
 {
-//gyro reset position
-void Robot::gyroResetPos()
-{
-    if (gyroAngle > 3.5)
-    {
-        powerTrain.driveRobot(-0.2, 0.2, -0.2, 0);
-    }
-    if (gyroAngle < -3.5)
-    {
-        powerTrain.driveRobot(0.2, -0.2, 0.2, 0);
-    }
-}
 
 void Robot::alignRobot()
 {
@@ -32,7 +20,9 @@ void Robot::alignRobot()
 
     //ROCKET ANGLES
     double rotationSpeed = 0.35;
-    double toleranceRocket = 1.5;
+    double rotationSpeedSlow = 0.25;
+    double toleranceRocket = 1.0;
+    double rotationSpeedDif;
 
     double targetArea = 15;
     double targetX = 0.0;
@@ -61,62 +51,81 @@ void Robot::alignRobot()
 
     //ROCKET ANGLES
 
-    double rotationSpeedDif;
+    //         //how it was before the changes:
+    //         //RIGHT ROTATION
+    // if ((gyroAngle > 30 + toleranceRocket && gyroAngle < 60 - toleranceRocket) ||
+    //     (gyroAngle > 75 + toleranceRocket && gyroAngle < 90 - toleranceRocket) ||
+    //     (gyroAngle > 105 + toleranceRocket && gyroAngle < 120 - toleranceRocket) ||
+    //     (gyroAngle > -75 + toleranceRocket && gyroAngle < -60 - toleranceRocket) ||
+    //     (gyroAngle > -105 + toleranceRocket && gyroAngle < -90 - toleranceRocket) ||
+    //     (gyroAngle > -180 + toleranceRocket && gyroAngle < -120 - toleranceRocket) ||
+    //     //cargo Angle
+    //     (gyroAngle > -30 + toleranceRocket && gyroAngle < 0 - toleranceRocket))
+    // {
+    //     rotationSpeedDif = rotationSpeed;
+    // }
 
-    //Right Rocket
+    // //LEFT ROTATION
+    // else if ((gyroAngle < 75 - toleranceRocket && gyroAngle > 60 + toleranceRocket) ||
+    //          (gyroAngle < 105 - toleranceRocket && gyroAngle > 90 + toleranceRocket) ||
+    //          (gyroAngle < 180 - toleranceRocket && gyroAngle > 120 + toleranceRocket) ||
+    //          (gyroAngle < -30 - toleranceRocket && gyroAngle > -60 + toleranceRocket) ||
+    //          (gyroAngle < -75 - toleranceRocket && gyroAngle > -90 + toleranceRocket) ||
+    //          (gyroAngle < -105 - toleranceRocket && gyroAngle > -120 + toleranceRocket) ||
+    //          //Cargo Angle
+    //          (gyroAngle < 30 - toleranceRocket && gyroAngle > 0 + toleranceRocket))
+    // {
+    //     rotationSpeedDif = -rotationSpeed;
+    // }
 
     //RIGHT ROTATION
-
-    if ((gyroAngle > 30 + toleranceRocket && gyroAngle < 60 - toleranceRocket) ||
-        (gyroAngle > 75 + toleranceRocket && gyroAngle < 90 - toleranceRocket) ||
-        (gyroAngle > 105 + toleranceRocket && gyroAngle < 120 - toleranceRocket) ||
-        (gyroAngle > -75 + toleranceRocket && gyroAngle < -60 - toleranceRocket) ||
-        (gyroAngle > -105 + toleranceRocket && gyroAngle < -90 - toleranceRocket) ||
-        (gyroAngle > -180 + toleranceRocket && gyroAngle < -120 - toleranceRocket) ||
+    if ((gyroAngle > 30 + toleranceRocket && gyroAngle < 45 - toleranceRocket) ||
+        (gyroAngle > 75 + toleranceRocket && gyroAngle < 82.5 - toleranceRocket) ||
+        (gyroAngle > 105 + toleranceRocket && gyroAngle < 112.5 - toleranceRocket) ||
+        (gyroAngle > -75 + toleranceRocket && gyroAngle < -67.5 - toleranceRocket) ||
+        (gyroAngle > -105 + toleranceRocket && gyroAngle < -97.5 - toleranceRocket) ||
+        (gyroAngle > -180 + toleranceRocket && gyroAngle < -150 - toleranceRocket) ||
         //cargo Angle
-        (gyroAngle > -30 + toleranceRocket && gyroAngle < 0 - toleranceRocket))
+        (gyroAngle > -30 + toleranceRocket && gyroAngle < 15 - toleranceRocket))
     {
         rotationSpeedDif = rotationSpeed;
     }
+    //Slower Rotation RIGHT
+    else if ((gyroAngle > 45 + toleranceRocket && gyroAngle < 60 - toleranceRocket) ||
+             (gyroAngle > 82.5 + toleranceRocket && gyroAngle < 90 - toleranceRocket) ||
+             (gyroAngle > 112.5 + toleranceRocket && gyroAngle < 120 - toleranceRocket) ||
+             (gyroAngle > -67.5 + toleranceRocket && gyroAngle < -60 - toleranceRocket) ||
+             (gyroAngle > -97.5 + toleranceRocket && gyroAngle < -90 - toleranceRocket) ||
+             (gyroAngle > -150 + toleranceRocket && gyroAngle < -120 - toleranceRocket) ||
+             //cargo Angle
+             (gyroAngle > -15 + toleranceRocket && gyroAngle < 0 - toleranceRocket))
+    {
+        rotationSpeedDif = rotationSpeedSlow;
+    }
 
     //LEFT ROTATION
-
-    else if ((gyroAngle < 75 - toleranceRocket && gyroAngle > 60 + toleranceRocket) ||
-             (gyroAngle < 105 - toleranceRocket && gyroAngle > 90 + toleranceRocket) ||
-             (gyroAngle < 180 - toleranceRocket && gyroAngle > 120 + toleranceRocket) ||
-             (gyroAngle < -30 - toleranceRocket && gyroAngle > -60 + toleranceRocket) ||
-             (gyroAngle < -75 - toleranceRocket && gyroAngle > -90 + toleranceRocket) ||
-             (gyroAngle < -105 - toleranceRocket && gyroAngle > -120 + toleranceRocket) ||
+    else if ((gyroAngle < 75 - toleranceRocket && gyroAngle > 45 + toleranceRocket) ||
+             (gyroAngle < 105 - toleranceRocket && gyroAngle > 82.5 + toleranceRocket) ||
+             (gyroAngle < 180 - toleranceRocket && gyroAngle > 112.5 + toleranceRocket) ||
+             (gyroAngle < -30 - toleranceRocket && gyroAngle > -67.5 + toleranceRocket) ||
+             (gyroAngle < -75 - toleranceRocket && gyroAngle > -97.5 + toleranceRocket) ||
+             (gyroAngle < -105 - toleranceRocket && gyroAngle > -150 + toleranceRocket) ||
              //Cargo Angle
-             (gyroAngle < 30 - toleranceRocket && gyroAngle > 0 + toleranceRocket))
+             (gyroAngle < 30 - toleranceRocket && gyroAngle > 15 + toleranceRocket))
     {
         rotationSpeedDif = -rotationSpeed;
     }
-
-    //Mecanum wheel drift when stopping
-    double xSpeed = jStick->GetX();
-    double ySpeed = jStick->GetY();
-
-    double gyroAtStop;
-
-    std::once_flag onceFlag;
-
-    if (xSpeed < 0.01 && ySpeed < 0.01)
+    //Slower Rotation LEFT
+    else if ((gyroAngle < 45 - toleranceRocket && gyroAngle > 60 + toleranceRocket) ||
+             (gyroAngle < 82.5 - toleranceRocket && gyroAngle > 90 + toleranceRocket) ||
+             (gyroAngle < 112.5 - toleranceRocket && gyroAngle > 120 + toleranceRocket) ||
+             (gyroAngle < -67.5 - toleranceRocket && gyroAngle > -60 + toleranceRocket) ||
+             (gyroAngle < -97.5 - toleranceRocket && gyroAngle > -90 + toleranceRocket) ||
+             (gyroAngle < -150 - toleranceRocket && gyroAngle > -120 + toleranceRocket) ||
+             //Cargo Angle
+             (gyroAngle < 15 - toleranceRocket && gyroAngle > 0 + toleranceRocket))
     {
-        std::call_once(onceFlag, [&] { gyroAtStop = gyroAngle; });
-    }
-
-    if (gyroAngle > gyroAtStop)
-    {
-        powerTrain.driveRobot(0, 0, -0.10); //moves left
-    }
-    else if (gyroAngle < gyroAtStop)
-    {
-        powerTrain.driveRobot(0, 0, 0.10); //moves right
-    }
-    else
-    {
-        powerTrain.driveRobot(0, 0, 0);
+        rotationSpeedDif = -rotationSpeedSlow;
     }
 
     double alignSpeedDifY;
@@ -168,6 +177,49 @@ void Robot::alignRobot()
     {
         powerTrain.driveRobot(0, 0, rotationSpeedDif);
     }
+}
+
+void Robot::wheelDriftFix()
+{
+
+    //Mecanum wheel drift when stopping
+    double xSpeed = jStick->GetX();
+    double ySpeed = jStick->GetY();
+
+    double gyroAtStop;
+
+    double turnSpeed;
+
+    std::once_flag onceFlag;
+
+    if (xSpeed < 0.01 && ySpeed < 0.01)
+    {
+        std::call_once(onceFlag, [&] { gyroAtStop = gyroAngle; });
+    }
+
+    //left turn
+    if (gyroAngle + 1.5 > gyroAtStop)
+    {
+        turnSpeed = -0.15; //moves left fast
+    }
+    else if (gyroAngle > gyroAtStop)
+    {
+        turnSpeed = -0.10; //moves left
+    }
+    //right turn
+    else if (gyroAngle - 1.5 < gyroAtStop)
+    {
+        turnSpeed = 0.15; //moves right fast
+    }
+    else if (gyroAngle < gyroAtStop)
+    {
+        turnSpeed = 0.10; //moves right
+    }
+    else
+    {
+        powerTrain.driveRobot(0, 0, 0);
+    }
+    powerTrain.driveRobot(0, 0, turnSpeed);
 }
 
 void Robot::changeCam()

@@ -89,6 +89,20 @@ void Robot::operateLift()
         wristDestination = wristAngles[liftLevel];
     }
 
+    //Drive Base Speed adjustment
+    if (liftPosition < -40000)
+    {
+        powerTrain.setScaling(0.4);
+    }
+    else if (liftPosition < -23000 && liftPosition > -40000)
+    {
+        powerTrain.setScaling(0.15);
+    }
+    else
+    {
+        powerTrain.setScaling(driveOutput);
+    }
+
     //Rate Limiter (ramp up/down time)
     //we want tomake them asymetrical
     double rampUpTime = 0.07;
@@ -135,6 +149,7 @@ void Robot::operateLift()
         elevator.stopMotor();
         elevatorAutoMode = false;
     }
+
 } //operateLift()
 
 } //namespace lcchs

@@ -10,13 +10,13 @@ namespace lcchs
 
 void PowerTrain::setScaling(double scaling)
 {
-  if (scaling < 1.)
+  if (scaling < 0.)
+  {
+    m_robotDrive.SetMaxOutput(0.);
+  }
+  else if (scaling > 1.)
   {
     m_robotDrive.SetMaxOutput(1.);
-  }
-  else if (scaling > 6.)
-  {
-    m_robotDrive.SetMaxOutput(6.);
   }
   else
   {

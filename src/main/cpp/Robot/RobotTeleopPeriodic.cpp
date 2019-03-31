@@ -15,7 +15,6 @@ void Robot::TeleopPeriodic()
     readInput();
 
     //Reset gyro after passing 360 or -360
-
     // if (gyroAngle < -360)
     // {
     //     gyro.Reset();
@@ -27,54 +26,14 @@ void Robot::TeleopPeriodic()
     //     //std::cout << "the gyro was reset after 360" << std::endl;
     // }
 
-//for testing
+    //for testing
     if (button4->Get())
     {
         gyro.Reset();
     }
 
-    //autonomous teleop
-
-    // if (button1->Get())
-    // {
-    //     gyroResetPos();
-    //     std::cout << "the botton was pressed" << std::endl;
-    // }
-
-    //if (abs(jStick->GetZ()) > 0.1) {gyro.Reset();}
-
-    //FOR ROCKET ANGLES
-    // if (button5->Get())
-    // {
-    //     rotateToAngle45();
-    // }
-    // else if (button6->Get())
-    // {
-    //     rotateToAngle90();
-    // }
-    // else if (button7->Get())
-    // {
-    //     rotateToAngle135();
-    // }
-    // else if (button8->Get())
-    // {
-    //     rotateToAngleNeg45();
-    // }
-    // else if (button9->Get())
-    // {
-    //     rotateToAngleNeg90();
-    // }
-    // else if (button10->Get())
-    // {
-    //     rotateToAngleNeg135();
-    // }
-    //
-
-    //Rocket angles V2 (Align manually, then press trigger)
-    // if (button1->Get())
-    // {
-    //     rotateToRocketAngles();
-    // }
+    //Lift
+    operateLift();
 
     //align robot w/ tracking
     if (button2->Get())
@@ -85,9 +44,8 @@ void Robot::TeleopPeriodic()
     {
         powerTrain.driveRobot(jStick->GetX(), jStick->GetY(), jStick->GetZ());
     }
-
-    //Lift
-    operateLift();
+    //Mecanum wheel drift fix (always on)
+    wheelDriftFix();
 
     //hinge
     operateHinges();
