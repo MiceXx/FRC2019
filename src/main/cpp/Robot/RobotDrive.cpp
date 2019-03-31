@@ -93,6 +93,32 @@ void Robot::alignRobot()
         rotationSpeedDif = -rotationSpeed;
     }
 
+    //Mecanum wheel drift when stopping
+    double xSpeed = jStick->GetX();
+    double ySpeed = jStick->GetY();
+
+    double gyroAtStop;
+
+    std::once_flag onceFlag;
+
+    if (xSpeed < 0.01 && ySpeed < 0.01)
+    {
+        std::call_once(onceFlag, [&] { gyroAtStop = gyroAngle; });
+    }
+
+    if (gyroAngle > gyroAtStop)
+    {
+        powerTrain.driveRobot(0, 0, -0.10); //moves left
+    }
+    else if (gyroAngle < gyroAtStop)
+    {
+        powerTrain.driveRobot(0, 0, 0.10); //moves right
+    }
+    else
+    {
+        powerTrain.driveRobot(0, 0, 0);
+    }
+
     double alignSpeedDifY;
     double alignSpeedDifX;
 
@@ -147,6 +173,8 @@ void Robot::alignRobot()
 void Robot::changeCam()
 {
     auto limelightTable = networkTableInstance.GetTable("limelight-howl");
+
+    //change camera vision state
     bool camMode = static_cast<bool>(limelightTable->GetNumber("camMode", 0.0));
 
     if (camMode)

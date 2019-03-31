@@ -227,13 +227,14 @@ void Robot::readInput()
 
     double gyroReading = gyro.GetAngle() / 0.69106781186;
 
+
     if (gyroReading > 180)
     {
-        gyroAngle = gyroAngle - 360;
+        gyroAngle = gyroReading - 360;
     }
     else if (gyroReading < -180)
     {
-        gyroAngle = gyroAngle + 360;
+        gyroAngle = gyroReading + 360;
     }
     else
     {
