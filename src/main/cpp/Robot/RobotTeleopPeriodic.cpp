@@ -45,7 +45,7 @@ void Robot::TeleopPeriodic()
         powerTrain.driveRobot(jStick->GetX(), jStick->GetY(), jStick->GetZ());
     }
     //Mecanum wheel drift fix (always on)
-    wheelDriftFix();
+    //wheelDriftFix();
 
     //hinge
     operateHinges();

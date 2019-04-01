@@ -29,9 +29,13 @@ int findClosestPositionIndex(double num, int targets[4]) //targets are in increa
 
 void Robot::operateLift()
 {
-    int currentPov = driveStation.getPov();
+    int currentPov        = driveStation.getPov();
 
-    bool ballButtonPress = driveStation.getBButton();
+    bool ballButtonPress  = driveStation.getBButton();
+
+    bool rightBumperPress = driveStation.getRightBumper();
+
+    bool leftBumperPress  = driveStation.getLeftBumper();
 
     if (gamePadPOV != 0 && currentPov == 0) //up
     {
@@ -67,9 +71,36 @@ void Robot::operateLift()
         elevatorAutoMode = true;
         liftLevel = findClosestPositionIndex(liftPosition, ballOpenings);
     }
-    //
 
     gamePadPOV = currentPov;
+
+    if(rightBumperPress != hatchPickup  )
+    {
+      elevatorAutoMode = selectHatch;
+    }
+
+    if(leftBumperPress != hatchRelease  )
+    {
+      elevatorAutoMode = selectHatch;
+    }
+
+    hatchPickup  = rightBumperPress;
+    hatchRelease =  leftBumperPress;
+
+    if(hatchPickup)
+    {
+    liftHatchOffset = -2000;
+    }
+
+    else if (hatchRelease)
+    {
+    liftHatchOffset = 1500;
+    }
+
+    else
+    {
+     liftHatchOffset = 0;   
+    }
 
     if (ballButtonPress)
     {
@@ -80,7 +111,7 @@ void Robot::operateLift()
 
     else if (selectHatch)
     {
-        liftDestination = hatchOpenings[liftLevel];
+        liftDestination = hatchOpenings[liftLevel] + liftHatchOffset;
         wristDestination = wristAngles[liftLevel];
     }
     else if (selectBall)

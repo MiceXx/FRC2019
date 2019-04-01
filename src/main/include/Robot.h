@@ -122,6 +122,9 @@ private:
   bool selectBall = false;
   bool selectHatch = false;
   int loadingStation = -23600;
+  bool hatchPickup = false;
+  bool hatchRelease = false;
+  int liftHatchOffset = 0;
 
   //Roller
   double captureCommand;

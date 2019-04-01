@@ -8,7 +8,7 @@ namespace frc {
         void Robot::TeleopInit() {
             
             
-            gyro.Reset();
+
         
     
         }
