@@ -227,6 +227,7 @@ void Robot::readInput()
 
     double gyroReading = gyro.GetAngle() / 0.69106781186;
 
+    gyroReading = std::fmod(gyroReading, 360);
 
     if (gyroReading > 180)
     {
