@@ -47,6 +47,9 @@ void Robot::TeleopPeriodic()
     //Mecanum wheel drift fix (always on)
     //wheelDriftFix();
 
+    //Robot climb
+    robotClimb();
+
     //hinge
     operateHinges();
 

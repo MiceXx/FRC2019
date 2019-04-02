@@ -22,6 +22,7 @@
 #include "Hinges.hpp"
 #include "Roller.hpp"
 #include "RobotVision.h"
+#include "Boot.hpp"
 
 namespace frc
 {
@@ -44,6 +45,7 @@ protected:
   void operateLift();
   void activateRoller();
   void operateHinges();
+  void robotClimb();
   void writeDebugInfo();
   void readInput();
 
@@ -55,13 +57,6 @@ private:
   //GYRO ANGLE
   double gyroAngle;
 
-  //ROCKET ANGLES
-  // void rotateToAngle45();
-  // void rotateToAngle90();
-  // void rotateToAngle135();
-  // void rotateToAngleNeg45();
-  // void rotateToAngleNeg90();
-  // void rotateToAngleNeg135();
   void rotateToRocketAngles();
 
   double lastButtonpress = 0;
@@ -88,6 +83,8 @@ private:
 
   frc::lcchs::Elevator elevator;
 
+  frc::lcchs::Boot boot;
+
   frc::Joystick *jStick = new Joystick(kJoystickChannelone);
   frc::ADXRS450_Gyro gyro{GyroChannel};
 
@@ -98,10 +95,10 @@ private:
   JoystickButton *button4 = new JoystickButton(jStick, 4);
   // JoystickButton *button5 = new JoystickButton(jStick, 5);
   // JoystickButton *button6 = new JoystickButton(jStick, 6);
-  // JoystickButton *button7 = new JoystickButton(jStick, 7);
-  // JoystickButton *button8 = new JoystickButton(jStick, 8);
-  // JoystickButton *button9 = new JoystickButton(jStick, 9);
-  // JoystickButton *button10 = new JoystickButton(jStick, 10);
+  JoystickButton *button7 = new JoystickButton(jStick, 7);
+  JoystickButton *button8 = new JoystickButton(jStick, 8);
+  JoystickButton *button9 = new JoystickButton(jStick, 9);
+  JoystickButton *button10 = new JoystickButton(jStick, 10);
 
   nt::NetworkTableInstance networkTableInstance = nt::NetworkTableInstance::GetDefault();
 
@@ -125,6 +122,11 @@ private:
   bool hatchPickup = false;
   bool hatchRelease = false;
   int liftHatchOffset = 0;
+
+  //Boot For Climb
+  int bootDestination;
+  int bootOrientations[3] = {0, -1000, -2000};
+  int bootLevel = 0;
 
   //Roller
   double captureCommand;

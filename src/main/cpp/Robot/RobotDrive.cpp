@@ -182,20 +182,18 @@ void Robot::alignRobot()
 void Robot::wheelDriftFix()
 {
 
-    //Mecanum wheel drift when stopping
+    //Fix Mecanum wheel drift when stopping
     double xSpeed = jStick->GetX();
     double ySpeed = jStick->GetY();
+    double zSpeed = jStick->GetZ();
 
     double gyroAtStop;
 
     double turnSpeed;
 
-    if (xSpeed < 0.01 && ySpeed < 0.01)
+    if (xSpeed < 0.01 && ySpeed < 0.01 && zSpeed < 0.01)
     {
-        do
-        {
-            gyroAtStop = gyroAngle;
-        } while (gyro.GetRate() < 0.05)
+        gyroAtStop = gyroAngle;
     }
 
     //left turn
