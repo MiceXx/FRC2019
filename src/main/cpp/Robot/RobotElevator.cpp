@@ -29,13 +29,13 @@ int findClosestPositionIndex(double num, int targets[4]) //targets are in increa
 
 void Robot::operateLift()
 {
-    int currentPov        = driveStation.getPov();
+    int currentPov = driveStation.getPov();
 
-    bool ballButtonPress  = driveStation.getBButton();
+    bool ballButtonPress = driveStation.getBButton();
 
     bool rightBumperPress = driveStation.getRightBumper();
 
-    bool leftBumperPress  = driveStation.getLeftBumper();
+    bool leftBumperPress = driveStation.getLeftBumper();
 
     if (gamePadPOV != 0 && currentPov == 0) //up
     {
@@ -74,38 +74,40 @@ void Robot::operateLift()
 
     gamePadPOV = currentPov;
 
-    if(rightBumperPress != hatchPickup  )
+    if (rightBumperPress != hatchPickup)
     {
-      elevatorAutoMode = selectHatch;
+        elevatorAutoMode = selectHatch;
     }
 
-    if(leftBumperPress != hatchRelease  )
+    if (leftBumperPress != hatchRelease)
     {
-      elevatorAutoMode = selectHatch;
+        elevatorAutoMode = selectHatch;
     }
 
-    hatchPickup  = rightBumperPress;
-    hatchRelease =  leftBumperPress;
+    hatchPickup = rightBumperPress;
+    hatchRelease = leftBumperPress;
 
-    if(hatchPickup)
+    if (hatchPickup)
     {
-    liftHatchOffset = -2000;
+        liftHatchOffset = -2000;
     }
 
     else if (hatchRelease)
     {
-    liftHatchOffset = 1500;
+        liftHatchOffset = 1500;
     }
 
     else
     {
-     liftHatchOffset = 0;   
+        liftHatchOffset = 0;
     }
 
     if (ballButtonPress)
     {
         liftDestination = loadingStation;
         wristDestination = 0.05;
+        selectHatch = false;
+        selectBall = false;
         elevatorAutoMode = true;
     }
 
@@ -120,7 +122,7 @@ void Robot::operateLift()
         wristDestination = wristAngles[liftLevel];
     }
 
-        //Rate Limiter (ramp up/down time)
+    //Rate Limiter (ramp up/down time)
     //we want tomake them asymetrical
     double rampUpTime = 0.07;
 
@@ -174,7 +176,7 @@ void Robot::operateLift()
     }
     else if (liftPosition < -23000 && liftPosition > -40000)
     {
-        powerTrain.setScaling(0.15);
+        powerTrain.setScaling(0.70);
     }
     else
     {
