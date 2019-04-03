@@ -48,7 +48,7 @@ void Robot::TeleopPeriodic()
     //wheelDriftFix();
 
     //Robot climb
-    robotClimb();
+    //robotClimb();
 
     //hinge
     operateHinges();

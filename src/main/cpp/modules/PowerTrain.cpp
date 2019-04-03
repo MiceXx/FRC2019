@@ -30,15 +30,15 @@ void PowerTrain::driveRobot(double ySpeed, double xSpeed, double zRotation, doub
      * movement, and Z axis for rotation.
      */
 
-  if (zRotation < 0)
-  {
-    zRotation = -log(zRotation + 1.1110964) + 0.0457;
-  }
-  else if (zRotation > 0)
-  {
-    zRotation = -log(-zRotation + 1.1110964) + 0.0457;
-  }
-  
+  // if (zRotation < 0)
+  // {
+  //   zRotation = -std::log(zRotation + 1.1110964) + 0.0457;
+  // }
+  // else if (zRotation > 0)
+  // {
+  //   zRotation = -std::log(-zRotation + 1.1110964) + 0.0457;
+  // }
+
   m_robotDrive.DriveCartesian(ySpeed, -xSpeed, zRotation, -gyroAngle);
 }
 

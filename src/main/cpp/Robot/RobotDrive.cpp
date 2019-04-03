@@ -19,7 +19,7 @@ void Robot::alignRobot()
     double ta1 = limelightTable->GetNumber("ta1", 0.0);
 
     //ROCKET ANGLES
-    double rotationSpeed = 0.30;
+    double rotationSpeed = 0.23;
     double rotationSpeedSlow = 0.20;
     double toleranceRocket = 2.0;
     double rotationSpeedDif;
@@ -55,27 +55,29 @@ void Robot::alignRobot()
     //RIGHT ROTATION
     if ((gyroAngle > 15 + toleranceRocket && gyroAngle < 29 - toleranceRocket) ||
         (gyroAngle > 59.5 + toleranceRocket && gyroAngle < 90 - toleranceRocket) ||
-        (gyroAngle > 120 + toleranceRocket && gyroAngle < 151 - toleranceRocket) ||
+        (gyroAngle > 120.5 + toleranceRocket && gyroAngle < 151 - toleranceRocket) ||
         (gyroAngle > -59.5 + toleranceRocket && gyroAngle < -29 - toleranceRocket) ||
         (gyroAngle > -120.5 + toleranceRocket && gyroAngle < -90 - toleranceRocket) ||
         (gyroAngle > -180 + toleranceRocket && gyroAngle < -151 - toleranceRocket) ||
         //cargo Angle
         (gyroAngle > -15 + toleranceRocket && gyroAngle < 0 - toleranceRocket))
     {
-        rotationSpeedDif = sqrt(-rotationSpeed + 1); //positive rotation
+        // rotationSpeedDif = std::sqrt(rotationSpeed); //positive rotation
+        rotationSpeedDif = rotationSpeed;
     }
 
     //LEFT ROTATION
-    else if ((gyroAngle < 15 - toleranceRocket && gyroAngle > 29 + toleranceRocket) ||
-             (gyroAngle < 75 - toleranceRocket && gyroAngle > 90 + toleranceRocket) ||
-             (gyroAngle < 120 - toleranceRocket && gyroAngle > 151 + toleranceRocket) ||
-             (gyroAngle < -60 - toleranceRocket && gyroAngle > -29 + toleranceRocket) ||
+    else if ((gyroAngle < 59.5 - toleranceRocket && gyroAngle > 29 + toleranceRocket) ||
+             (gyroAngle < 120.5 - toleranceRocket && gyroAngle > 90 + toleranceRocket) ||
+             (gyroAngle < 180 - toleranceRocket && gyroAngle > 151 + toleranceRocket) ||
+             (gyroAngle < -15 - toleranceRocket && gyroAngle > -29 + toleranceRocket) ||
              (gyroAngle < -59.5 - toleranceRocket && gyroAngle > -90 + toleranceRocket) ||
-             (gyroAngle < -180 - toleranceRocket && gyroAngle > -151 + toleranceRocket) ||
+             (gyroAngle < -120.5 - toleranceRocket && gyroAngle > -151 + toleranceRocket) ||
              //Cargo Angle
              (gyroAngle < 15 - toleranceRocket && gyroAngle > 0 + toleranceRocket))
     {
-        rotationSpeedDif = sqrt(rotationSpeed + 1); //negative rotation
+        //rotationSpeedDif = -std::sqrt(rotationSpeed); //negative rotation
+        rotationSpeedDif = -rotationSpeed;
     }
 
     // //RIGHT ROTATION
