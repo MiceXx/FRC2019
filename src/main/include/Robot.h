@@ -100,6 +100,8 @@ private:
   JoystickButton *button9 = new JoystickButton(jStick, 9);
   JoystickButton *button10 = new JoystickButton(jStick, 10);
 
+  JoystickButton *button14 = new JoystickButton(jStick, 14);
+
   nt::NetworkTableInstance networkTableInstance = nt::NetworkTableInstance::GetDefault();
 
   frc::lcchs::OperatorInterface driveStation;

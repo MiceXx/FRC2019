@@ -37,7 +37,5 @@ namespace frc {
           // Default Auto goes here
         }
       }
-
-
     }
 }
