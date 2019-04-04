@@ -89,12 +89,12 @@ void Robot::operateLift()
 
     if (hatchPickup)
     {
-        liftHatchOffset = -2000;
+        liftHatchOffset = -2500;
     }
 
     else if (hatchRelease)
     {
-        liftHatchOffset = 1500;
+        liftHatchOffset = 2000;
     }
 
     else
@@ -174,9 +174,9 @@ void Robot::operateLift()
     {
         powerTrain.setScaling(0.4);
     }
-    else if (liftPosition < -23000 && liftPosition > -40000)
+    else if (liftPosition < -30000 && liftPosition > -40000)
     {
-        powerTrain.setScaling(0.70);
+        powerTrain.setScaling(0.80);
     }
     else
     {

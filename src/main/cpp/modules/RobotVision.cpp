@@ -39,7 +39,7 @@ void RobotVision::VisionThread()
   cs::UsbCamera camera =
       frc::CameraServer::GetInstance()->StartAutomaticCapture();
   // Set the resolution
-  camera.SetResolution(640, 480);
+  camera.SetResolution(320, 240);
 
   // Get a CvSink. This will capture Mats from the Camera
   cs::CvSink cvSink = frc::CameraServer::GetInstance()->GetVideo();

@@ -115,15 +115,18 @@ private:
   int gamePadPOV;
   int liftDestination;
   bool elevatorAutoMode = false;
-  int ballOpenings[4] = {0, -16300, -38000, -51300};
-  int hatchOpenings[4] = {0, -4800, -28000, -48000};
+  int ballOpenings[4] = {0, -16300, -38000, -51200};
+  int hatchOpenings[4] = {0, -3800, -26000, -47000};
   int liftLevel = 0;
   bool selectBall = false;
   bool selectHatch = false;
-  int loadingStation = -23600;
+  int loadingStation = -30000;
   bool hatchPickup = false;
   bool hatchRelease = false;
   int liftHatchOffset = 0;
+
+  //LIMELIGHT
+  std::shared_ptr<NetworkTable> limelightTable;
 
   //Boot For Climb
   int bootDestination;

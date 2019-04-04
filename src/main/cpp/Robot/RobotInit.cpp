@@ -24,6 +24,8 @@ void Robot::RobotInit()
 
     gyro.Calibrate();
     roller.init();
+
+    limelightTable = networkTableInstance.GetTable("limelight");
 }
 } // namespace lcchs
 } // namespace frc

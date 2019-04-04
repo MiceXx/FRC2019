@@ -16,14 +16,14 @@ class Roller
     void shootBall()
     {
 
-        m_rollerRight.Set(-1);
-        m_rollerLeft.Set(1);
+        m_rollerRight.Set(1);
+        m_rollerLeft.Set(-1);
     };
     void captureBall()
     {
 
-        m_rollerRight.Set(1);
-        m_rollerLeft.Set(-1);
+        m_rollerRight.Set(-1);
+        m_rollerLeft.Set(1);
     };
 
     void stopRollers()

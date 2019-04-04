@@ -9,11 +9,11 @@ namespace lcchs
 
 double findClosestAngle(double num) //targets are in increasing order
 {
-    double lockAngles[7] = {-151, -90, -29, 0, 29, 90, 151};
+    double lockAngles[9] = {-180, -151, -90, -29, 0, 29, 90, 151, 180};
     double minDif = 999999;
     int minIndex = 0;
 
-    for (int i = 0; i < 7; i++)
+    for (int i = 0; i < 9; i++)
     {
         double Dif = std::abs(lockAngles[i] - num);
         if (Dif < minDif)
@@ -31,7 +31,6 @@ double findClosestAngle(double num) //targets are in increasing order
 
 void Robot::alignRobot()
 {
-    auto limelightTable = networkTableInstance.GetTable("limelight-howl");
     bool tv = static_cast<bool>(limelightTable->GetNumber("tv", 0.0));
     double ta = limelightTable->GetNumber("ta", 0.0);
     double tx = limelightTable->GetNumber("tx", 0.0);
@@ -108,7 +107,7 @@ void Robot::alignRobot()
             alignSpeedDifX = alignSpeedX * 0.8;
         }
 
-        powerTrain.driveRobot(alignSpeedDifX, alignSpeedDifY, rotationSpeed);
+        powerTrain.driveRobot(-alignSpeedDifX, -alignSpeedDifY, rotationSpeed);
     }
     else
     {
@@ -160,7 +159,6 @@ void Robot::wheelDriftFix()
 
 void Robot::changeCam()
 {
-    auto limelightTable = networkTableInstance.GetTable("limelight-howl");
 
     //change camera vision state
     bool camMode = static_cast<bool>(limelightTable->GetNumber("camMode", 0.0));
