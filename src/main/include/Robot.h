@@ -53,6 +53,7 @@ private:
   void alignRobot();
   void changeCam();
   void wheelDriftFix();
+  void recordDrive();
 
   //GYRO ANGLE
   double gyroAngle;
@@ -99,6 +100,7 @@ private:
   JoystickButton *button8 = new JoystickButton(jStick, 8);
   JoystickButton *button9 = new JoystickButton(jStick, 9);
   JoystickButton *button10 = new JoystickButton(jStick, 10);
+  JoystickButton *button11 = new JoystickButton(jStick, 11);
 
   JoystickButton *button14 = new JoystickButton(jStick, 14);
 
