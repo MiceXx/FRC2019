@@ -5,3 +5,4 @@
 **/*.bin 
 **/output.txt
 .vscode/**
+**/vscodeconfig.json

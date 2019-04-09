@@ -14,18 +14,6 @@ void Robot::TeleopPeriodic()
 {
     readInput();
 
-    //Reset gyro after passing 360 or -360
-    // if (gyroAngle < -360)
-    // {
-    //     gyro.Reset();
-    //     //std::cout << "the gyro was reset after -360" << std::endl;
-    // }
-    // else if (gyroAngle > 360)
-    // {
-    //     gyro.Reset();
-    //     //std::cout << "the gyro was reset after 360" << std::endl;
-    // }
-
     //for testing
     if (button4->Get())
     {
@@ -42,10 +30,27 @@ void Robot::TeleopPeriodic()
     }
     else
     {
-        powerTrain.driveRobot(jStick->GetX(), jStick->GetY(), jStick->GetZ());
+        double rotationScalingHatch;
+        double rotationScaling;
+        // maybe try this:   if(button3 || )...
+        if (selectHatch)
+        {
+            rotationScalingHatch = 0.7;
+        }
+        else
+        {
+            rotationScalingHatch = 1;
+        }
+
+        rotationScaling = 0.8;
+
+        powerTrain.driveRobot(jStick->GetX(), jStick->GetY(), (jStick->GetZ()) * rotationScalingHatch * rotationScaling);
     }
     //Mecanum wheel drift fix (always on)
     //wheelDriftFix();
+
+    //Robot climb
+    //robotClimb();
 
     //hinge
     operateHinges();

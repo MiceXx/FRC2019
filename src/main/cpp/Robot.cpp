@@ -181,7 +181,7 @@ void Robot::writeDebugInfo()
     frc::SmartDashboard::PutNumber("Joystick X", jStick->GetX());
     frc::SmartDashboard::PutNumber("Joystick Y", jStick->GetY());
 
-    // if (button14->Get())
+    // if (button1)
     // {
     //     double now = Timer().GetFPGATimestamp();
     //     double debounceTime = 1;

@@ -20,8 +20,12 @@ void Robot::RobotInit()
 
     liftDestination = elevator.getPosition();
 
+    bootDestination = boot.getPosition();
+
     gyro.Calibrate();
     roller.init();
+
+    //limelightTable = networkTableInstance.GetTable("limelight");
 }
 } // namespace lcchs
 } // namespace frc

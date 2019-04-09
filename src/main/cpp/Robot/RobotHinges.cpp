@@ -13,11 +13,11 @@ void Robot::operateHinges()
 
   // if (wristCommand < 0)
   // {
-  //   rootWristCommand = -sqrt(abs(wristCommand));
+  //   rootWristCommand = -sqrt(std::abs(wristCommand));
   // }
   // else
   // {
-  //   rootWristCommand = sqrt(wristCommand);
+  //   rootWristCommand = sqrt(std::abs(wristCommand));
   // }
 
   double wristError = wristDestination - wristPosition;
