@@ -181,16 +181,16 @@ void Robot::writeDebugInfo()
     frc::SmartDashboard::PutNumber("Joystick X", jStick->GetX());
     frc::SmartDashboard::PutNumber("Joystick Y", jStick->GetY());
 
-    if (button14->Get())
-    {
-        double now = Timer().GetFPGATimestamp();
-        double debounceTime = 1;
-        if (now - lastButtonpress > debounceTime)
-        {
-            changeCam();
-            lastButtonpress = now;
-        }
-    }
+    // if (button1)
+    // {
+    //     double now = Timer().GetFPGATimestamp();
+    //     double debounceTime = 1;
+    //     if (now - lastButtonpress > debounceTime)
+    //     {
+    //         changeCam();
+    //         lastButtonpress = now;
+    //     }
+    // }
 }
 
 void Robot::readInput()

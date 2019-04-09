@@ -128,6 +128,8 @@ private:
   //LIMELIGHT
   std::shared_ptr<NetworkTable> limelightTable;
 
+  bool useCam = true;
+
   //Boot For Climb
   int bootDestination;
   int bootOrientations[3] = {0, -1000, -2000};

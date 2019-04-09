@@ -31,20 +31,14 @@ double findClosestAngle(double num) //targets are in increasing order
 
 void Robot::alignRobot()
 {
-    bool tv = static_cast<bool>(limelightTable->GetNumber("tv", 0.0));
-    double ta = limelightTable->GetNumber("ta", 0.0);
-    double tx = limelightTable->GetNumber("tx", 0.0);
-    double ty = limelightTable->GetNumber("ty", 0.0);
-    double ta0 = limelightTable->GetNumber("ta0", 0.0);
-    double ta1 = limelightTable->GetNumber("ta1", 0.0);
+    // bool tv = static_cast<bool>(limelightTable->GetNumber("tv", 0.0));
+    // double ta = limelightTable->GetNumber("ta", 0.0);
+    // double tx = limelightTable->GetNumber("tx", 0.0);
+    // double ty = limelightTable->GetNumber("ty", 0.0);
+    // double ta0 = limelightTable->GetNumber("ta0", 0.0);
+    // double ta1 = limelightTable->GetNumber("ta1", 0.0);
 
-    //ROCKET ANGLES
-    double rotationSpeed = 0.30;
-    double rotationSpeedSlow = 0.20;
-    double toleranceRocket = 2.0;
-    double rotationSpeedDif;
-
-    double targetArea = 15;
+    double targetArea = 10.4;
     double targetX = 0.0;
     double targetY = 11.0;
     double targetAngle = 0;
@@ -58,61 +52,79 @@ void Robot::alignRobot()
     double alignSpeedX = 0.45;
 
     //Rocket Angles
+    double rotationSpeed = 0.30;
+    double rotationSpeedSlow = 0.20;
+    double toleranceRocket = 2.0;
+    double rotationSpeedDif;
     double angleDest = findClosestAngle(gyroAngle);
     double angleError = angleDest - gyroAngle;
-    double angleKp = 0.1;
+    double angleKp = 0.04;
 
     rotationSpeed = angleKp * angleError;
 
     double alignSpeedDifY;
     double alignSpeedDifX;
 
-    if (tv)
+    //limelightTable = networkTableInstance.GetTable("limelight");
+
+    if (button8)
     {
-
-        if (ta > targetArea + toleranceArea)
-        { //  move back and right
-            alignSpeedDifY = alignSpeedY;
-        }
-        else if (ta < targetArea - toleranceArea)
-        { //    move forward and right
-            alignSpeedDifY = -alignSpeedY;
-        }
-        else
-        { // move right
-            alignSpeedDifY = 0;
-        }
-
-        if (tx > targetX + tolerance)
-        {
-            alignSpeedDifX = alignSpeedX;
-        }
-        else if (tx < targetX - tolerance)
-        {
-            alignSpeedDifX = -alignSpeedX;
-        }
-        else
-        {
-            alignSpeedDifX = 0;
-        }
-
-        //slower as gets closer
-        if (targetArea - ta > 5)
-        {
-            alignSpeedDifY = alignSpeedY * 0.714285;
-        }
-
-        if (targetX - tx > 5)
-        {
-            alignSpeedDifX = alignSpeedX * 0.8;
-        }
-
-        powerTrain.driveRobot(-alignSpeedDifX, -alignSpeedDifY, rotationSpeed);
+        useCam = false;
     }
-    else
-    {
+
+    // if (liftPosition < -16000)
+    // {
+    //     tv = false;
+    // }
+
+    // tv = false;
+
+    // if (tv && useCam)
+    // {
+    //     std::cout << ta << "," << tx << "," << ty << "," << std::endl;
+    //     if (ta > targetArea + toleranceArea)
+    //     { //  move back and right
+    //         alignSpeedDifY = alignSpeedY;
+    //     }
+    //     else if (ta < targetArea - toleranceArea)
+    //     { //    move forward and right
+    //         alignSpeedDifY = -alignSpeedY;
+    //     }
+    //     else
+    //     { // move right
+    //         alignSpeedDifY = 0;
+    //     }
+
+    //     if (tx > targetX + tolerance)
+    //     {
+    //         alignSpeedDifX = alignSpeedX;
+    //     }
+    //     else if (tx < targetX - tolerance)
+    //     {
+    //         alignSpeedDifX = -alignSpeedX;
+    //     }
+    //     else
+    //     {
+    //         alignSpeedDifX = 0;
+    //     }
+
+    //     //slower as gets closer
+    //     if (targetArea - ta > 5)
+    //     {
+    //         alignSpeedDifY = alignSpeedY * 0.714285;
+    //     }
+
+    //     if (targetX - tx > 5)
+    //     {
+    //         alignSpeedDifX = alignSpeedX * 0.8;
+    //     }
+
+    //     powerTrain.driveRobot(-alignSpeedDifX, -alignSpeedDifY, 0);
+    // }
+    // else
+    // {
         powerTrain.driveRobot(0, 0, rotationSpeed);
-    }
+    // }
 }
 
 void Robot::wheelDriftFix()

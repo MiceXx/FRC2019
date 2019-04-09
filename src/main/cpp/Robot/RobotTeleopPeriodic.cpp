@@ -30,7 +30,21 @@ void Robot::TeleopPeriodic()
     }
     else
     {
-        powerTrain.driveRobot(jStick->GetX(), jStick->GetY(), jStick->GetZ());
+        double rotationScalingHatch;
+        double rotationScaling;
+        // maybe try this:   if(button3 || )...
+        if (selectHatch)
+        {
+            rotationScalingHatch = 0.7;
+        }
+        else
+        {
+            rotationScalingHatch = 1;
+        }
+
+        rotationScaling = 0.8;
+
+        powerTrain.driveRobot(jStick->GetX(), jStick->GetY(), (jStick->GetZ()) * rotationScalingHatch * rotationScaling);
     }
     //Mecanum wheel drift fix (always on)
     //wheelDriftFix();
