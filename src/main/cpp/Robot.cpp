@@ -195,6 +195,11 @@ void Robot::writeDebugInfo()
 
 void Robot::readInput()
 {
+    if (button14)//change this after
+    {
+        overrideSwtich = true;
+    }
+
     //Set Scaling
     double scaling = driveStation.getSlider(0);
 

@@ -170,11 +170,11 @@ void Robot::operateLift()
     }
 
     //Drive Base Speed adjustment
-    if (liftPosition < -40000)
+    if (liftPosition < -40000 && !overrideSwtich)
     {
         powerTrain.setScaling(0.4);
     }
-    else if (liftPosition < -30000 && liftPosition > -40000)
+    else if (liftPosition < -30000 && liftPosition > -40000 && !overrideSwtich)
     {
         powerTrain.setScaling(0.80);
     }

@@ -106,6 +106,9 @@ private:
 
   frc::lcchs::OperatorInterface driveStation;
 
+  //Override switch
+  bool overrideSwtich = false;
+
   // lift
   int liftPosition;
   int liftVelocity;

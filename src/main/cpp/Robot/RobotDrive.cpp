@@ -31,12 +31,13 @@ double findClosestAngle(double num) //targets are in increasing order
 
 void Robot::alignRobot()
 {
-    // bool tv = static_cast<bool>(limelightTable->GetNumber("tv", 0.0));
-    // double ta = limelightTable->GetNumber("ta", 0.0);
-    // double tx = limelightTable->GetNumber("tx", 0.0);
-    // double ty = limelightTable->GetNumber("ty", 0.0);
-    // double ta0 = limelightTable->GetNumber("ta0", 0.0);
-    // double ta1 = limelightTable->GetNumber("ta1", 0.0);
+    //LIMELIGHT
+    bool tv = static_cast<bool>(limelightTable->GetNumber("tv", 0.0));
+    double ta = limelightTable->GetNumber("ta", 0.0);
+    double tx = limelightTable->GetNumber("tx", 0.0);
+    double ty = limelightTable->GetNumber("ty", 0.0);
+    double ta0 = limelightTable->GetNumber("ta0", 0.0);
+    double ta1 = limelightTable->GetNumber("ta1", 0.0);
 
     double targetArea = 10.4;
     double targetX = 0.0;
@@ -48,83 +49,81 @@ void Robot::alignRobot()
 
     double toleranceAngle = 0.3;
 
-    double alignSpeedY = 0.35;
-    double alignSpeedX = 0.45;
+    double DEFAULTSPEED_Y = 0.35;
+    double DEFAULTSPEED_X = 0.45;
+    double speedXError = targetX - tx;
+    double speedX_KP = 0.11;
+    double speedYError = targetArea - ta; 
+    double speedY_KP= 0.025;
+   
 
-    //Rocket Angles
-    double rotationSpeed = 0.30;
-    double rotationSpeedSlow = 0.20;
+    //GYRO ANGLES
+    double speedZ = 0.30;
     double toleranceRocket = 2.0;
-    double rotationSpeedDif;
     double angleDest = findClosestAngle(gyroAngle);
     double angleError = angleDest - gyroAngle;
     double angleKp = 0.04;
 
-    rotationSpeed = angleKp * angleError;
+    speedZ = angleKp * angleError;
 
-    double alignSpeedDifY;
-    double alignSpeedDifX;
+    double speedY;
+    double speedX;
 
-    //limelightTable = networkTableInstance.GetTable("limelight");
+    
 
-    if (button8)
-    {
-        useCam = false;
-    }
+    // if (button8)//inability to use align
+    // {
+    //     useCam = false;
+    // }
 
     // if (liftPosition < -16000)
     // {
     //     tv = false;
     // }
 
-    // tv = false;
+    if (tv && useCam)
+    {
+        std::cout << ta << "," << tx << "," << ty << "," << std::endl;
 
-    // if (tv && useCam)
-    // {
-    //     std::cout << ta << "," << tx << "," << ty << "," << std::endl;
-    //     if (ta > targetArea + toleranceArea)
-    //     { //  move back and right
-    //         alignSpeedDifY = alignSpeedY;
-    //     }
-    //     else if (ta < targetArea - toleranceArea)
-    //     { //    move forward and right
-    //         alignSpeedDifY = -alignSpeedY;
-    //     }
-    //     else
-    //     { // move right
-    //         alignSpeedDifY = 0;
-    //     }
 
-    //     if (tx > targetX + tolerance)
-    //     {
-    //         alignSpeedDifX = alignSpeedX;
-    //     }
-    //     else if (tx < targetX - tolerance)
-    //     {
-    //         alignSpeedDifX = -alignSpeedX;
-    //     }
-    //     else
-    //     {
-    //         alignSpeedDifX = 0;
-    //     }
+        // if (ta > targetArea + toleranceArea)
+        // { //  move back and right
 
-    //     //slower as gets closer
-    //     if (targetArea - ta > 5)
-    //     {
-    //         alignSpeedDifY = alignSpeedY * 0.714285;
-    //     }
+        //     speedY = DEFAULTSPEED_Y;//maybe invert this
+        // }
+        // else if (ta < targetArea - toleranceArea)
+        // { //    move forward and right
 
-    //     if (targetX - tx > 5)
-    //     {
-    //         alignSpeedDifX = alignSpeedX * 0.8;
-    //     }
+        //     speedY = -DEFAULTSPEED_Y;//maybe invert this
+        // }
+        // else
+        // { // move right
+        //     speedY = 0;
+        // }
 
-    //     powerTrain.driveRobot(-alignSpeedDifX, -alignSpeedDifY, 0);
-    // }
-    // else
-    // {
-        powerTrain.driveRobot(0, 0, rotationSpeed);
-    // }
+        // if (tx > targetX + tolerance)
+        // {
+        //     speedX = DEFAULTSPEED_X;//maybe invert this
+        // }
+        // else if (tx < targetX - tolerance)
+        // {
+        //     speedX = -DEFAULTSPEED_X;//maybe invert this
+        // }
+        // else
+        // {
+        //     speedX = 0;
+        // }
+
+        speedY = speedX_KP * speedYError;
+
+        speedX = speedY_KP * speedXError;
+    
+        powerTrain.driveRobot(speedX, speedY, 0);
+    }
+    else
+    {
+       powerTrain.driveRobot(0, 0, speedZ);
+    }
 }
 
 void Robot::wheelDriftFix()
