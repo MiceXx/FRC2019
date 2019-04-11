@@ -11,15 +11,13 @@ namespace lcchs
 double x = 0;
 double y = 0;
 
-void Robot::TeleopInit(){
-    
+void Robot::TeleopInit()
+{
 }
 
 void Robot::TeleopPeriodic()
 {
     readInput();
-
-
 
     //for testing
     if (button4->Get())
@@ -34,9 +32,14 @@ void Robot::TeleopPeriodic()
     if (button2->Get())
     {
         alignRobot();
+
+        limelightTable->PutNumber("ledMode", 3.0);
     }
     else
     {
+
+        limelightTable->PutNumber("ledMode", 0);
+
         double rotationScalingHatch;
         double rotationScaling;
         // maybe try this:   if(button3 || )...

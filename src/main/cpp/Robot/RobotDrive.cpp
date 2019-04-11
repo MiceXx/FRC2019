@@ -41,7 +41,7 @@ void Robot::alignRobot()
 
     double targetArea = 10.4;
     double targetX = 0.0;
-    double targetY = 11.0;
+    //double targetY = 11.0;
     double targetAngle = 0;
 
     double tolerance = 0.85;
@@ -52,10 +52,9 @@ void Robot::alignRobot()
     double DEFAULTSPEED_Y = 0.35;
     double DEFAULTSPEED_X = 0.45;
     double speedXError = targetX - tx;
-    double speedX_KP = 0.11;
-    double speedYError = targetArea - ta; 
-    double speedY_KP= 0.025;
-   
+    double speedX_KP = -0.05; //can be inverted
+    double speedYError = targetArea - ta;
+    double speedY_KP = -0.05; //can be inverted
 
     //GYRO ANGLES
     double speedZ = 0.30;
@@ -69,8 +68,6 @@ void Robot::alignRobot()
     double speedY;
     double speedX;
 
-    
-
     // if (button8)//inability to use align
     // {
     //     useCam = false;
@@ -83,8 +80,7 @@ void Robot::alignRobot()
 
     if (tv && useCam)
     {
-        std::cout << ta << "," << tx << "," << ty << "," << std::endl;
-
+        // std::cout << ta << "," << tx << "," << ty << "," << std::endl;
 
         // if (ta > targetArea + toleranceArea)
         // { //  move back and right
@@ -114,15 +110,17 @@ void Robot::alignRobot()
         //     speedX = 0;
         // }
 
-        speedY = speedX_KP * speedYError;
+        speedY = speedY_KP * speedYError;
 
-        speedX = speedY_KP * speedXError;
-    
-        powerTrain.driveRobot(speedX, speedY, 0);
+        speedX = speedX_KP * speedXError;
+
+        powerTrain.driveRobot(speedX, speedY, speedZ);
+
+
     }
     else
     {
-       powerTrain.driveRobot(0, 0, speedZ);
+        powerTrain.driveRobot(0, 0, speedZ);
     }
 }
 
