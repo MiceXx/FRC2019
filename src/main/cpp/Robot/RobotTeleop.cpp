@@ -25,7 +25,6 @@ void Robot::TeleopPeriodic()
         gyro.Reset();
     }
 
-    //Lift
     operateLift();
 
     //align robot w/ tracking
@@ -33,16 +32,17 @@ void Robot::TeleopPeriodic()
     {
         alignRobot();
 
-        limelightTable->PutNumber("ledMode", 3.0);
+        changeCam();
     }
     else
     {
+        limelightTable->PutNumber("camMode", 1.0);
 
         limelightTable->PutNumber("ledMode", 0);
 
         double rotationScalingHatch;
         double rotationScaling;
-        // maybe try this:   if(button3 || )...
+    
         if (selectHatch)
         {
             rotationScalingHatch = 0.7;
@@ -56,16 +56,11 @@ void Robot::TeleopPeriodic()
 
         powerTrain.driveRobot(jStick->GetX(), jStick->GetY(), (jStick->GetZ()) * rotationScalingHatch * rotationScaling);
     }
-    //Mecanum wheel drift fix (always on)
-    //wheelDriftFix();
 
-    //Robot climb
     //robotClimb();
 
-    //hinge
     operateHinges();
 
-    //roller
     activateRoller();
 }
 } // namespace lcchs

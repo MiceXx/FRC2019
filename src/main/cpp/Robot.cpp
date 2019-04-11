@@ -195,7 +195,7 @@ void Robot::writeDebugInfo()
 
 void Robot::readInput()
 {
-    if (button14)//change this after
+    if (button11)//change this after
     {
         overrideSwtich = true;
     }

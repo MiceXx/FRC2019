@@ -99,6 +99,7 @@ private:
   JoystickButton *button8 = new JoystickButton(jStick, 8);
   JoystickButton *button9 = new JoystickButton(jStick, 9);
   JoystickButton *button10 = new JoystickButton(jStick, 10);
+  JoystickButton *button11 = new JoystickButton(jStick, 11);
 
   JoystickButton *button14 = new JoystickButton(jStick, 14);
 
@@ -130,8 +131,6 @@ private:
 
   //LIMELIGHT
   std::shared_ptr<NetworkTable> limelightTable;
-
-  bool useCam = true;
 
   //Boot For Climb
   int bootDestination;
