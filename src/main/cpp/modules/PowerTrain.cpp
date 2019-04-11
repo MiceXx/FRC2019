@@ -41,13 +41,21 @@ void PowerTrain::driveRobot(double ySpeed, double xSpeed, double zRotation, doub
 
   m_robotDrive.DriveCartesian(ySpeed, -xSpeed, zRotation, -gyroAngle);
 }
-
-void PowerTrain::drivedoublejoystick(double ySpeedLeft, double xSpeedLeft, double ySpeedRight, double xSpeedRight)
+double PowerTrain::getSpeedFL()
 {
-  /* Use the joystick X axis for lateral movement, Y axis for forward
-     * movement, and Z axis for rotation.
-     */
-  // m_robotDrive.DriveTank(-ySpeedLeft,xSpeedLeft,-ySpeedRight,xSpeedRight);
+  return m_frontLeft.Get();
+}
+double PowerTrain::getSpeedRL()
+{
+  return m_rearLeft.Get();
+}
+double PowerTrain::getSpeedFR()
+{
+  return m_frontRight.Get();
+}
+double PowerTrain::getSpeedRR()
+{
+  return m_rearRight.Get();
 }
 
 void PowerTrain::initalizePowerTrain()

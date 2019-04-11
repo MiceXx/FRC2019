@@ -53,6 +53,7 @@ private:
   void alignRobot();
   void changeCam();
   void wheelDriftFix();
+  void recordDrive();
 
   //GYRO ANGLE
   double gyroAngle;
