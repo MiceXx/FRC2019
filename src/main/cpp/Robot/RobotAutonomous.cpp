@@ -11,6 +11,8 @@ namespace lcchs
 void Robot::AutonomousInit() {
 
         gyro.Reset();
+        gyroAccum = 0;
+        
         TeleopInit();
         m_autoSelected = m_chooser.GetSelected();
         // m_autoSelected = SmartDashboard::GetString("Auto Selector",

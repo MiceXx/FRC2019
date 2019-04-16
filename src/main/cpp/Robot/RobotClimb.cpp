@@ -7,17 +7,17 @@ namespace lcchs
 
 void Robot::robotClimb()
 {
-    // if (button10)
+    // if (button10->Get())
     // {
     //     bootLevel++;
     // }
-    // else if (button9)
+    // else if (button9->Get())
     // {
     //     bootLevel--;
     // }
     // bootDestination = bootOrientations[bootLevel];
 
-    // if (button8)
+    // if (button8->Get())
     // {
     //     boot.moveStrap(jStick->GetY());
     // }

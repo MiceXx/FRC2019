@@ -34,6 +34,7 @@ class Robot : public frc::TimedRobot
 public:
   void RobotInit() override;
   void RobotPeriodic() override;
+  void DisabledPeriodic() override;
   void AutonomousInit() override;
   void AutonomousPeriodic() override;
   void TeleopInit() override;
@@ -57,8 +58,12 @@ private:
 
   //GYRO ANGLE
   double gyroAngle;
+  static const int gyroArraySize = 20;
+  double gyroArrayReadings[gyroArraySize] = {0};
+  int gyroIndex = 0;
+  double gyroAccum = 0;
+  double gyroAvgDrift = 0;
 
-  void rotateToRocketAngles();
 
   double lastButtonpress = 0;
 
@@ -132,6 +137,8 @@ private:
 
   //LIMELIGHT
   std::shared_ptr<NetworkTable> limelightTable;
+  double errorX = 0;
+  double errorY = 0;
 
   //Boot For Climb
   int bootDestination;

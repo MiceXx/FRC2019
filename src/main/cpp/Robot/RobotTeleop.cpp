@@ -11,8 +11,20 @@ namespace lcchs
 double x = 0;
 double y = 0;
 
+bool alignmentEnabled;
+
 void Robot::TeleopInit()
 {
+    gyroAvgDrift = 0;
+
+    for (int i = 1; i < gyroArraySize; i++)
+    {
+        gyroAvgDrift += gyroArrayReadings[i] - gyroArrayReadings[i - 1];
+    }
+
+    gyroAvgDrift = gyroAvgDrift / (gyroArraySize - 1);
+
+    std::cout << gyroAvgDrift << "\n";
 }
 
 void Robot::TeleopPeriodic()
@@ -23,6 +35,8 @@ void Robot::TeleopPeriodic()
     if (button4->Get())
     {
         gyro.Reset();
+
+        gyroAccum = 0;
     }
 
     operateLift();
@@ -33,6 +47,8 @@ void Robot::TeleopPeriodic()
         alignRobot();
 
         changeCam();
+
+        //alignmentEnabled = true;
     }
     else
     {
@@ -42,7 +58,7 @@ void Robot::TeleopPeriodic()
 
         double rotationScalingHatch;
         double rotationScaling;
-    
+
         if (selectHatch)
         {
             rotationScalingHatch = 0.7;

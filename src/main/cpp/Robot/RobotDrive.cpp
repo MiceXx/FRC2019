@@ -50,9 +50,14 @@ void Robot::alignRobot()
     double DEFAULTSPEED_Y = 0.35;
     double DEFAULTSPEED_X = 0.45;
     double speedXError = tx - targetX;
-    double speedX_KP = 0.05; //can be inverted
+    double speedX_KP = 0.05;
     double speedYError = ta - targetArea;
-    double speedY_KP = 0.05; //can be inverted
+    double speedY_KP = 0.05;
+
+    double deltaError_X = speedXError - errorX;
+    double deltaX_KD = 0.5;
+    double deltaError_Y = speedYError - errorY;
+    double deltaY_KD = 0.5;
 
     //GYRO ANGLES
     double speedZ = 0.30;
@@ -68,23 +73,35 @@ void Robot::alignRobot()
 
     if (tv)
     {
-        speedY = speedY_KP * speedYError;
+        speedX = (speedX_KP * speedXError) + (deltaError_X * deltaX_KD);
 
-        speedX = speedX_KP * speedXError;
+        speedY = (speedY_KP * speedYError) + (deltaError_Y * deltaY_KD);
 
-        if (speedX < 0.05 && speedY < 0.05)
-        {
-            powerTrain.driveRobot(0, 0, speedZ);
-        }
-        else
-        {
-            powerTrain.driveRobot(speedX, speedY, 0);
-        }
+        // std::cout << "delta error X: " << deltaError_X << std::endl;
+        // std::cout << "delta error Y: " << deltaError_Y << std::endl;
+
+        // std::cout << "X: " << speedX << std::endl;
+        // std::cout << "Y: " << speedY << std::endl;
+
+        // std::cout << "speed X error: " << speedXError << std::endl;
+        // std::cout << "speed Y error: " << speedYError << std::endl;
+
+        // if ((speedX < 0.05 && speedY < 0.05) || (speedX > -0.05 && speedY > -0.05))
+        // {
+        //     powerTrain.driveRobot(0, 0, speedZ);
+        // }
+        // else
+        // {
+        //     powerTrain.driveRobot(speedX, speedY, 0);
+        // }
+        powerTrain.driveRobot(speedX, speedY, speedZ);
     }
     else
     {
         powerTrain.driveRobot(0, 0, speedZ);
     }
+    errorX = speedXError;
+    errorY = speedYError;
 }
 
 void Robot::changeCam()
@@ -96,5 +113,6 @@ void Robot::changeCam()
 
     limelightTable->PutNumber("ledMode", 3.0);
 }
+
 } // namespace lcchs
 } // namespace frc

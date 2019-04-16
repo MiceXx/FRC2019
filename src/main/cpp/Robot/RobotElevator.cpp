@@ -27,6 +27,28 @@ int findClosestPositionIndex(double num, int targets[4]) //targets are in increa
     return minIndex;
 }
 
+int findAlignmentPosition(double num) //targets are in increasing order
+{
+    int cameraAlignmentPos[2] = {-12000, -30000};
+    double minDif = 999999;
+    int minIndex = 0;
+
+    for (int i = 0; i < 2; i++)
+    {
+        double Dif = std::abs(cameraAlignmentPos[i] - num);
+        if (Dif < minDif)
+        {
+            minIndex = i;
+            minDif = Dif;
+        }
+        else
+        {
+            return cameraAlignmentPos[minIndex];
+        }
+    }
+    return cameraAlignmentPos[minIndex];
+}
+
 void Robot::operateLift()
 {
     int currentPov = driveStation.getPov();
@@ -111,6 +133,13 @@ void Robot::operateLift()
         elevatorAutoMode = true;
     }
 
+    // //move lift down for camera alignment
+    // else if (button2->Get()) 
+    // {
+    //     liftDestination = findAlignmentPosition(liftPosition);
+    //     elevatorAutoMode = true;
+    // }
+
     else if (selectHatch)
     {
         liftDestination = hatchOpenings[liftLevel] + liftHatchOffset;
@@ -161,6 +190,7 @@ void Robot::operateLift()
     }
     else if ((std::abs(liftDestination - liftPosition) > 200) && elevatorAutoMode)
     {
+
         elevator.setPosition(liftDestination);
     }
     else
