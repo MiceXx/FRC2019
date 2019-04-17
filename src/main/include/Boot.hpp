@@ -13,7 +13,7 @@ class Boot
 public:
   void moveStrap(double bootSpeed);
 
-  void elevateBoot(int bootPosition);
+  void moveFoot(double speed);
 
   int getPosition();
 

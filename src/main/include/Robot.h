@@ -99,7 +99,6 @@ private:
   JoystickButton *button8 = new JoystickButton(jStick, 8);
   JoystickButton *button9 = new JoystickButton(jStick, 9);
   JoystickButton *button10 = new JoystickButton(jStick, 10);
-
   JoystickButton *button14 = new JoystickButton(jStick, 14);
 
   nt::NetworkTableInstance networkTableInstance = nt::NetworkTableInstance::GetDefault();
@@ -131,9 +130,9 @@ private:
   bool useCam = true;
 
   //Boot For Climb
-  int bootDestination;
-  int bootOrientations[3] = {0, -1000, -2000};
-  int bootLevel = 0;
+  bool beltDrive = false; 
+  int joystickPov = -1; 
+  int autoClimbState = 0;
 
   //Roller
   double captureCommand;

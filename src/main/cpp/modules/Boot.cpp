@@ -20,9 +20,9 @@ void Boot::initializeBoot()
   m_footmotor.SetNeutralMode(NeutralMode::EEPROMSetting);
 }
 
-void Boot::elevateBoot(int bootPosition)
+void Boot::moveFoot(double speed)
 {
-  m_footmotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position, bootPosition);
+  m_footmotor.Set(ControlMode::PercentOutput, speed);
   //m_footmotor.SetSelectedSensorPosition(destination, 0, 0);
 }
 
@@ -33,3 +33,4 @@ int Boot::getPosition()
 
 } // namespace lcchs
 } // namespace frc
+

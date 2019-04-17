@@ -20,10 +20,9 @@ void Robot::RobotInit()
 
     liftDestination = elevator.getPosition();
 
-    bootDestination = boot.getPosition();
-
     gyro.Calibrate();
     roller.init();
+    boot.initializeBoot();
 
     //limelightTable = networkTableInstance.GetTable("limelight");
 }
