@@ -1,5 +1,7 @@
 #include "Robot.h"
 
+#include <iostream>
+
 namespace frc
 {
 namespace lcchs
@@ -195,6 +197,11 @@ void Robot::writeDebugInfo()
 
 void Robot::readInput()
 {
+    if (button11->Get()) //change this after
+    {
+        overrideSwtich = true;
+    }
+
     //Set Scaling
     double scaling = driveStation.getSlider(0);
 
@@ -225,7 +232,10 @@ void Robot::readInput()
     // Wrist Ops
     wristCommand = driveStation.getRightHandY();
 
-    double gyroReading = gyro.GetAngle() / 0.69106781186;
+    //gyroAccum += gyroAvgDrift;
+    gyroAccum = 0;
+
+    double gyroReading = (gyro.GetAngle() - gyroAccum) / 0.69106781186;
 
     gyroReading = std::fmod(gyroReading, 360);
 

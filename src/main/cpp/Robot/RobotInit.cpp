@@ -24,7 +24,12 @@ void Robot::RobotInit()
     roller.init();
     boot.initializeBoot();
 
-    //limelightTable = networkTableInstance.GetTable("limelight");
+    limelightTable = networkTableInstance.GetTable("limelight");
+
+    elevator.initializeElevator();
+
+    wrist.initializeHinges();
+
 }
 } // namespace lcchs
 } // namespace frc

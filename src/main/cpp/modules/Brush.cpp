@@ -15,6 +15,10 @@ void Brush::openBrush()
 
 }
 
+void  Brush::initializeBrush()
+{
+
+}
 
 }//namespace lcchs
 }//namespace frc

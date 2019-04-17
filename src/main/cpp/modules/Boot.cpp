@@ -31,6 +31,7 @@ int Boot::getPosition()
   return m_footmotor.GetSelectedSensorPosition();
 }
 
+
 } // namespace lcchs
 } // namespace frc
 

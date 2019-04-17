@@ -34,6 +34,7 @@ class Robot : public frc::TimedRobot
 public:
   void RobotInit() override;
   void RobotPeriodic() override;
+  void DisabledPeriodic() override;
   void AutonomousInit() override;
   void AutonomousPeriodic() override;
   void TeleopInit() override;
@@ -53,11 +54,15 @@ private:
   void alignRobot();
   void changeCam();
   void wheelDriftFix();
+  void recordDrive();
 
   //GYRO ANGLE
   double gyroAngle;
-
-  void rotateToRocketAngles();
+  static const int gyroArraySize = 20;
+  double gyroArrayReadings[gyroArraySize] = {0};
+  int gyroIndex = 0;
+  double gyroAccum = 0;
+  double gyroAvgDrift = 0;
 
   double lastButtonpress = 0;
 
@@ -93,17 +98,21 @@ private:
   JoystickButton *button2 = new JoystickButton(jStick, 2);
   JoystickButton *button3 = new JoystickButton(jStick, 3);
   JoystickButton *button4 = new JoystickButton(jStick, 4);
-  // JoystickButton *button5 = new JoystickButton(jStick, 5);
+  JoystickButton *button5 = new JoystickButton(jStick, 5);
   // JoystickButton *button6 = new JoystickButton(jStick, 6);
   JoystickButton *button7 = new JoystickButton(jStick, 7);
   JoystickButton *button8 = new JoystickButton(jStick, 8);
   JoystickButton *button9 = new JoystickButton(jStick, 9);
   JoystickButton *button10 = new JoystickButton(jStick, 10);
+  JoystickButton *button11 = new JoystickButton(jStick, 11);
   JoystickButton *button14 = new JoystickButton(jStick, 14);
 
   nt::NetworkTableInstance networkTableInstance = nt::NetworkTableInstance::GetDefault();
 
   frc::lcchs::OperatorInterface driveStation;
+
+  //Override switch
+  bool overrideSwtich = false;
 
   // lift
   int liftPosition;
@@ -123,15 +132,18 @@ private:
   bool hatchPickup = false;
   bool hatchRelease = false;
   int liftHatchOffset = 0;
+  //lift to align w/ camera
+  bool liftToAlign = false;
 
   //LIMELIGHT
   std::shared_ptr<NetworkTable> limelightTable;
-
-  bool useCam = true;
+  double errorX = 0;
+  double errorY = 0;
+  bool camBlocked = false;
 
   //Boot For Climb
-  bool beltDrive = false; 
-  int joystickPov = -1; 
+  bool beltDrive = false;
+  int joystickPov = -1;
   int autoClimbState = 0;
 
   //Roller

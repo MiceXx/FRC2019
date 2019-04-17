@@ -27,6 +27,28 @@ int findClosestPositionIndex(double num, int targets[4]) //targets are in increa
     return minIndex;
 }
 
+int findAlignmentPosition(double num) //targets are in increasing order
+{
+    int cameraAlignmentPos[4] = {-10300, -29000, -32000, -45500};
+    double minDif = 999999;
+    int minIndex = 0;
+
+    for (int i = 0; i < 4; i++)
+    {
+        double Dif = std::abs(cameraAlignmentPos[i] - num);
+        if (Dif < minDif)
+        {
+            minIndex = i;
+            minDif = Dif;
+        }
+        else
+        {
+            return cameraAlignmentPos[minIndex];
+        }
+    }
+    return cameraAlignmentPos[minIndex];
+}
+
 void Robot::operateLift()
 {
     int currentPov = driveStation.getPov();
@@ -36,6 +58,8 @@ void Robot::operateLift()
     bool rightBumperPress = driveStation.getRightBumper();
 
     bool leftBumperPress = driveStation.getLeftBumper();
+
+    bool alignmentButton = button1->Get();
 
     if (gamePadPOV != 0 && currentPov == 0) //up
     {
@@ -111,15 +135,54 @@ void Robot::operateLift()
         elevatorAutoMode = true;
     }
 
+    // //move lift down for camera alignment
+    else if (alignmentButton)
+    {
+        liftDestination = findAlignmentPosition(liftPosition);
+
+        if (!liftToAlign)
+        {
+            elevatorAutoMode = true;
+        }
+    }
+
     else if (selectHatch)
     {
         liftDestination = hatchOpenings[liftLevel] + liftHatchOffset;
         wristDestination = wristAngles[liftLevel];
+
+        if (!liftToAlign)
+        {
+            elevatorAutoMode = true;
+        }
     }
     else if (selectBall)
     {
         liftDestination = ballOpenings[liftLevel];
         wristDestination = wristAngles[liftLevel];
+
+        if (!liftToAlign)
+        {
+            elevatorAutoMode = true;
+        }
+    }
+
+    liftToAlign = alignmentButton;
+
+    if (((liftPosition < -10300) && (liftPosition > -28600)) || ((liftPosition < -32000) && (liftPosition > -44700)))
+    {
+        if (alignmentButton)
+        {
+            camBlocked = false;
+        }
+        else
+        {
+            camBlocked = true;
+        }
+    }
+    else
+    {
+        camBlocked = false;
     }
 
     //Rate Limiter (ramp up/down time)
@@ -161,6 +224,7 @@ void Robot::operateLift()
     }
     else if ((std::abs(liftDestination - liftPosition) > 200) && elevatorAutoMode)
     {
+
         elevator.setPosition(liftDestination);
     }
     else
@@ -170,11 +234,11 @@ void Robot::operateLift()
     }
 
     //Drive Base Speed adjustment
-    if (liftPosition < -40000)
+    if (liftPosition < -40000 && !overrideSwtich)
     {
         powerTrain.setScaling(0.4);
     }
-    else if (liftPosition < -30000 && liftPosition > -40000)
+    else if (liftPosition < -30000 && liftPosition > -40000 && !overrideSwtich)
     {
         powerTrain.setScaling(0.80);
     }
@@ -186,4 +250,4 @@ void Robot::operateLift()
 } //operateLift()
 
 } //namespace lcchs
-} //namespace frc
+} // namespace frc

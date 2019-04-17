@@ -12,7 +12,7 @@ public:
   void rotateHinges(double Direction);
   void setScaling(double scaling);
   void angleForTime(double speed, double time);
-
+  void  initializeHinges();
 private:
   double scalingFactor = 1;
 

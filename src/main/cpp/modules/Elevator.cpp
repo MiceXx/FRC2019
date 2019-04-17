@@ -31,8 +31,16 @@ void Elevator::initializeElevator()
   m_liftmotor.ConfigSelectedFeedbackSensor(CTRE_MagEncoder_Absolute);
   // m_liftmotor.SetStatusFramePeriod(StatusFrame::Status_1_General_, 5, 30);
   m_liftmotor.SetSensorPhase(false);
-
+  m_liftmotor.Config_kP(0, 0.2);
+  m_liftmotor.Config_kI(0, 0.04);
+  //m_liftmotor.Config_kF(0, 0.0);
+  //m_liftmotor.Config_kD(0, 0.0);
+  m_liftmotor.ConfigMaxIntegralAccumulator(0, 1000);
   m_liftmotor.SetNeutralMode(NeutralMode::EEPROMSetting);
+  m_liftmotor.ConfigPeakOutputForward(0.6);
+  m_liftmotor.ConfigPeakOutputReverse(-1.0);
+  m_liftmotor.ConfigMotionCruiseVelocity(3000);
+  m_liftmotor.ConfigMotionAcceleration(4000);
 }
 
 int Elevator::getPosition()
@@ -58,6 +66,7 @@ void Elevator::stopMotor()
 
 void Elevator::setPosition(int destination)
 {
+
   m_liftmotor.Set(ctre::phoenix::motorcontrol::ControlMode::MotionMagic, destination);
   //m_liftmotor.SetSelectedSensorPosition(destination, 0, 0);
 }

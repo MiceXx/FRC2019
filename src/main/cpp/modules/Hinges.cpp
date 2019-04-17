@@ -37,6 +37,13 @@ void Hinges::angleForTime(double speed, double timeAllocated)
     }
 }
 
+  void  Hinges::initializeHinges()
+  {
+  hingeMotor.ConfigPeakOutputForward(0.25);
+  hingeMotor.ConfigPeakOutputReverse(-0.80);
+  }
+
+
 
 
 } // namespace lcchs

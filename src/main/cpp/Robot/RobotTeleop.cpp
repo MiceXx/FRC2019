@@ -10,6 +10,23 @@ namespace lcchs
 {
 double x = 0;
 double y = 0;
+
+bool alignmentEnabled;
+
+void Robot::TeleopInit()
+{
+    gyroAvgDrift = 0;
+
+    for (int i = 1; i < gyroArraySize; i++)
+    {
+        gyroAvgDrift += gyroArrayReadings[i] - gyroArrayReadings[i - 1];
+    }
+
+    gyroAvgDrift = gyroAvgDrift / (gyroArraySize - 1);
+
+    std::cout << gyroAvgDrift << "\n";
+}
+
 void Robot::TeleopPeriodic()
 {
     readInput();
@@ -18,21 +35,33 @@ void Robot::TeleopPeriodic()
     if (button4->Get())
     {
         gyro.Reset();
+
+        gyroAccum = 0;
     }
 
-    //Lift
     operateLift();
+
+    //DELETE THIS LATER
+    //limelightTable->PutNumber("camMode", 0);
 
     //align robot w/ tracking
     if (button2->Get())
     {
         alignRobot();
+
+        changeCam();
+
+        //alignmentEnabled = true;
     }
     else
     {
+        limelightTable->PutNumber("camMode", 1.0);
+
+        limelightTable->PutNumber("ledMode", 0);
+
         double rotationScalingHatch;
         double rotationScaling;
-        // maybe try this:   if(button3 || )...
+
         if (selectHatch)
         {
             rotationScalingHatch = 0.7;
@@ -46,16 +75,11 @@ void Robot::TeleopPeriodic()
 
         powerTrain.driveRobot(jStick->GetX(), jStick->GetY(), (jStick->GetZ()) * rotationScalingHatch * rotationScaling);
     }
-    //Mecanum wheel drift fix (always on)
-    //wheelDriftFix();
 
-    //Robot climb
     //robotClimb();
 
-    //hinge
     operateHinges();
 
-    //roller
     activateRoller();
 }
 } // namespace lcchs

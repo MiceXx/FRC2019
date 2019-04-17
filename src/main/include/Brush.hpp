@@ -10,6 +10,8 @@ void closeBrush();
 
 void openBrush();
 
+void  initializeBrush();
+
 private:
 static constexpr int toothbrushesChannel = 0;
 
