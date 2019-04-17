@@ -64,7 +64,6 @@ private:
   double gyroAccum = 0;
   double gyroAvgDrift = 0;
 
-
   double lastButtonpress = 0;
 
   frc::SendableChooser<std::string> m_chooser;
@@ -99,7 +98,7 @@ private:
   JoystickButton *button2 = new JoystickButton(jStick, 2);
   JoystickButton *button3 = new JoystickButton(jStick, 3);
   JoystickButton *button4 = new JoystickButton(jStick, 4);
-  // JoystickButton *button5 = new JoystickButton(jStick, 5);
+  JoystickButton *button5 = new JoystickButton(jStick, 5);
   // JoystickButton *button6 = new JoystickButton(jStick, 6);
   JoystickButton *button7 = new JoystickButton(jStick, 7);
   JoystickButton *button8 = new JoystickButton(jStick, 8);
@@ -134,11 +133,14 @@ private:
   bool hatchPickup = false;
   bool hatchRelease = false;
   int liftHatchOffset = 0;
+  //lift to align w/ camera
+  bool liftToAlign = false;
 
   //LIMELIGHT
   std::shared_ptr<NetworkTable> limelightTable;
   double errorX = 0;
   double errorY = 0;
+  bool camBlocked = false;
 
   //Boot For Climb
   int bootDestination;

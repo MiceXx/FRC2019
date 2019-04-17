@@ -41,6 +41,9 @@ void Robot::TeleopPeriodic()
 
     operateLift();
 
+    //DELETE THIS LATER
+    //limelightTable->PutNumber("camMode", 0);
+
     //align robot w/ tracking
     if (button2->Get())
     {

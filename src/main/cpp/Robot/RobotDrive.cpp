@@ -71,7 +71,8 @@ void Robot::alignRobot()
     double speedY;
     double speedX;
 
-    if (tv)
+    std::cout << "cam blocked? " << camBlocked << "\n";
+    if (tv && !camBlocked)
     {
         speedX = (speedX_KP * speedXError) + (deltaError_X * deltaX_KD);
 

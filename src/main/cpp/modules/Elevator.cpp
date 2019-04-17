@@ -37,8 +37,8 @@ void Elevator::initializeElevator()
   //m_liftmotor.Config_kD(0, 0.0);
   m_liftmotor.ConfigMaxIntegralAccumulator(0, 1000);
   m_liftmotor.SetNeutralMode(NeutralMode::EEPROMSetting);
-  m_liftmotor.ConfigPeakOutputForward(0.5);
-  m_liftmotor.ConfigPeakOutputReverse(-0.75);
+  m_liftmotor.ConfigPeakOutputForward(0.6);
+  m_liftmotor.ConfigPeakOutputReverse(-1.0);
   m_liftmotor.ConfigMotionCruiseVelocity(3000);
   m_liftmotor.ConfigMotionAcceleration(4000);
 }
@@ -66,11 +66,10 @@ void Elevator::stopMotor()
 
 void Elevator::setPosition(int destination)
 {
+
   m_liftmotor.Set(ctre::phoenix::motorcontrol::ControlMode::MotionMagic, destination);
   //m_liftmotor.SetSelectedSensorPosition(destination, 0, 0);
 }
-
-
 
 //bool Elevator::isGrounded()
 //{
