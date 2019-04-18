@@ -34,6 +34,7 @@ class Robot : public frc::TimedRobot
 public:
   void RobotInit() override;
   void RobotPeriodic() override;
+  void DisabledPeriodic() override;
   void AutonomousInit() override;
   void AutonomousPeriodic() override;
   void TeleopInit() override;
@@ -53,11 +54,15 @@ private:
   void alignRobot();
   void changeCam();
   void wheelDriftFix();
+  void recordDrive();
 
   //GYRO ANGLE
   double gyroAngle;
-
-  void rotateToRocketAngles();
+  static const int gyroArraySize = 20;
+  double gyroArrayReadings[gyroArraySize] = {0};
+  int gyroIndex = 0;
+  double gyroAccum = 0;
+  double gyroAvgDrift = 0;
 
   double lastButtonpress = 0;
 
@@ -93,18 +98,21 @@ private:
   JoystickButton *button2 = new JoystickButton(jStick, 2);
   JoystickButton *button3 = new JoystickButton(jStick, 3);
   JoystickButton *button4 = new JoystickButton(jStick, 4);
-  // JoystickButton *button5 = new JoystickButton(jStick, 5);
+  JoystickButton *button5 = new JoystickButton(jStick, 5);
   // JoystickButton *button6 = new JoystickButton(jStick, 6);
   JoystickButton *button7 = new JoystickButton(jStick, 7);
   JoystickButton *button8 = new JoystickButton(jStick, 8);
   JoystickButton *button9 = new JoystickButton(jStick, 9);
   JoystickButton *button10 = new JoystickButton(jStick, 10);
-
+  JoystickButton *button11 = new JoystickButton(jStick, 11);
   JoystickButton *button14 = new JoystickButton(jStick, 14);
 
   nt::NetworkTableInstance networkTableInstance = nt::NetworkTableInstance::GetDefault();
 
   frc::lcchs::OperatorInterface driveStation;
+
+  //Override switch
+  bool overrideSwtich = false;
 
   // lift
   int liftPosition;
@@ -116,7 +124,8 @@ private:
   int liftDestination;
   bool elevatorAutoMode = false;
   int ballOpenings[4] = {0, -16300, -38000, -51200};
-  int hatchOpenings[4] = {0, -3800, -26000, -47000};
+  //int hatchOpenings[4] = {0, -3800, -26000, -47000}; //old hatch heights
+  int hatchOpenings[4] = {0, -4500, -26800, -47800};
   int liftLevel = 0;
   bool selectBall = false;
   bool selectHatch = false;
@@ -124,16 +133,29 @@ private:
   bool hatchPickup = false;
   bool hatchRelease = false;
   int liftHatchOffset = 0;
+  int motorStall = 0;
+  static const int motorStallLimit = 5;
+  //lift to align w/ camera
+  bool liftToAlign = false;
 
   //LIMELIGHT
   std::shared_ptr<NetworkTable> limelightTable;
-
-  bool useCam = true;
+  double errorX = 0;
+  double errorY = 0;
+  bool camBlocked = false;
 
   //Boot For Climb
-  int bootDestination;
-  int bootOrientations[3] = {0, -1000, -2000};
-  int bootLevel = 0;
+  double period;
+  static constexpr double t4 = 0;
+  static constexpr double t3 = t4 + 0.5;
+  static constexpr double t2 = t3 + 0.5;
+  static constexpr double t1 = t2 + 0.5;
+  static constexpr double tClimb = t1 + 0.5;
+  double timeClimber = 0;
+  bool autoClimbSwitch = false;
+  bool beltDrive = false;
+  int joystickPov = -1;
+  int autoClimbState = 0;
 
   //Roller
   double captureCommand;
