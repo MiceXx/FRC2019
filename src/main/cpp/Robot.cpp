@@ -232,8 +232,8 @@ void Robot::readInput()
     // Wrist Ops
     wristCommand = driveStation.getRightHandY();
 
-    //gyroAccum += gyroAvgDrift;
-    gyroAccum = 0;
+    gyroAccum += gyroAvgDrift;
+    //gyroAccum = 0;
 
     double gyroReading = (gyro.GetAngle() - gyroAccum) / 0.69106781186;
 

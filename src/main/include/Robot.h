@@ -58,7 +58,7 @@ private:
 
   //GYRO ANGLE
   double gyroAngle;
-  static const int gyroArraySize = 20;
+  static const int gyroArraySize = 40;
   double gyroArrayReadings[gyroArraySize] = {0};
   int gyroIndex = 0;
   double gyroAccum = 0;
@@ -124,8 +124,8 @@ private:
   int gamePadPOV;
   int liftDestination;
   bool elevatorAutoMode = false;
-  int ballOpenings[4] = {0, -16300, -38000, -51200};
-  int hatchOpenings[4] = {0, -3800, -26000, -47000};
+  int ballOpenings[4] = {0, -16300, -38000, -50500};
+  int hatchOpenings[4] = {0, -4500, -26800, -47800};
   int liftLevel = 0;
   bool selectBall = false;
   bool selectHatch = false;

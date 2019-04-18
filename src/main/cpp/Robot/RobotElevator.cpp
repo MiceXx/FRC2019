@@ -169,15 +169,18 @@ void Robot::operateLift()
 
     liftToAlign = alignmentButton;
 
-    if (((liftPosition < -10300) && (liftPosition > -28600)) || ((liftPosition < -32000) && (liftPosition > -44700)))
+    if (selectHatch == false)
     {
-        if (alignmentButton)
+        if (((liftPosition < -10300) && (liftPosition > -28600)) || ((liftPosition < -32000) && (liftPosition > -44700)))
         {
-            camBlocked = false;
-        }
-        else
-        {
-            camBlocked = true;
+            if (alignmentButton)
+            {
+                camBlocked = false;
+            }
+            else
+            {
+                camBlocked = true;
+            }
         }
     }
     else
