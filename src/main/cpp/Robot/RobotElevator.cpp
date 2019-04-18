@@ -61,6 +61,16 @@ void Robot::operateLift()
 
     bool alignmentButton = button1->Get();
 
+    // detect if auto mode is not exited
+    if (elevator.getVelocity() == 0)
+    {
+        motorStall++;
+    }
+    else
+    {
+        motorStall = 0;
+    }
+
     if (gamePadPOV != 0 && currentPov == 0) //up
     {
         if (liftLevel < 3)
@@ -222,7 +232,8 @@ void Robot::operateLift()
 
         elevatorAutoMode = false;
     }
-    else if ((std::abs(liftDestination - liftPosition) > 200) && elevatorAutoMode)
+    else if ((std::abs(liftDestination - liftPosition) > 200) && elevatorAutoMode &&
+             (motorStall < motorStallLimit))
     {
 
         elevator.setPosition(liftDestination);

@@ -132,6 +132,8 @@ private:
   bool hatchPickup = false;
   bool hatchRelease = false;
   int liftHatchOffset = 0;
+  int motorStall = 0;
+  static const int motorStallLimit = 5;
   //lift to align w/ camera
   bool liftToAlign = false;
 
@@ -142,6 +144,14 @@ private:
   bool camBlocked = false;
 
   //Boot For Climb
+  double period;
+  static constexpr double t4 = 0;
+  static constexpr double t3 = t4 + 0.5;
+  static constexpr double t2 = t3 + 0.5;
+  static constexpr double t1 = t2 + 0.5;
+  static constexpr double tClimb = t1 + 0.5;
+  double timeClimber = 0;
+  bool autoClimbSwitch = false;
   bool beltDrive = false;
   int joystickPov = -1;
   int autoClimbState = 0;

@@ -76,7 +76,7 @@ void Robot::TeleopPeriodic()
         powerTrain.driveRobot(jStick->GetX(), jStick->GetY(), (jStick->GetZ()) * rotationScalingHatch * rotationScaling);
     }
 
-    //robotClimb();
+    robotClimb();
 
     operateHinges();
 

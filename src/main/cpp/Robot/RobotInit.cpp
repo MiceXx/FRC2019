@@ -30,6 +30,7 @@ void Robot::RobotInit()
 
     wrist.initializeHinges();
 
+    period = GetPeriod();
 }
 } // namespace lcchs
 } // namespace frc
