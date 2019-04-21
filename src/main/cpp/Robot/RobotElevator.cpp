@@ -150,6 +150,8 @@ void Robot::operateLift()
     {
         liftDestination = findAlignmentPosition(liftPosition);
 
+        // Detect alignment button transition to pressed.
+        // Enable auto mode to unblock camera.
         if (!liftToAlign)
         {
             elevatorAutoMode = true;
@@ -161,7 +163,9 @@ void Robot::operateLift()
         liftDestination = hatchOpenings[liftLevel] + liftHatchOffset;
         wristDestination = wristAngles[liftLevel];
 
-        if (!liftToAlign)
+        // Detect alignment button transition to released.
+        // Reenable auto mode to recover position.
+        if( liftToAlign )
         {
             elevatorAutoMode = true;
         }
@@ -171,7 +175,9 @@ void Robot::operateLift()
         liftDestination = ballOpenings[liftLevel];
         wristDestination = wristAngles[liftLevel];
 
-        if (!liftToAlign)
+        // Detect alignment button transition to released.
+        // Reenable auto mode to recover position.
+        if( liftToAlign )
         {
             elevatorAutoMode = true;
         }
